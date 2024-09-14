@@ -1,6 +1,6 @@
 # MVP \- Analyze the Business Needs
 
-Team Name:  Restuarant Orders
+Team Name:  Restuarant Orders  
 Team Members:  
 Project Name:  
 
@@ -19,11 +19,9 @@ Provide restaurants with an easy-to-use alternative to paper for tracking and or
 
 > Outline the key objectives of the MVP.
 
-•    Reduce the amount of lost and incorrect food orders by 30% compared to paper tracking.
-
-•    Increase the speed of filling out and locating food orders by 20% compared to paper tracking.
-
-•    Ensure that 80% of users can pick up the application and use it effectively without training. 
+•    Reduce the amount of lost and incorrect food orders by 30% compared to paper tracking.  
+•    Increase the speed of filling out and locating food orders by 20% compared to paper tracking.  
+•    Ensure that 80% of users can pick up the application and use it effectively without training.   
 
 *** 
 
