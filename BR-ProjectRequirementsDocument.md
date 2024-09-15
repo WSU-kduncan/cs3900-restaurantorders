@@ -28,10 +28,10 @@ Richard is frustrated and is constantly searching for a solution to his problem.
 
 ### Requirements
 The applcation will:
-- Provide a way to submit and close orders
-- Provide order tracking
-- Provide table management
-- Have the option for order modifications
+- Provide a way to submit and close food orders.
+- Provide order tracking to provide transparency between front and back of house.
+- Provide table management to ensure that the restuarant is not overbooked.
+- Have the option for order modifications to adhere to customer preferances and dietary requirements.
 ***
 
 ### Scope
