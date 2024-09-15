@@ -4,7 +4,7 @@ Team Name: Restaurant Orders
 
 Team Members: Robert Sutton, Lydia Clark, Denver Woolard, Harrison Aunspaw
 
-Project Name: Restaurant Orders Management System 
+Project Name: OrderMaster
 
 ## Key Features
 
