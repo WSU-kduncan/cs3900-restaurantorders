@@ -1,10 +1,10 @@
 # Project Requirements Document
 
-## [Restaurant Orders]
+## [OrderMaster]
 
 ### Context
 
-OrderMaster is a software application for restaurant managers that will let them track and manage orders. The user interface will be simple and allow servers to use it without formal training. Using (Insert App Name) the user can create a new order, edit an existing order, or delete an order in case of a cancellation. They will also be able to assign the order to a table and a server, as well as provide an easy to read list of the menu items in the order. Additonally, they will be able to search through in progress as well as completed orders by key factors such as date and time placed.
+OrderMaster is a software application for restaurant managers that will let them track and manage orders. The user interface will be simple and allow servers to use it without formal training. Using OrderMaster, the user can create a new order, edit an existing order, or delete an order in case of a cancellation. They will also be able to assign the order to a table and a server, as well as provide an easy to read list of the menu items in the order. Additonally, they will be able to search through in-progress as well as completed orders by key factors such as date and time placed.
 
 The current status of this OrderMaster is ideation.
 
@@ -41,7 +41,7 @@ Additionally, the application will:
 ***
 
 ### Requirements
-The applcation will:
+The application will:
 - Provide a way to submit and remove selected food orders.
 - Provide order tracking to provide transparency between front and back of house.
 - Provide table management to ensure that the restuarant is not overbooked.
@@ -49,8 +49,8 @@ The applcation will:
 ***
 
 ### Scope
-- The database will be made with MariaDB
-***
+Since this is a university class with a schedule and deadline, our scope has been partially decided for us. At this moment, the priority is on the creation of our database model. We will soon begin work on the program's UI design. Our MVP requires a simple program that allows our users to create, modify, and remove an order's database entry with a graphical user interface. Orders are expected to be capable of consisting of several items, which will have the ability to each contain a price and special instructions from the user's customers. Orders will be associated with both tables and servers, allowing them to be efficiently handled and delivered to the right place. In the future, we hope to add the ability to explicitly support several types of food services, such as delivery and takeout.
+
 
 ### Performance
 
