@@ -12,7 +12,8 @@
 10.  How effective is your current system at tracking Orders?
 11.  What have you done in the past to track orders?
 12.  What devices are most accessible to you as a business?
-
-
+13. What specific features or functionalities would you prioritize in this system (i.e., tracking inventory, generating reports)
+14. Do you anticipate the need for any integrations with existing software or platforms?
+15. How would you prefer to receive feedback or alerts for things like low stock items or pending orders?
 
 Remember each team member needs to commit 3 questions & an individual interview.
