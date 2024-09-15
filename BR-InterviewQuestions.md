@@ -6,9 +6,12 @@
 4.  Why do you want an application?
 5.  What solutions have you tried in the past?
 6.  Why did those solutions not work out?
-7.  What challenges do you face with coordinating between different staff members?
-8.  How effective is your current system at tracking Orders?
-9.  What have you done in the past to track orders?
+7.  What are you currently using to manage orders, 
+8.  What challenges do you face with coordinating between different staff members?
+9.  Do you have any examples of an order miscommunication or mishap that you're willing to share? What happened?
+10.  How effective is your current system at tracking Orders?
+11.  What have you done in the past to track orders?
+12.  What devices are most accessible to you as a business?
 
 
 
