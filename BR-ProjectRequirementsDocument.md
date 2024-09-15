@@ -20,6 +20,13 @@ Richard is frustrated and is constantly searching for a solution to his problem.
 
 ### Objectives
 
+The objective of this project is to develop an intuitive order management system that allows restaurant staff to quickly and easily manage food orders, track the status of each order, and assign orders to tables and servers. By simplifying the process of order creation, modification, and tracking, the application will help reduce errors, increase operational efficiency, and enhance the overall customer experience.
+
+Additionally, the application will:
+- Improve communication between front-of-house and back-of-house staff.
+- Provide transparency in order status to avoid delays or lost tickets.
+- Allow for the modification of orders to reflect customer preferences and dietary restrictions.
+
 ***
 
 ### Assumptions
