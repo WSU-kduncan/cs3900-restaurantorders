@@ -1,8 +1,11 @@
 # MVP \- Define Core Features
 
 Team Name:  Restaurant Orders
+
 Your Name:  Lydia Clark
+
 Team Members:  Lydia Clark, 
+
 Project Name: Restaurant Orders
 
 ## Data Management
