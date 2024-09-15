@@ -1,0 +1,1 @@
+Thank you for taking the time to participate in this interview. I'd like to ask you a few questions to help us better understand your needs for our restaurant order management system. Let’s get started.
