@@ -50,6 +50,31 @@ Project Name: Restaurant Orders Management System
 
 > Break down each key feature into user stories.
 
+- **Order Management**
+    - As a server, I want to input customer orders quickly, so I can ensure they are sent to the kitchen without delay.
+    - As a kitchen staff member, I want to view incoming orders in real-time, so I can begin preparation immediately.
+    - As a manager, I want to view a list of all current and completed orders, so I can monitor restaurant performance.
+
+- **Menu Item Management**
+    - As a manager, I want to add or remove menu items, so the menu is always up-to-date.
+    - As a server, I want to view the current menu, so I can ensure customers are ordering from the correct options.
+
+- **Table and Server Assignment**
+    - As a manager, I want to assign servers to tables, so each table has a dedicated staff member.
+    - As a server, I want to see my assigned tables, so I know which customers to attend to.
+
+- **Order Status Tracking**
+    - As a server, I want to track the progress of customer orders (e.g., in progress, completed), so I can manage customer expectations.
+    - As a kitchen staff member, I want to update the order status when completed, so servers know when to deliver the food.
+
+- **Special Instructions**
+    - As a server, I want to add special instructions to orders (e.g., dietary requirements), so the kitchen can customize dishes accordingly.
+    - As a kitchen staff member, I want to view any special instructions, so I can prepare the meal correctly.
+
+- **Order Details**
+    - As a manager, I want to view order details (e.g., what was ordered, by which table, and by whom), so I can track sales performance.
+    - As a customer, I want my order to be accurate, so I receive the correct items as requested.
+      
 ***
 
 ## Risks and Mitigations
