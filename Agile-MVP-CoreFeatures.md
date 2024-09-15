@@ -1,7 +1,7 @@
 # MVP \- Define Core Features
 
 Team Name: Restaurant Orders 
-Team Members:  
+Team Members: Robert Sutton,   
 Project Name: Restaurant Orders Management System 
 
 ## Key Features
