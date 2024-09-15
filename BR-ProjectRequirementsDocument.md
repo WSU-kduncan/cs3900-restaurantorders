@@ -31,6 +31,11 @@ Additionally, the application will:
 
 ### Assumptions
 
+- **Staff Training:** Minimal formal training will be required for staff to use the application effectively.
+- **Access to Devices:** Staff members (servers, kitchen staff) will have access to devices like tablets or smartphones to interact with the application.
+- **Connectivity:** The restaurant will have a stable network connection to allow real-time updates of orders and status tracking across different areas of the restaurant.
+- **Scale:** The restaurant has around 50-150 orders per day and employs 5-10 staff members who will be using the application simultaneously.
+
 ***
 
 ### Requirements
