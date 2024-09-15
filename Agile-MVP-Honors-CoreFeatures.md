@@ -4,7 +4,7 @@ Team Name:  Restaurant Orders
 
 Your Name:  Lydia Clark
 
-Team Members:  Lydia Clark, Robert Sutton, 
+Team Members:  Lydia Clark, Robert Sutton, Denver Woolard, 
 
 Project Name: Restaurant Orders
 
