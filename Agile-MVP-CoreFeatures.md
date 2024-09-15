@@ -101,3 +101,11 @@ Project Name: Restaurant Orders Management System
 ## Feedback and Iteration
 
 > Describe how user feedback will be collected and analyzed.
+
+**Feedback Collection:**
+- During the MVP trial period, feedback will be collected from all staff using the system (servers, kitchen, and management) through a built-in feedback form. A feedback session with end-users will be held weekly.
+
+**Feedback Analysis:**
+- Feedback will be analyzed for common pain points or feature requests. These will be categorized as high, medium, or low priority, and addressed in regular iterations to improve the system.
+
+
