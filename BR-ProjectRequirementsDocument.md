@@ -39,6 +39,8 @@ Another possible roadblock would be the absence of a team member. This may be te
 
 Finally, it's worth noting that we have quite a large team of people. As the administrators have said, this is probably not ideal, but we have already created a group chat in Discord to ensure that communication is smooth and each participant completes their share of work. Each team member will need to pull their weight and stay focused on the project to make the development process as smooth as possible.
 
+***
+
 ### Requirements
 The application will:
 - Provide a way to submit and remove selected food orders.
@@ -52,6 +54,11 @@ Since this is a university class with a schedule and deadline, our scope has bee
 
 
 ### Performance
+
+OrderMaster will meet the following performance metrics:
+- The application will load and be usable within 3 seconds.
+- The application will be able to load orders in less than 2 seconds.
+- The application will be able to search through orders using keywords in less than 5 seconds.
 
 ***
 
