@@ -52,6 +52,7 @@ The application will:
 ### Scope
 Since this is a university class with a schedule and deadline, our scope has been partially decided for us. At this moment, the priority is on the creation of our database model. We will soon begin work on the program's UI design. Our MVP requires a simple program that allows our users to create, modify, and remove an order's database entry with a graphical user interface. Orders are expected to be capable of consisting of several items, which will have the ability to each contain a price and special instructions from the user's customers. Orders will be associated with both tables and servers, allowing them to be efficiently handled and delivered to the right place. In the future, we hope to add the ability to explicitly support several types of food services, such as delivery and takeout.
 
+***
 
 ### Performance
 
