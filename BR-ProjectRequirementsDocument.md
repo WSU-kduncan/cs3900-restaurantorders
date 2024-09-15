@@ -33,12 +33,11 @@ Additionally, the application will:
 
 ### Assumptions
 
-- **Staff Training:** Minimal formal training will be required for staff to use the application effectively.
-- **Access to Devices:** Staff members (servers, kitchen staff) will have access to devices like tablets or smartphones to interact with the application.
-- **Connectivity:** The restaurant will have a stable network connection to allow real-time updates of orders and status tracking across different areas of the restaurant.
-- **Scale:** The restaurant has around 50-150 orders per day and employs 5-10 staff members who will be using the application simultaneously.
+Since we are functioning off of a university class, we are subject to the potential of class cancellations due to inclement weather or some other campus emergency. The former is less likely to happen than if the class took place in the Spring semester, but it is always possible, and emergencies can happen at any time. In these cases, we won't be able to attend class to gain important insight on how to progress development. Due to the advent of online classrooms, however, we will likely still be given access to some resources that can keep the project on pace, and the project itself is largely dependent on online services such as GitHub anyways. Depending on the severity of the situation, the administrators of the class may be willing to extend deadlines, but this is ultimately out of our control and we will be capable of adapting our workflow to any situation.
 
-***
+Another possible roadblock would be the absence of a team member. This may be temporary, such as an unexpected injury or illness, or it could be more permanent, such as a classmate dropping out. Again, depending on the severity of the situation, the affected team member may be capable of contributing to the project regardless of their attendance, but in the most drastic cases, we will restructure the workload to fill in for the missing team member.
+
+Finally, it's worth noting that we have quite a large team of people. As the administrators have said, this is probably not ideal, but we have already created a group chat in Discord to ensure that communication is smooth and each participant completes their share of work. Each team member will need to pull their weight and stay focused on the project to make the development process as smooth as possible.
 
 ### Requirements
 The application will:
