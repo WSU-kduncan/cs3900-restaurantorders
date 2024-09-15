@@ -2,7 +2,7 @@
 
 Team Name: Restaurant Orders 
 
-Team Members: Robert Sutton, Lydia Clark, Denver Woolard, 
+Team Members: Robert Sutton, Lydia Clark, Denver Woolard, Harrison Aunspaw
 
 Project Name: Restaurant Orders Management System 
 
