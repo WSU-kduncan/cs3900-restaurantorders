@@ -4,9 +4,9 @@
 
 ### Context
 
-(Insert App Name Here) is a software application for restaurant managers that will let them track and manage orders. The user interface will be simple and allow servers to use it without formal training. Using (Insert App Name) the user can create a new order, edit an existing order, or delete an order in case of a cancellation. They will also be able to assign the order to a table and a server, as well as provide an easy to read list of the menu items in the order. Additonally, they will be able to search through in progress as well as completed orders by key factors such as date and time placed.
+OrderMaster is a software application for restaurant managers that will let them track and manage orders. The user interface will be simple and allow servers to use it without formal training. Using (Insert App Name) the user can create a new order, edit an existing order, or delete an order in case of a cancellation. They will also be able to assign the order to a table and a server, as well as provide an easy to read list of the menu items in the order. Additonally, they will be able to search through in progress as well as completed orders by key factors such as date and time placed.
 
-The current status of this (Insert Name Here) is ideation.
+The current status of this OrderMaster is ideation.
 
 ***
 
