@@ -1,8 +1,10 @@
 # MVP \- Analyze the Business Needs
 
 Team Name:  Restuarant Orders  
-Team Members:  
-Project Name:  
+
+Team Members:  Denver Woolard, Lydia Clark, Robert Sutton, 
+
+Project Name:  Restuarant Orders  
 
 ## Problem Statement
 
