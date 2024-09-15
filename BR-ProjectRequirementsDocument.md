@@ -35,7 +35,7 @@ The applcation will:
 ***
 
 ### Scope
-
+- The database will be made with MariaDB
 ***
 
 ### Performance
