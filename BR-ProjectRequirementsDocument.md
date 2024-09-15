@@ -27,7 +27,11 @@ Richard is frustrated and is constantly searching for a solution to his problem.
 ***
 
 ### Requirements
-
+The applcation will:
+- Provide a way to submit and close orders
+- Provide order tracking
+- Provide table management
+- Have the option for order modifications
 ***
 
 ### Scope
