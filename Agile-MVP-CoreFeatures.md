@@ -32,6 +32,18 @@ Project Name: Restaurant Orders Management System
 
 > Create a simple user flow diagram to illustrate how users will navigate through MVP.
 
+- **Login/Access**
+    - Server logs in → Sees a dashboard of their assigned tables.
+    - Manager logs in → Sees an overview of all tables, orders, and staff availability.
+
+- **Menu and Orders**
+    - Server selects a table → Enters order details (selects items from the menu).
+    - Kitchen receives order → Updates the order status as prepared/completed.
+    - Server updates the status → Marks the order as delivered.
+
+- **Order Completion**
+    - Manager or server views order completion status → Logs the payment and closes the order.
+
  ***
 
 ## User Stories
