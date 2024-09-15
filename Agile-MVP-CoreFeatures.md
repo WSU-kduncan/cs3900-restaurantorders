@@ -81,8 +81,8 @@ Project Name: Restaurant Orders Management System
 
 > Identify potential risks associated with MVP development and launch.
 
-
 > Suggest strategies for mitigating these risks.
+
 
 *** 
 
