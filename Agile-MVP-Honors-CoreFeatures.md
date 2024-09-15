@@ -58,6 +58,7 @@ As defined in the Analysis file, our KPIs are as follows:
 - Reduce the amount of lost and incorrect food orders by 30% compared to paper tracking.
 - Increase the speed of filling out and locating food orders by 20% compared to paper tracking.
 - Ensure that 80% of users can pick up the application and use it effectively without training.
+- Increase the overall effiectivness and create a better flow of communication between front and back of house.
 
 ```
 Possible Change and explanation:
