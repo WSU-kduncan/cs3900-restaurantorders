@@ -6,7 +6,7 @@ Your Name:  Lydia Clark
 
 Team Members:  Lydia Clark, Robert Sutton, Denver Woolard, Harrison Aunspaw
 
-Project Name: Restaurant Orders
+Project Name: OrderMaster
 
 ## Data Management
 
