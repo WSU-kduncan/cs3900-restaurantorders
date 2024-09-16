@@ -65,4 +65,12 @@ OrderMaster will meet the following performance metrics:
 
 ### Open Questions
 
+- **Integration:** Will there be any need for future integration with external systems, such as accounting software or delievery platforms such as Door Dash?
+- **Offline Capability:** Should the application offer limited offline functionality in case of network issues, with data syncing when the connection is restored?
+- **Security:** What specific security protocols will be implemented to protect sensitive order and customer data?
+- **Menu Management:** Will the MVP include menu item management, or will this be a feature for future iterations?
+- **Customer Feedback:** Should there be a customer feedback module to allow for the collection of reviews or suggestions directly in the system?
+  
 ***
+
+
