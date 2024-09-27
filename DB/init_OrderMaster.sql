@@ -2,7 +2,7 @@ CREATE DATABASE IF NOT EXISTS restaurant;
 USE restaurant;
 
 CREATE TABLE `food_orders` (
-  `order_id` INT AUTO_INCREMENT NOT NULL,
+  `order_id` IDENTITY AUTO_INCREMENT NOT NULL,
   `server_id` INT NULL DEFAULT NULL ,
   `table_id` INT NULL DEFAULT NULL ,
   `date` DATE NOT NULL,
@@ -13,21 +13,20 @@ CREATE TABLE `food_orders` (
   CONSTRAINT `PRIMARY` PRIMARY KEY (`order_id`)
 );
 CREATE TABLE `menu_items` (
-  `item_id` INT AUTO_INCREMENT NOT NULL,
+  `item_id` IDENTITY AUTO_INCREMENT NOT NULL,
   `item_name` VARCHAR(16) NOT NULL,
   `unit_price` DECIMAL(5,2) NOT NULL,
   CONSTRAINT `PRIMARY` PRIMARY KEY (`item_id`)
 );
 CREATE TABLE `order_details` (
-  `order_details_id` INT AUTO_INCREMENT NOT NULL,
   `order_id` INT NULL DEFAULT NULL ,
   `item_id` INT NULL DEFAULT NULL ,
   `quantity` TINYINT NOT NULL,
   `total_item_price` DECIMAL(6,2) NOT NULL,
-  CONSTRAINT `PRIMARY` PRIMARY KEY (`order_details_id`)
+  CONSTRAINT `PRIMARY` PRIMARY KEY (`order_id`, `item_id`)
 );
 CREATE TABLE `servers` (
-  `server_id` INT AUTO_INCREMENT NOT NULL,
+  `server_id` IDENTITY AUTO_INCREMENT NOT NULL,
   `first_name` VARCHAR(35) NOT NULL,
   `last_name` VARCHAR(35) NOT NULL,
   `availability` VARCHAR(10) NOT NULL,
