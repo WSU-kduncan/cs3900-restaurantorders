@@ -35,7 +35,6 @@ CREATE TABLE `servers` (
 );
 CREATE TABLE `tables` (
   `table_id` INT AUTO_INCREMENT NOT NULL,
-  `server_id` INT NULL DEFAULT NULL ,
   `capacity` TINYINT NULL DEFAULT NULL ,
   CONSTRAINT `PRIMARY` PRIMARY KEY (`table_id`)
 );
