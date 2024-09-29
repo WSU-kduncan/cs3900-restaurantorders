@@ -76,14 +76,14 @@ A menu item can be present within multiple order details. Therefore, it has a M:
 
 
 ---
-**Logical Model**
+## **Logical Model**
 
 ![Logical Model for OrderMaster DB](CS3900_OrderMaster_Logical.png)
 
 The logical model defines the structure of the database in more detail. It includes entities, their attributes, primary and foreign keys, and relationships between the entities. 
 
 ---
-**Physical Model**
+## **Physical Model**
 
 ![Physical Model for OrderMaster DB](CS3900_OrderMaster_Physical.png)
 
