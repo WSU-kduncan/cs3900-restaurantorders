@@ -45,7 +45,7 @@ FROM restaurant.servers
 WHERE availability = 'Y'
 ;
 ```
-- This query script pulls the server id, first name and last name as well as the availabilty of the servers. The where statment makes the satement only pull the servers whose availabiliy is 'Y'.
+- This query script pulls the server id, first name and last name as well as the availabilty of the servers. The where statment makes the satement only pull the servers whose availabiliy is 'Y'. This would be used to find out which servers are available to take orders, tables, and other task such as running food.
 <br>
 
 
@@ -53,5 +53,11 @@ WHERE availability = 'Y'
 SELECT order_details_id, total_price
 FROM restaurant.order_details;
 ```
-- This pulls the order details id, and total price from the order_details table.
+- This pulls the order details id, and total price from the order_details table. This could be used to eventually calculate the average profit made from orders.
+<br>
 
+```
+SELECT order_id, server_id, table_id, `date`, time_ordered, time_completed
+FROM restaurant.food_orders;
+```
+- The query pulls the order id, server id, table id, date, time ordered, and time completed from the food_orders table. This info gives a glance into a specific orders overall info.
