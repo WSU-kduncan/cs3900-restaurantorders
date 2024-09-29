@@ -63,17 +63,18 @@ An order detail can only have one food item assigned to it. This is because the 
 
 Since an order detail can only be associated with one order and one menu item, they can be combined to make the primary key, removing the need for a specific unique ID for an entity.
 
-### menu_items
+### **menu_items**
 
 The menu_items entity is a representation of individual items present on the restaurant's menu. This entity is used to populate the order_details entity so that the items for an order are neatly stored.
-#### Attributes
-This entity has 3 attributes:
-- **item_id** = This is a unique number used to identify each individual menu item. It is the primary key for this table.
-- **item_name** = This attribute contains the name of a specific menu item.
-- **unit_price** = This is the price of one single instance of this menu item. This is used to calculate the total price of an order detail.
-#### Relationships
-A menu item can be present within multiple order details. Therefore, it has a M:1 relationship with order_details.
 
+| Attribute   | Description                                                       |
+|-------------|-------------------------------------------------------------------|
+| **item_id** | Unique identifier for each menu item. Primary key.                |
+| **item_name** | Name of the menu item.                                           |
+| **unit_price** | Price of a single unit of the item.                             |
+
+**Relationships:** 
+- M:1 relationship with `order_details`: A menu item can be included in multiple orders.
 
 ---
 ## **Logical Model**
