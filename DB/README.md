@@ -38,11 +38,35 @@
 
 - This script be used to review pricing information.
 
+---
+
 ## Troubleshooting
 
-1. Ensure [Docker](https://docs.docker.com/desktop/install/windows-install/) is installed and running.
-2. Ensure [DBeaver](https://dbeaver.io/download/) is installed.
-3. Check running containers using ```docker ps -a```.
-4. Remove any conflicting containers with ```docker rm 'containername'```.
-5. Use the command ```docker compose rm``` in any folders you have run ```docker compose up``` in the past.
+If you encounter issues during the setup or while running queries, try the following:
 
+1. **Ensure Docker is Installed and Running:**
+   - Install Docker from [here](https://docs.docker.com/desktop/install/windows-install/), and ensure the Docker Desktop application is running.
+
+2. **Ensure DBeaver is Installed:**
+   - Install DBeaver from [here](https://dbeaver.io/download/) if it's not already installed.
+     
+3. **Check Running Containers:**
+   - Run the following command to check if the MariaDB container is running:
+     ```bash
+     docker ps -a
+     ```
+   - If the container is not running, check the logs for errors.
+
+4. **Remove Conflicting Containers:**
+   - If there are conflicting containers from previous setups, remove them using:
+     ```bash
+     docker rm <containername>
+     ```
+
+5. **Reset the Container Environment:**
+   - If you need to reset the environment, run the following command in the folder where you've previously run `docker compose up`:
+     ```bash
+     docker compose rm
+     ```
+
+If these steps do not resolve your issue, consult Docker and MariaDB documentation for further troubleshooting.
