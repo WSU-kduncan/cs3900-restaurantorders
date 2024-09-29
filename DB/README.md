@@ -17,25 +17,21 @@
 [Link to Insert Script](https://github.com/WSU-kduncan/cs3900-restaurantorders/blob/4710a80a32a91b14052a2ecdd7d0d55563f55fbc/DB/SQL-ToolBox/InsertScript.sql)
 
 - This script inserts data into the various tables.
-<br>
 
 ### Availability Script
 [Link to Availibility Script](https://github.com/WSU-kduncan/cs3900-restaurantorders/blob/4710a80a32a91b14052a2ecdd7d0d55563f55fbc/DB/SQL-ToolBox/AvailabilityScript.sql)
 
 - This query script pulls the server id, first name and last name as well as the availabilty of the servers. The where statment makes the satement only pull the servers whose availabiliy is 'Y'. This would be used to find out which servers are available to take orders, tables, and other task such as running food.
-<br>
 
 ### Order Details Script
 [Link to Order Details Script](https://github.com/WSU-kduncan/cs3900-restaurantorders/blob/4710a80a32a91b14052a2ecdd7d0d55563f55fbc/DB/SQL-ToolBox/OrderDetailsScript.sql)
 
 - This pulls the order details id, and total price from the order_details table. This could be used to eventually calculate the average profit made from orders.
-<br>
 
 ### Food Orders Script
 [Link to Food Orders Script](https://github.com/WSU-kduncan/cs3900-restaurantorders/blob/4710a80a32a91b14052a2ecdd7d0d55563f55fbc/DB/SQL-ToolBox/FoodOrderScript.sql)
 
 - The query pulls the order id, server id, table id, date, time ordered, and time completed from the food_orders table. This info gives a glance into a specific orders overall info.
-
 
 
 
