@@ -47,10 +47,12 @@ INSERT INTO restaurant.order_details (order_id, item_id, name, quantity, total_p
 VALUES(1, 6, 'John Henry', 4, 8.00);
 INSERT INTO restaurant.order_details (order_id, item_id, name, quantity, total_price) 
 VALUES(1, 1, 'John Henry', 1, 2.00);
-
 ```
 
 * **Description:** This script inserts initial data into the tables, including servers, menu items, tables, food orders, and order details.
+
+---
+
 
 
 ```
