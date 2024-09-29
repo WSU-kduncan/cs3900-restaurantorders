@@ -14,6 +14,7 @@ They have 4 attributes in total:
 - **first_name** = This is a specific server's first name.
 - **last_name** = This is a specific server's last name.
 - **availability** = This attribute denotes whether a specific server is available to be given orders. This may reflect, for example, a server who's not on the clock.
+
 #### Relationships
 A specific server may have several orders assigned to them. Therefore, it has a 1:M relationship to the "order_details" entity.
 
@@ -40,6 +41,7 @@ This entity has the most attributes assigned to it, at a staggering total of 8.
 - **time_completed** = This is the exact time that the order was considered to be completed.
 - **status** = This is an attribute that denotes the status of the order, or what exactly is being done.
 - **special_instructions** = This attribute is an open spot to list any instructions given by the customer that isn't usual for the order or the items within the order.
+  
 #### Relationships
 A given order was taken from customers at a specific table. Therefore, it has a 1:1 relationship with the "tables" entity.
 
@@ -47,6 +49,7 @@ An order is likely to contain several food items. Therefore, it has a 1:M relati
 
 ### order_details
 Order details are a representation of individual items contained in an order.
+
 #### Attributes
 order_details has 4 associated attributes:
 - **order_id** = This is the ID of the order that this entity is a part of. It is a foreign key from the "food_orders" entity. This is one part of this attribute's primary key. An order detail is, by definition, exclusively a part of only one order, so this ID can be used to partially identify a specific entity.
