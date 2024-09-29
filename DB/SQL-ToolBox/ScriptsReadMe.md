@@ -53,16 +53,17 @@ VALUES(1, 1, 'John Henry', 1, 2.00);
 
 ---
 
+### Availability of Servers
 
-
-```
+```sql
 SELECT server_id, first_name, last_name, availability
 FROM restaurant.servers
 WHERE availability = 'Y'
-;
+ORDER BY last_name ASC;
 ```
-- This query script pulls the server id, first name and last name as well as the availabilty of the servers. The where statment makes the satement only pull the servers whose availabiliy is 'Y'. This would be used to find out which servers are available to take orders, tables, and other task such as running food.
-<br>
+* **Description:** This query pulls the server ID, first name, last name, and availability status. It identifies which servers are available (denoted by 'Y') to take orders or manage tables. It’s used to check which staff members are currently on duty.
+
+---
 
 
 ```
