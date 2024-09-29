@@ -61,3 +61,10 @@ SELECT order_id, server_id, table_id, `date`, time_ordered, time_completed
 FROM restaurant.food_orders;
 ```
 - The query pulls the order id, server id, table id, date, time ordered, and time completed from the food_orders table. This info gives a glance into a specific orders overall info.
+<br>
+
+```
+SELECT item_id, item_name, unit_price
+FROM restaurant.menu_items;
+```
+- This would be used to review pricing information.
