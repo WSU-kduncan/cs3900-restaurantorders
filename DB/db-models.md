@@ -47,21 +47,23 @@ A given order was taken from customers at a specific table. Therefore, it has a 
 
 An order is likely to contain several food items. Therefore, it has a 1:M relationship to the "order_details" entity.
 
-### order_details
+---
+
+### **order_details**
 Order details are a representation of individual items contained in an order.
 
-#### Attributes
-order_details has 4 associated attributes:
-- **order_id** = This is the ID of the order that this entity is a part of. It is a foreign key from the "food_orders" entity. This is one part of this attribute's primary key. An order detail is, by definition, exclusively a part of only one order, so this ID can be used to partially identify a specific entity.
-- **item_id** = This is the ID of the specific food item that this detail represents. It is a foreign key from the "menu_items" entity. This is one part of this attribute's primary key. A specific food item can only be associated with one detail within an order, as duplicate items are grouped into one detail and represented with the "quantity" attribute. This allows the attribute to partially identify a specific order_details entity.
-- **Quantity** = This attribute represents the quantity of a given food item within a part of an order.
-- **total_item_price** = This is the total price for one group of the same food item within an order. This is important to have in-case there are more than 1 of the same item in an order. It's derived from the menu_items' unit price.
-#### Relationships
-A group of order details can only be assigned to one specific order, as it is unique for that customer. Therefore, it has a M:1 relationship with the food_orders table.
+| Attribute          | Description                                                     |
+|--------------------|-----------------------------------------------------------------|
+| **order_id**       | ID of the order this detail is part of. Foreign key to `food_orders`. (Part of composite primary key). |
+| **item_id**        | ID of the menu item. Foreign key to `menu_items`. (Part of composite primary key). |
+| **quantity**       | Number of units for the menu item in the order.                 |
+| **total_item_price** | Total price for the quantity of the item. Derived from `menu_items.unit_price`. |
 
-An order detail can only have one food item assigned to it. This is because the system is intended to "group" duplicate items into one detail for an order. Therefore, it has a 1:M relationship with the menu_items entity.
+**Relationships:**
+- M:1 relationship with `food_orders`: Each set of order details belongs to one order.  
+- 1:M relationship with `menu_items`: An item can appear in multiple orders.
 
-Since an order detail can only be associated with one order and one menu item, they can be combined to make the primary key, removing the need for a specific unique ID for an entity.
+---
 
 ### **menu_items**
 
