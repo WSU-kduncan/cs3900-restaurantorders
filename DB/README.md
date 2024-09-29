@@ -33,7 +33,10 @@
 
 - The query pulls the order id, server id, table id, date, time ordered, and time completed from the food_orders table. This info gives a glance into a specific orders overall info.
 
+### Pricing Script
+[Link to Pricing Script](https://github.com/WSU-kduncan/cs3900-restaurantorders/blob/main/DB/SQL-ToolBox/PriceScript.sql)
 
+- This script be used to review pricing information.
 
 ## Troubleshooting
 
