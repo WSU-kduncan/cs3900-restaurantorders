@@ -1,55 +1,62 @@
 # OrderMaster Model Descriptions
----
+
 ## Conceptual Model
 ![Conceptual Model for OrderMaster DB](CS3900_OrderMaster_Conceptual.png)
 
 The conceptual model for the OrderMaster database lays out a simple, easy-to-understand diagram of the database's entities, their relationships among themselves, and their attributes. This allows any individual to follow the database's flow, regardless of their experience level.
 
-### servers
+### Entities Overview
+---
+
+#### **servers**
 The Servers entity represents the workers in the restaurant who are in charge of delivering orders to customers.
 
-#### Attributes
-They have 4 attributes in total:
-- **Server_id** = This is a unique number provided to each worker to help differentiate them within the database. This is the primary key for this entity.
-- **first_name** = This is a specific server's first name.
-- **last_name** = This is a specific server's last name.
-- **availability** = This attribute denotes whether a specific server is available to be given orders. This may reflect, for example, a server who's not on the clock.
+| Attribute    | Description                                                                                       |
+|--------------|---------------------------------------------------------------------------------------------------|
+| **server_id** | Unique identifier for each server. Primary key.                                                   |
+| **first_name** | First name of the server.                                                                         |
+| **last_name** | Last name of the server.                                                                          |
+| **availability** | Status indicating whether a server is available for new orders (e.g., off-shift, on-shift).     |
 
-#### Relationships
-A specific server may have several orders assigned to them. Therefore, it has a 1:M relationship to the "order_details" entity.
-
-### tables
-The Tables entity represents the individual tables that are available at the restaurant.
-
-#### Attributes
-They have 2 attributes in total:
-- **table_id** = This is a unique number provided to each table to help differentiate them within the database. This is the primary key for this entity.
-- **capacity** = This attribute denotes the number of available seats for a given table.
-#### Relationships
-A table can have one given order assigned to it. Therefore, it has a 1:1 relationship with the "order_details" entity.
-
-### food_orders
-The food_orders entities represent an entire order that was taken from a customer.
-
-#### Attributes
-This entity has the most attributes assigned to it, at a staggering total of 8.
-- **order_id** = This is a unique number provided to each order to help differentiate them within the database. This is the primary key for this entity.
-- **server_id** = This is the ID of the server that has been assigned to this order. It is a foreign key from the "servers" entity.
-- **table_id** = This is the ID of the table that requested the order. It is a foreign key from the "tables" entity.
-- **date** = This is the date that the order was placed.
-- **time_ordered** = This is the exact time that the order was entered into the database.
-- **time_completed** = This is the exact time that the order was considered to be completed.
-- **status** = This is an attribute that denotes the status of the order, or what exactly is being done.
-- **special_instructions** = This attribute is an open spot to list any instructions given by the customer that isn't usual for the order or the items within the order.
-  
-#### Relationships
-A given order was taken from customers at a specific table. Therefore, it has a 1:1 relationship with the "tables" entity.
-
-An order is likely to contain several food items. Therefore, it has a 1:M relationship to the "order_details" entity.
+**Relationships:**  
+- 1:M relationship with `food_orders`: A server may be assigned to many orders.
 
 ---
 
-### **order_details**
+#### **tables**
+The Tables entity represents the individual tables that are available at the restaurant.
+
+| Attribute     | Description                              |
+|---------------|------------------------------------------|
+| **table_id**  | Unique identifier for each table. Primary key. |
+| **capacity**  | Number of seats available at the table. |
+  
+**Relationships:**  
+- 1:1 relationship with `food_orders`: A table is assigned one order at a time.
+
+---
+
+#### **food_orders**
+The food_orders entities represent an entire order that was taken from a customer.
+
+| Attribute             | Description                                                   |
+|-----------------------|---------------------------------------------------------------|
+| **order_id**          | Unique identifier for each order. Primary key.                |
+| **server_id**         | ID of the server assigned to this order. Foreign key to `servers`. |
+| **table_id**          | ID of the table for the order. Foreign key to `tables`.       |
+| **date**              | Date when the order was placed.                               |
+| **time_ordered**      | Time when the order was entered.                              |
+| **time_completed**    | Time when the order was completed.                            |
+| **status**            | Status of the order (e.g., pending, completed).               |
+| **special_instructions** | Special instructions from the customer, if any.            |
+  
+**Relationships:**  
+- 1:1 relationship with `tables`: Each order is assigned to a specific table.  
+- 1:M relationship with `order_details`: Each order can have multiple items.
+
+---
+
+#### **order_details**
 Order details are a representation of individual items contained in an order.
 
 | Attribute          | Description                                                     |
@@ -65,7 +72,7 @@ Order details are a representation of individual items contained in an order.
 
 ---
 
-### **menu_items**
+#### **menu_items**
 
 The menu_items entity is a representation of individual items present on the restaurant's menu. This entity is used to populate the order_details entity so that the items for an order are neatly stored.
 
