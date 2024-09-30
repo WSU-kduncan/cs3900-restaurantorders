@@ -63,6 +63,10 @@ The SQL Toolbox contains several scripts to interact with the database. Below ar
 [Link to Pricing Script](https://github.com/WSU-kduncan/cs3900-restaurantorders/blob/main/DB/SQL-ToolBox/PriceScript.sql)
 - This script can be used to review pricing information for items in the menu.
 
+### 6. **Top Selling Items Script**
+[Link to Pricing Script]() 
+- This query retrieves the total quantity sold for each menu item. By grouping the data by item_name and ordering the results by total_quantity_sold in descending order, it helps identify the top-selling items. This information is valuable for inventory management, menu optimization, and promotions.
+
 ---
 
 ## Troubleshooting
