@@ -65,13 +65,16 @@ ORDER BY last_name ASC;
 
 ---
 
+### Order Details
 
+```sql
+SELECT order_id, SUM(total_price) AS total_order_price
+FROM restaurant.order_details
+GROUP BY order_id;
 ```
-SELECT order_details_id, total_price
-FROM restaurant.order_details;
-```
-- This pulls the order details id, and total price from the order_details table. This could be used to eventually calculate the average profit made from orders.
-<br>
+* **Description:** This query retrieves the order_details_id and total_price for each item in the order_details table. It can be used to assess the profit made from individual orders or track specific items in an order.
+
+---
 
 ```
 SELECT order_id, server_id, table_id, `date`, time_ordered, time_completed
