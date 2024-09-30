@@ -76,15 +76,35 @@ GROUP BY order_id;
 
 ---
 
-```
-SELECT order_id, server_id, table_id, `date`, time_ordered, time_completed
+### Food Orders Overview
+
+```sql
+SELECT order_id, server_id, table_id, `date`, time_ordered, time_completed,
+TIMESTAMPDIFF(MINUTE, time_ordered, time_completed) AS order_duration
 FROM restaurant.food_orders;
 ```
-- The query pulls the order id, server id, table id, date, time ordered, and time completed from the food_orders table. This info gives a glance into a specific orders overall info.
-<br>
+* **Description:** This query retrieves details for each order, such as the order ID, server assigned to the order, table ID, order date, time ordered, and time completed. It provides a high-level overview of the order status and timing.
 
-```
+---
+
+### Menu Item Pricing
+
+```sql
 SELECT item_id, item_name, unit_price
-FROM restaurant.menu_items;
+FROM restaurant.menu_items
+ORDER BY unit_price DESC;
 ```
-- This would be used to review pricing information.
+* **Description:** This query pulls the item_id, item_name, and unit_price for all items on the menu. It helps in reviewing and managing pricing information for each menu item.
+
+---
+
+### Top Selling Items
+
+```sql
+SELECT menu_items.item_name, SUM(order_details.quantity) AS total_quantity_sold
+FROM order_details
+JOIN menu_items ON order_details.item_id = menu_items.item_id
+GROUP BY menu_items.item_name
+ORDER BY total_quantity_sold DESC;
+```
+* **Description:** This query retrieves the total quantity sold for each menu item. By grouping the data by item_name and ordering the results by total_quantity_sold in descending order, it helps identify the top-selling items. This information is valuable for inventory management, menu optimization, and promotions.
