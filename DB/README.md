@@ -43,20 +43,20 @@ Follow these steps to set up and initialize the OrderMaster database:
 The SQL Toolbox contains several scripts to interact with the database. Below are descriptions and links to the scripts:
 
 ### 1. **Insert Script**
-[Link to Insert Script](https://github.com/WSU-kduncan/cs3900-restaurantorders/blob/4710a80a32a91b14052a2ecdd7d0d55563f55fbc/DB/SQL-ToolBox/InsertScript.sql)
+[Link to Insert Script](https://github.com/WSU-kduncan/cs3900-restaurantorders/blob/main/DB/SQL-ToolBox/InsertScript.sql)
 - This script inserts data into various tables in the database, populating it with initial values.
 
 ### 2. **Availability Script**
-[Link to Availability Script](https://github.com/WSU-kduncan/cs3900-restaurantorders/blob/4710a80a32a91b14052a2ecdd7d0d55563f55fbc/DB/SQL-ToolBox/AvailabilityScript.sql)
+[Link to Availability Script](https://github.com/WSU-kduncan/cs3900-restaurantorders/blob/main/DB/SQL-ToolBox/AvailabilityScript.sql)
 - This query pulls the server ID, first name, last name, and availability of the servers.
 - The `WHERE` clause filters the result to show only servers whose availability is marked as `'Y'`. This can be used to find which servers are currently available to take orders.
 
 ### 3. **Order Details Script**
-[Link to Order Details Script](https://github.com/WSU-kduncan/cs3900-restaurantorders/blob/4710a80a32a91b14052a2ecdd7d0d55563f55fbc/DB/SQL-ToolBox/OrderDetailsScript.sql)
+[Link to Order Details Script](https://github.com/WSU-kduncan/cs3900-restaurantorders/blob/main/DB/SQL-ToolBox/OrderDetailsScript.sql)
 - This script retrieves the order details ID and total price from the `order_details` table. It can be used to calculate the average profit made from orders.
 
 ### 4. **Food Orders Script**
-[Link to Food Orders Script](https://github.com/WSU-kduncan/cs3900-restaurantorders/blob/4710a80a32a91b14052a2ecdd7d0d55563f55fbc/DB/SQL-ToolBox/FoodOrderScript.sql)
+[Link to Food Orders Script](https://github.com/WSU-kduncan/cs3900-restaurantorders/blob/main/DB/SQL-ToolBox/FoodOrderScript.sql)
 - This query pulls information from the `food_orders` table, including order ID, server ID, table ID, date, time ordered, and time completed. It provides a snapshot of a specific order’s details.
 
 ### 5. **Pricing Script**
