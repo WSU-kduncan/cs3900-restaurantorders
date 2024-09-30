@@ -113,3 +113,76 @@ Represents the restaurant’s seating arrangement.
 - **Relationships**: One-to-one relationship with `food_orders`: Each table is linked to one food order at a time.
 
 ---
+
+### **Servers**
+
+Represents the employees responsible for serving food orders to customers.
+
+| Attribute    | Data Type      | Description                                                  |
+|--------------|----------------|--------------------------------------------------------------|
+| **server_id** | `INT`           | Auto-incrementing unique identifier for each server. Primary key. |
+| **first_name** | `NVARCHAR(35)` | The first name of the server. Not null.                      |
+| **last_name** | `NVARCHAR(35)` | The last name of the server. Not null.                       |
+| **availability** | `VARCHAR(10)`  | The availability status of the server (e.g., 'Y' for available, 'N' for unavailable). Not null. |
+
+- **Relationships**: One-to-many relationship with `food_orders`: A server can manage multiple food orders.
+
+---
+
+### **Food Orders**
+
+Represents the orders placed by customers at their tables.
+
+| Attribute            | Data Type     | Description                                                                 |
+|----------------------|---------------|-----------------------------------------------------------------------------|
+| **order_id**          | `INT`         | Auto-incrementing unique identifier for each food order. Primary key.        |
+| **server_id**         | `INT`         | Foreign key linking to the `servers` table to identify the server responsible for the order. Not null. |
+| **table_id**          | `INT`         | Foreign key linking to the `tables` table to identify the table where the order was placed. Not null. |
+| **date**              | `DATE`        | The date when the order was placed. Not null.                                |
+| **time_ordered**      | `TIME`        | The time when the order was placed. Not null.                                |
+| **time_completed**    | `TIME`        | The time when the order was completed. Can be null if the order is still pending. |
+| **status**            | `VARCHAR(10)` | The current status of the order (e.g., pending, completed). Not null.        |
+| **special_instructions** | `VARCHAR(100)` | Any specific instructions from the customer, such as dietary preferences or modifications. Can be null. |
+
+- **Relationships**: One-to-many relationship with `order_details`: Each food order can consist of multiple items (order details).  
+- One-to-one relationship with `tables`: Each order is linked to a single table.
+
+---
+
+### **Menu Items**
+
+Represents the items available on the restaurant’s menu.
+
+| Attribute     | Data Type    | Description                                        |
+|---------------|--------------|----------------------------------------------------|
+| **item_id**    | `INT`         | Auto-incrementing unique identifier for each menu item. Primary key. |
+| **item_name**  | `VARCHAR(16)` | The name of the menu item (e.g., 'Pizza', 'Hamburger'). Not null. |
+| **unit_price** | `DECIMAL(5,2)` | The price of a single unit of the menu item. Not null. |
+
+- **Relationships**: One-to-many relationship with `order_details`: A menu item can appear in multiple orders.
+
+---
+
+### **Order Details**
+
+Represents the individual items within a food order.
+
+| Attribute       | Data Type     | Description                                                      |
+|-----------------|---------------|------------------------------------------------------------------|
+| **order_id**     | `INT`         | Foreign key linking to the `food_orders` table. Identifies which order this item belongs to. Not null. |
+| **item_id**      | `INT`         | Foreign key linking to the `menu_items` table. Identifies which menu item was ordered. Not null. |
+| **quantity**     | `TINYINT`     | The number of units of the menu item ordered. Not null.           |
+| **total_price**  | `DECIMAL(6,2)` | The total price for this order detail, calculated as `unit_price` multiplied by `quantity`. Not null. |
+
+- **Relationships**: Many-to-one relationship with `food_orders`: Each order detail is linked to one food order.  
+- Many-to-one relationship with `menu_items`: Each order detail is linked to one specific menu item.
+
+---
+
+### Key Relationships:
+
+1. **Servers ↔ Food Orders**: A server can manage multiple food orders, but each food order is assigned to a single server.
+2. **Tables ↔ Food Orders**: Each table is associated with one food order at a time.
+3. **Food Orders ↔ Order Details**: A single food order can have multiple items (order details), but each order detail is linked to one food order.
+4. **Order Details ↔ Menu Items**: Each order detail corresponds to one menu item, but the same menu item can appear in multiple orders.
+
