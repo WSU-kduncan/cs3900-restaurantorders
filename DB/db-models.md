@@ -93,6 +93,81 @@ The menu_items entity is a representation of individual items present on the res
 The logical model defines the structure of the database in more detail. It includes entities, their attributes, primary and foreign keys, and relationships between the entities. 
 
 ---
+
+#### **servers**
+This entity represents the servers that take orders and deliver food to tables.
+
+| Attribute         | Description                                                                                |
+|-------------------|--------------------------------------------------------------------------------------------|
+| **server_id(PK)** | The primary key of the table, each server will have a unique id.                           |
+| **first_name**    | The servers first name.                                                                    |
+| **last_name**     | The servers last name.                                                                     |
+| **availability**  | Whether or not the server is available for orders and waiting tables.                      |
+ 
+- The `servers` entity has a 1 to M relationship with the `food_orders` entity. A server will be managing multiple orders at once.
+
+---
+
+#### **tables**
+This entity represents the tables that customers are seated at and order for.
+
+| Attribute        | Description                                            |
+|------------------|--------------------------------------------------------|
+| **table_id (PK)**| The primary key of tables, each table has a unique id. |
+| **capacity**     | How many seats the table has available.                |
+  
+- The `tables` entity has a 1 to 1 relationship with the `food_orders` entity. Each food order is assigned to a singular table.
+
+---
+
+#### **food_orders**
+This entity represents the orders made by customers.
+
+| Attribute                | Description                                                        |
+|--------------------------|--------------------------------------------------------------------|
+| **order_id (PK)**        | The primary key of food_orders, each food order has a unique id.   |
+| **server_id (FK)**       | A foreign key from the servers entity, each server has a unique id and is assigned to a food_order.|
+| **table_id (FK)**        | A foreign key from the tables entity, each table has a unique id and is assigned to a food_order.  |
+| **date**                 | The date each food order was placed.                                |
+| **time_ordered**         | The time each food order was placed.                                |
+| **time_completed**       | The time each food order was marked as completed.                   |
+| **status**               | The status of the order, whether it is in progress, completed or canceled.  |
+| **special_instructions** | Any special instructions listed by the customer, such as allergies.             |
+  
+- The `food_orders` entity has a 1 to 1 relationship with the `tables` entity. Each order is assigned to one table at a time. 
+- The `food_orders` entity has a 1 to M relationship with the `order_details` entity. Each order may have multiple items.
+
+---
+
+#### **menu_items**
+This entity represents the items available for a food order and their individual price.
+
+| Attribute   | Description                                                           |
+|-------------|-----------------------------------------------------------------------|
+| **item_id (PK)** | The primary key of menu_items, each menu item has a unqiue id.   |
+| **item_name** | The name of each menu item.                                         |
+| **unit_price** | The price of a single menu item.                                   |
+
+- The `menu_items` entity has a M to 1 relationship with the `order_details` entity. A menu item may be in multiple orders.
+
+---
+
+#### **order_details**
+This entity represnts the details of each food order.
+
+| Attribute          | Description                                                     |
+|--------------------|-----------------------------------------------------------------|
+| **order_id (FK)**  | Forms a composite primary key alongside `item_id`, each food order has a unique id |
+| **item_id (FK)**   | Forms a composite primary key alongside `order_details`, each item has a unique id. |
+| **quantity**       | The amount ordered for each item.                |
+| **total_item_price** |  A calculation derived from `menu_items.unit_price`, defines the total price for this order detail. |
+
+- The ```order_details``` entity has a M to 1 relationship with the `food_orders` entity. Each set of order details belongs to one order.  
+- The ```order_details``` entity has a 1 to M relationship with the `menu_items`entity. Each order can have multiple items.
+
+---
+
+---
 ## **Physical Model**
 
 ![Physical Model for OrderMaster DB](CS3900_OrderMaster_Physical.png)
