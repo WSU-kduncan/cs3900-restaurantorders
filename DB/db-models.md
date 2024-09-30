@@ -97,4 +97,19 @@ The logical model defines the structure of the database in more detail. It inclu
 
 ![Physical Model for OrderMaster DB](CS3900_OrderMaster_Physical.png)
 
-The physical model includes the database’s technical specifications. It defines the data types and storage mechanisms in MariaDB to represent the logical model accurately. 
+The physical model of the restaurant orders database defines the detailed structure of the tables, their attributes, and relationships. It is optimized for a MariaDB environment and includes specific data types and constraints such as `IDENTITY`, `NOT NULL`, and foreign key relationships to ensure referential integrity.
+
+---
+
+### **Tables**
+
+Represents the restaurant’s seating arrangement.
+
+| Attribute   | Data Type    | Description                                  |
+|-------------|--------------|----------------------------------------------|
+| **table_id** | `INT`         | Auto-incrementing unique identifier for each table. Primary key. |
+| **capacity** | `TINYINT`     | Defines the number of seats available at each table. Not null. |
+
+- **Relationships**: One-to-one relationship with `food_orders`: Each table is linked to one food order at a time.
+
+---
