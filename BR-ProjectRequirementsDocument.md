@@ -55,7 +55,6 @@ Since this is a university class with a schedule and deadline, our scope has bee
 ***
 
 ### Performance
-
 OrderMaster will meet the following performance metrics:
 - The application will load and be usable within 4 seconds.
 - The application will be able to load orders in less than 2 seconds.
