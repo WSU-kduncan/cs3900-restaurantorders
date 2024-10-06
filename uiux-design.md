@@ -32,7 +32,8 @@ The application behavior is as follows:
 
 1. **Start**
 The user begins at the order management dashboard, where they see a list of current restaurant orders.
-
+User Flow Search.png
+WireFrame Search.png
 2. **View Orders**
 The user reviews the list of orders displayed in rows, each with order details and actions.
 
