@@ -20,7 +20,7 @@
 ![UpdateFlow](https://github.com/haunspaw/test/blob/main/UpdateFlow.png)
 User Flow Description of Behavior The application behavior is as follows:
 
-- The user open the application
+- The user opens the application
 - The user selects a table that has an order
 - The user will then change the neccesary information
 - When the user is satisfied with the changes they then will click save
