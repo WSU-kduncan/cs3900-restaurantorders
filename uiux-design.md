@@ -6,7 +6,8 @@
 * wireframe that reflects understanding of Jakob's Ten Usability Heuristics and Gestalt Principles
 
 ## Search
-* user flow
+* ![alt text](image.png)
+* ![alt text](image-1.png)
 * user flow description of behavior
 * wireframe that reflects understanding of Jakob's Ten Usability Heuristics and Gestalt Principles
 
@@ -32,8 +33,6 @@ The application behavior is as follows:
 
 1. **Start**
 The user begins at the order management dashboard, where they see a list of current restaurant orders.
-User Flow Search.png
-WireFrame Search.png
 2. **View Orders**
 The user reviews the list of orders displayed in rows, each with order details and actions.
 
