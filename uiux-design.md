@@ -17,8 +17,13 @@
 * wireframe that reflects understanding of Jakob's Ten Usability Heuristics and Gestalt Principles
 
 ## Update
-* user flow
-* user flow description of behavior
+![UpdateFlow](https://github.com/haunspaw/test/blob/main/UpdateFlow.png)
+User Flow Description of Behavior The application behavior is as follows:
+
+- The user open the application
+- The user selects a table that has an order
+- The user will then change the neccesary information
+- When the user is satisfied with the changes they then will click save
 * wireframe that reflects understanding of Jakob's Ten Usability Heuristics and Gestalt Principles
 
 ## Delete (Optional)
