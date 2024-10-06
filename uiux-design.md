@@ -6,8 +6,8 @@
 * wireframe that reflects understanding of Jakob's Ten Usability Heuristics and Gestalt Principles
 
 ## Search
-* ![alt text](image.png)
-* ![alt text](image-1.png)
+*  WireFrame Search.png
+* User Flow Search.png
 * user flow description of behavior
 * wireframe that reflects understanding of Jakob's Ten Usability Heuristics and Gestalt Principles
 
