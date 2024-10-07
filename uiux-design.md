@@ -11,6 +11,22 @@
 * user flow description of behavior
 * wireframe that reflects understanding of Jakob's Ten Usability Heuristics and Gestalt Principles
 
+1. **Start**
+
+    The user begins at the home page, where they see a simple layout of the restaurant.
+
+2. **Select Create New Order**
+
+    The user selects the 'Create' button on the sidebar.
+
+3. **Select Table Number**
+
+    The user is prompted to select the table number for the order.
+
+4. **Select View Order**
+
+    The user will be shown a list or current orders and there statuses 
+
 ---
 ## Create
 
