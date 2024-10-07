@@ -12,9 +12,43 @@
 * wireframe that reflects understanding of Jakob's Ten Usability Heuristics and Gestalt Principles
 
 ## Create
-* user flow
-* user flow description of behavior
-* wireframe that reflects understanding of Jakob's Ten Usability Heuristics and Gestalt Principles
+
+![Create Userflow](https://raw.githubusercontent.com/WSU-kduncan/cs3900-restaurantorders/refs/heads/main/OrderMaster_Create_UserFlow.png)
+
+**User Flow Description of Behavior**
+The application behaves as follows:
+* When a user clicks "Create" on the sidebar, it open the "Create" UI
+* The user is prompted to select a table, the table selected must be available
+* The user is directed to enter the information about the order
+* The user is then asked to confirm they would like to save the order
+
+1. **Start**
+
+    The user begins at the home page, where they see a simple layout of the restaurant.
+
+2. **Select Create**
+
+    The user selects the 'Create' button on the sidebar.
+
+3. **Select Table Number**
+
+    The user is prompted to select the table number for the order.
+
+4. **Enter Information**
+
+    The user has a series of text boxes to fill out for the information in the order.
+
+5. **Save Order**
+
+    A modal dialog appears, asking, "Save Order?" The user has two options:
+     * Confirm: Saves and Creates the order.
+     * Cancel: Aborts the action and returns to the order list.
+
+6. **Order Created**
+
+    If confirmed, the system creates the Order and sends the user to the homepage.
+
+![Create Wireframe](https://raw.githubusercontent.com/WSU-kduncan/cs3900-restaurantorders/refs/heads/main/OrderMaster_Create_Wireframe.png)
 
 ## Update
 ![UpdateFlow](https://github.com/haunspaw/test/blob/main/UpdateFlow.png)
