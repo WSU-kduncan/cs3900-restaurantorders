@@ -99,6 +99,23 @@ A success message ("Order successfully deleted") appears, confirming the action.
 ![Delete Wireframe (1)](https://github.com/user-attachments/assets/3272bb1e-b59d-476e-82f2-e6525537ed96)
 
 ## Batch (Honors)
-* user flow
-* user flow description of behavior
-* wireframe that reflects understanding of Jakob's Ten Usability Heuristics and Gestalt Principles
+![Batch Userflow](UIUX-Group-Batch-Userflow.png)
+
+The Batch process is quite similar to that of the Delete process, because they are both done from the same menu. When a user wants to batch-delete orders, they would most likely not expect to have to enter a separate, dedicated menu to do that. Putting the two processes together is more user-friendly and much neater.
+
+1. The user is brought to the landing page when the program is initialized.
+
+2. There will be a button called "View Orders" that allows the user to see all orders as a list. The user clicks on this button.
+
+3. Each order has a "Select" button to the far-right. The user clicks this, and the button will become depressed and change its label to say "Deselect". Clicking it again will deselect that order.
+
+4. From here, the user will select any number of orders using the Select buttons. If they are not done, they will continue to select orders; if they have selected the orders that they want, the next step will commence.
+
+5. The user will click on the "Delete" button towards the bottom of the page, which will have different text to accomondate for more than one order.
+
+6. A confirmation dialog will pop, again with different text, And the user is given a "yes" button and a "no" button. If the user selects "No", then the dialog will disappear. Notably, the orders will remain selected after "No" is chosen, as it would be annoying for the user to have to re-select every order if they selected the wrong option. If the user selects "Yes", however, the selected orders are removed from the database.
+
+7. A confirmation dialog will pop, informing the user that the deletion was successful.
+
+
+![Batch Userflow](UIUX-Group-Batch-Wireframe.png)
