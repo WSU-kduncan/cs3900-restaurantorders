@@ -3,7 +3,13 @@
 ## Landing / main application page
 ![Landing Page](UIUX-Group-Landing-Wireframe.png)
 
-The program will open to a graphical user interface with a screen meant to resemble a restaurant floor. There will be circular icons which represent tables and orders and some action buttons along the bottom to go into different menus. There is also an option to place boxes to represent other areas of the building; these are not functional and are only visuals that help to orient the table graphics to match the layout. There are 3 buttons along the bottom: View Orders, Create Order, and Edit Layout. View Orders will load a secondary page that displays orders in a list and allows some modifications. "Create Order" will bring the user to the View Orders page and automatically direct them to the "Add Order" page; this just acts as a quick shortcut. "Edit Layout" will provide a very basic editor for the graphical layout that allows the user to create, delete, or move tables or the "generic area" boxes.
+1. The program will open to a graphical user interface with a screen meant to resemble a restaurant floor. There will be circular icons which represent tables placed in a grid-like fashion, and orders and some action buttons along the bottom to go into different menus. From here, the user can select any option.
+
+2. Next to the last table will be a circle with a large "+" in it. When clicked, this will add a table to the landing page.
+
+3. Clicking "View Orders" will load a secondary page that displays orders in a list and allows some modifications.
+
+4. "Create Order" will bring the user to the View Orders page and automatically direct them to the "Add Order" page; this just acts as a quick shortcut.
 
 ![Landing Page](UIUX-Group-Landing-Userflow.png)
 
