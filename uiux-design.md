@@ -52,14 +52,16 @@ The application behaves as follows:
 ![Create Wireframe](https://raw.githubusercontent.com/WSU-kduncan/cs3900-restaurantorders/refs/heads/main/OrderMaster_Create_Wireframe.png)
 
 ## Update
-![UpdateFlow](https://github.com/haunspaw/test/blob/main/UpdateFlow.png)
+![UpdateFlow](https://github.com/WSU-kduncan/cs3900-restaurantorders/blob/main/UpdateFlow.png)
 User Flow Description of Behavior The application behavior is as follows:
 
 - The user opens the application
 - The user selects a table that has an order
 - The user will then change the neccesary information
 - When the user is satisfied with the changes they then will click save
-* wireframe that reflects understanding of Jakob's Ten Usability Heuristics and Gestalt Principles
+
+![UpdateWireFrame](https://github.com/WSU-kduncan/cs3900-restaurantorders/blob/main/UpdateWireFrame.png)
+
 
 ## Delete (Optional)
 
