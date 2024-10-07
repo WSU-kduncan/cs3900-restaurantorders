@@ -1,9 +1,11 @@
 # UI / UX - Group Project Additions
 
 ## Landing / main application page
-* user flow
-* user flow description of behavior
-* wireframe that reflects understanding of Jakob's Ten Usability Heuristics and Gestalt Principles
+![Landing Page](UIUX-Group-Landing-Userflow.png)
+
+The program will open to a graphical user interface with a screen meant to resemble a restaurant floor. There will be circular icons which represent tables and orders and some action buttons along the bottom to go into different menus. There is also an option to place boxes to represent other areas of the building; these are not functional and are only visuals that help to orient the table graphics to match the layout. There are 3 buttons along the bottom: View Orders, Create Order, and Edit Layout. View Orders will load a secondary page that displays orders in a list and allows some modifications. "Create Order" will bring the user to the View Orders page and automatically direct them to the "Add Order" page; this just acts as a quick shortcut. "Edit Layout" will provide a very basic editor for the graphical layout that allows the user to create, delete, or move tables or the "generic area" boxes.
+
+![Landing Page](UIUX-Group-Landing-Userflow.png)
 
 ## Search
 * ![WireFrame Search](https://github.com/WSU-kduncan/cs3900-restaurantorders/blob/main/WireFrame%20Search.png)
