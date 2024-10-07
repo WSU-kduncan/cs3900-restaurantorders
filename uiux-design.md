@@ -11,6 +11,7 @@
 * user flow description of behavior
 * wireframe that reflects understanding of Jakob's Ten Usability Heuristics and Gestalt Principles
 
+---
 ## Create
 
 ![Create Userflow](https://raw.githubusercontent.com/WSU-kduncan/cs3900-restaurantorders/refs/heads/main/OrderMaster_Create_UserFlow.png)
@@ -21,7 +22,7 @@ The application behaves as follows:
 * The user is prompted to select a table, the table selected must be available
 * The user is directed to enter the information about the order
 * The user is then asked to confirm they would like to save the order
-
+---
 1. **Start**
 
     The user begins at the home page, where they see a simple layout of the restaurant.
