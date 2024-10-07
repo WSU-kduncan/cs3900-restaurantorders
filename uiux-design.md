@@ -6,8 +6,8 @@
 * wireframe that reflects understanding of Jakob's Ten Usability Heuristics and Gestalt Principles
 
 ## Search
-*  WireFrame Search.png
-* User Flow Search.png
+* ![WireFrame Search](https://github.com/WSU-kduncan/cs3900-restaurantorders/blob/main/WireFrame%20Search.png)
+* ![User Flow Search](https://github.com/WSU-kduncan/cs3900-restaurantorders/blob/main/User%20Flow%20Search.png)
 * user flow description of behavior
 * wireframe that reflects understanding of Jakob's Ten Usability Heuristics and Gestalt Principles
 
