@@ -8,10 +8,8 @@ The program will open to a graphical user interface with a screen meant to resem
 ![Landing Page](UIUX-Group-Landing-Userflow.png)
 
 ## Search
-* ![WireFrame Search](https://github.com/WSU-kduncan/cs3900-restaurantorders/blob/main/WireFrame%20Search.png)
-* ![User Flow Search](https://github.com/WSU-kduncan/cs3900-restaurantorders/blob/main/User%20Flow%20Search.png)
-* user flow description of behavior
-* wireframe that reflects understanding of Jakob's Ten Usability Heuristics and Gestalt Principles
+
+![User Flow Search](https://github.com/WSU-kduncan/cs3900-restaurantorders/blob/main/User%20Flow%20Search.png)
 
 1. **Start**
 
@@ -27,7 +25,9 @@ The program will open to a graphical user interface with a screen meant to resem
 
 4. **Select View Order**
 
-    The user will be shown a list or current orders and there statuses 
+    The user will be shown a list or current orders and there statuses
+
+![WireFrame Search](https://raw.githubusercontent.com/WSU-kduncan/cs3900-restaurantorders/refs/heads/main/OrderMaster_SEARCH_Wireframe.png)
 
 ---
 ## Create
