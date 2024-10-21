@@ -1,0 +1,822 @@
+openapi: 3.0.3
+info:
+  title: ordermaster
+  version: 1.0.0
+  contact: {}
+servers:
+  - url: 'http://localhost:8080/ordermaster'
+paths:
+  /servers:
+    get:
+      tags:
+        - Servers
+      summary: Get Servers
+      description: Get Servers
+      operationId: getServers
+      parameters:
+        - name: search
+          in: query
+          schema:
+            type: string
+          description: >-
+            It's an optional and allow to search by server firstName,
+            lastName, availability
+        - name: page
+          in: query
+          schema:
+            type: string
+          description: It's optional (default value is 1)
+        - name: rpp
+          in: query
+          schema:
+            type: string
+          description: results per page is optional (default value is 10)
+        - name: sortOrder
+          in: query
+          schema:
+            type: string
+          description: sortOrder is an optional (default value is desc)
+        - name: sortField
+          in: query
+          schema:
+            type: string
+          description: sortField is an optional (default value is dateLastUpdated)
+      responses:
+        '200':
+          description: Success Response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        server_id:
+                          type: number
+                        firstName:
+                          type: string
+                        lastName:
+                          type: string
+                        availbility:
+                          type: string
+                  meta:
+                    type: object
+                    properties:
+                      message:
+                        type: string
+                      pageCount:
+                        type: number
+                      resultCount:
+                        type: number
+    post:
+      tags:
+        - Servers
+      summary: Add Server
+      description: Add Server
+      operationId: addServer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                firstName:
+                  type: string
+                lastName:
+                  type: string
+                availbility:
+                  type: string
+      responses:
+        '200':
+          description: Success Response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      server_id:
+                        type: number
+                      firstName:
+                        type: string
+                      lastName:
+                        type: string
+                      availbility:
+                        type: string
+                  meta:
+                    type: object
+                    properties:
+                      message:
+                        type: string
+  /servers/{server_id}:
+    put:
+      parameters:
+        - name: server_id
+          in: path
+          required: true
+          schema:
+            type: integer
+      tags:
+        - Servers
+      summary: Update Server
+      description: Update Server
+      operationId: updateServer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                server_id:
+                  type: number
+                firstName:
+                  type: string
+                lastName:
+                  type: string
+                availbility:
+                  type: string
+      responses:
+        '200':
+          description: Success Response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      server_id:
+                        type: number
+                      firstName:
+                        type: string
+                      lastName:
+                        type: string
+                      availbility:
+                        type: string
+                  meta:
+                    type: object
+                    properties:
+                      message:
+                        type: string
+    delete:
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      tags:
+        - Servers
+      summary: Delete Server
+      description: Delete Server
+      operationId: deleteServer
+      responses:
+        '200':
+          description: Success Response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    nullable: true
+                  meta:
+                    type: object
+                    properties:
+                      message:
+                        type: string
+  /menu_items:
+    get:
+      tags:
+        - Menu_Items
+      summary: Get Menu_Items
+      description: Get Menu_Items
+      operationId: getMenu_Items
+      parameters:
+        - name: search
+          in: query
+          schema:
+            type: string
+          description: >-
+            It's an optional and allow typeahead search by item_id, item_name and unit_price
+        - name: page
+          in: query
+          schema:
+            type: string
+          description: It's optional (default value is 1)
+        - name: rpp
+          in: query
+          schema:
+            type: string
+          description: results per page is optional (default value is 10)
+        - name: sortOrder
+          in: query
+          schema:
+            type: string
+          description: sortOrder is an optional (default value is desc)
+        - name: sortField
+          in: query
+          schema:
+            type: string
+          description: sortField is an optional (default value is technician code)
+      responses:
+        '200':
+          description: Success Response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        item_id:
+                          type: number
+                        item_name:
+                          type: string
+                        unit_price:
+                          type: number
+                  meta:
+                    type: object
+                    properties:
+                      message:
+                        type: string
+                      pageCount:
+                        type: number
+                      resultCount:
+                        type: number
+    post:
+      tags:
+        - Menu_Items
+      summary: Add Menu_Item
+      description: Add Menu_Item
+      operationId: addMenu_Item
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                item_id:
+                  type: number
+                item_name:
+                  type: string
+                unit_price:
+                  type: number 
+      responses:
+        '201':
+          description: Success Response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                        item_id:
+                          type: number
+                        item_name:
+                          type: string
+                        unit_price:
+                          type: number 
+                  meta:
+                    type: object
+                    properties:
+                      message:
+                        type: string
+  /menu_items/{item_id}:
+    put:
+      parameters:
+        - name: item_id
+          in: path
+          required: true
+          schema:
+            type: string
+      tags:
+        - Menu_Items
+      summary: Update Menu_Item
+      description: Update Menu_Item
+      operationId: updateMenu_Item
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                item_id:
+                  type: number
+                capacity:
+                  type: number   
+      responses:
+        '200':
+          description: Success Response / Success Response - when remove state
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                        item_id:
+                          type: number
+                        item_name:
+                          type: string
+                        unit_price:
+                          type: number
+                  meta:
+                    type: object
+                    properties:
+                      message:
+                        type: string
+    delete:
+      parameters:
+        - name: item_id
+          in: path
+          required: true
+          schema:
+            type: string
+      tags:
+        - Menu_Items
+      summary: Delete Menu_Item
+      description: Delete Menu_Item
+      operationId: deleteMenu_Item
+      responses:
+        '200':
+          description: Success Response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    nullable: true
+                  meta:
+                    type: object
+                    properties:
+                      message:
+                        type: string
+  /tables:
+    get:
+      tags:
+        - Tables
+      summary: Get Tables
+      description: Get Tables
+      operationId: getTables
+      parameters:
+        - name: search
+          in: query
+          schema:
+            type: string
+          description: It's an optional and allow typeahead search by table_id and capacity
+      responses:
+        '200':
+          description: Success Response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        table_id:
+                          type: number
+                        capacity:
+                          type: number
+                  meta:
+                    type: object
+                    properties:
+                      message:
+                        type: string
+  /order_details:
+    get:
+      tags:
+        - Order_details
+      summary: Get Order_details
+      description: Get Order_details
+      operationId: getOrder_details
+      parameters:
+        - name: search
+          in: query
+          schema:
+            type: string
+          description: >-
+            It's an optional and allow to search by quantity and total_price
+        - name: page
+          in: query
+          schema:
+            type: string
+          description: It's optional (default value is 1)
+        - name: rpp
+          in: query
+          schema:
+            type: string
+          description: results per page is optional (default value is 10)
+        - name: sortOrder
+          in: query
+          schema:
+            type: string
+          description: sortOrder is an optional (default value is desc)
+        - name: sortField
+          in: query
+          schema:
+            type: string
+          description: sortField is an optional (default value is dateLastUpdated)
+      responses:
+        '200':
+          description: Success Response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        quantity:
+                          type: number
+                        total_price:
+                          type: number
+                  meta:
+                    type: object
+                    properties:
+                      message:
+                        type: string
+                      pageCount:
+                        type: number
+                      resultCount:
+                        type: number
+    post:
+      tags:
+        - Order_details
+      summary: Add Order_details
+      description: Add Order_details
+      operationId: addOrder_details
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                quantity:
+                  type: number
+                total_price:
+                  type: number
+      responses:
+        '200':
+          description: Success Response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      quantity:
+                        type: number
+                      total_price:
+                        type: number
+                  meta:
+                    type: object
+                    properties:
+                      message:
+                        type: string
+  /order_details/{order_id}:
+    put:
+      parameters:
+        - name: order_id
+          in: path
+          required: true
+          schema:
+            type: integer
+      tags:
+        - Order_details
+      summary: Update Order_details
+      description: Update Order_detail
+      operationId: updateOrder_detail
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                quantity:
+                  type: number
+                total_price:
+                  type: number
+      responses:
+        '200':
+          description: Success Response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      quantity:
+                        type: number
+                      total_price:
+                        type: number
+                  meta:
+                    type: object
+                    properties:
+                      message:
+                        type: string
+    delete:
+      parameters:
+        - name: order_id
+          in: path
+          required: true
+          schema:
+            type: integer
+      tags:
+        - Order_details
+      summary: Delete Order_details
+      description: Delete Order_details
+      operationId: deleteOrder_details
+      responses:
+        '200':
+          description: Success Response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    nullable: true
+                  meta:
+                    type: object
+                    properties:
+                      message:
+                        type: string
+  /food_orders:
+    get:
+      tags:
+        - Food_orders
+      summary: Get Food_orders
+      description: Get Food_orders
+      operationId: getFood_orders
+      parameters:
+        - name: date
+          in: query
+          schema:
+            type: string
+        - name: time_ordered
+          in: query
+          schema:
+            type: string
+        - name: food_orderstatus
+          in: query
+          schema:
+            type: string
+        - name: time-completed
+          in: query
+          schema:
+            type: string
+        - name: special_instructions
+          in: query
+          schema:
+            type: string
+        - name: page
+          in: query
+          schema:
+            type: string
+        - name: rpp
+          in: query
+          schema:
+            type: string
+        - name: sortOrder
+          in: query
+          schema:
+            type: string
+        - name: sortField
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: SuccessResponse
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        order_id:
+                          type: number
+                        date:
+                          type: string
+                        time_ordered:
+                          type: string
+                        time_completed:
+                          type: string
+                        status:
+                          type: string
+                        special_instructions:
+                          type: string
+                        server_id:
+                          type: number
+                        table_id:
+                          type: number
+                  meta:
+                    type: object
+                    properties:
+                      message:
+                        type: string
+                      pageCount:
+                        type: number
+                      resultCount:
+                        type: number
+  /food_orders/{FOOD_ORDER_NUMBER}:
+    get:
+      tags:
+        - food_orders
+      summary: Get Food_Order Details
+      description: Get Food_Order Details
+      operationId: getFood_OrderDetails
+      responses:
+        '200':
+          description: Success Response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                        order_id:
+                          type: number
+                        date:
+                          type: string
+                        time_ordered:
+                          type: string
+                        time_completed:
+                          type: string
+                        status:
+                          type: string
+                        special_instructions:
+                          type: string
+                        server_id:
+                          type: number
+                        table_id:
+                          type: number
+                  meta:
+                    type: object
+                    properties:
+                      message:
+                        type: string
+    put:
+      tags:
+        - food_orders
+      summary: Update Food_Order
+      description: Update Food_Order
+      operationId: updateFood_Order
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                order_id:
+                  type: number
+                date:
+                  type: string
+                time_ordered:
+                  type: string
+                time_completed:
+                  type: string
+                status:
+                  type: string
+                special_instructions:
+                  type: string
+                server_id:
+                  type: number
+                table_id:
+                  type: number
+      responses:
+        '200':
+          description: Success Response / Remove Line Item / Add Line Item
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      order_id:
+                        type: number
+                      date:
+                        type: string
+                      time_ordered:
+                        type: string
+                      time_completed:
+                        type: string
+                      status:
+                        type: string
+                      special_instructions:
+                        type: string
+                      server_id:
+                        type: number
+                      table_id:
+                        type: number
+                  meta:
+                    type: object
+                    properties:
+                      message:
+                        type: string
+    parameters:
+      - name: FOOD_ORDER_NUMBER
+        in: path
+        required: true
+        schema:
+          type: string
+  /food_orders:
+    post:
+      tags:
+        - food_orders
+      summary: Add Food_Order
+      description: Add Food_Order
+      operationId: addFood_Order
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                order_id:
+                  type: number
+                date:
+                  type: string
+                time_ordered:
+                  type: string
+                time_completed:
+                  type: string
+                status:
+                  type: string
+                special_instructions:
+                  type: string
+                server_id:
+                  type: number
+                table_id:
+                  type: number
+      responses:
+        '201':
+          description: Success Response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      order_id:
+                        type: number
+                      date:
+                        type: string
+                      time_ordered:
+                        type: string
+                      time_completed:
+                        type: string
+                      status:
+                        type: string
+                      special_instructions:
+                        type: string
+                      server_id:
+                        type: number
+                      table_id:
+                        type: number
+                  meta:
+                    type: object
+                    properties:
+                      message:
+                        type: string
+tags:
+  - name: Servers
+  - name: Menu_Items
+  - name: Tables
+  - name: Order_details
+  - name: Food_orders
