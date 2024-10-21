@@ -11,10 +11,10 @@ PUT /customers/{id}:
 	Edit a customers ID
 
 
-Delete /customers/{id}:
+DELETE /customers/{id}:
 	Delete Customer ID
 
-Delete /customers/:
+DELETE /customers/:
 Delete customer
 
 
@@ -29,7 +29,7 @@ POST /Server
 PUT /server/{serverid}
   Update server id
 
-Delete /server/{serverid}:
+DELETE /server/{serverid}:
 Delete Server id
 
 
