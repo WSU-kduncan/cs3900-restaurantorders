@@ -7,12 +7,12 @@ servers:
   - url: 'http://localhost:8080/ordermaster-service'
 paths:
   #Getting and adding orders
-  /food-orders:
+  /food_orders:
     get:
       tags:
         - food_orders
       summary: Get Orders
-      description: Get orders from customers
+      description: Get orders
       operationId: getOrders
       parameters:
         - name: search
@@ -20,22 +20,22 @@ paths:
           schema:
             type: string
           description: >-
-            search by order type
+            search by order attribute
         - name: page
           in: query
           schema:
             type: string
-          description: default value of 1 
+          description: It's optional (default value is 1)
         - name: rpp
           in: query
           schema:
             type: string
-          description: optional (default value is 10)
+          description: results per page is optional (default value is 10)
         - name: sortOrder
           in: query
           schema:
             type: string
-          description: sortOrder but original value of order_id
+          description: sortOrder is an optional (default value is order_id)
         - name: sortField
           in: query
           schema:
@@ -137,7 +137,7 @@ paths:
                       message:
                         type: string
   #manipulating individual orders (update and delete)
-  /orders/{id}:
+  /food_orders/{id}:
     put:
       parameters:
         - name: id
@@ -229,21 +229,21 @@ paths:
                     properties:
                       message:
                         type: string
-  /technicians:
+  #getting order details
+  /order_details:
     get:
       tags:
-        - Technicians
-      summary: Get Technicians
-      description: Get Technicians
-      operationId: getTechnicians
+        - order_details
+      summary: Get Order Details
+      description: Get order details
+      operationId: getOrderDetails
       parameters:
         - name: search
           in: query
           schema:
             type: string
           description: >-
-            It's an optional and allow to typeahead search by technician
-            firstName, lastName, code, state, WorkOrder status, type
+            It's an optional and allow to typeahead search by order detail
         - name: page
           in: query
           schema:
@@ -258,12 +258,12 @@ paths:
           in: query
           schema:
             type: string
-          description: sortOrder is an optional (default value is desc)
+          description: sortOrder is an optional (default value is item_id)
         - name: sortField
           in: query
           schema:
             type: string
-          description: sortField is an optional (default value is technician code)
+          description: sortField is an optional (default value is order_id)
       responses:
         '200':
           description: Success Response
@@ -279,20 +279,14 @@ paths:
                       properties:
                         code:
                           type: string
-                        firstName:
-                          type: string
-                        lastName:
-                          type: string
-                        latestWorkOrderStatus:
-                          type: string
-                        type:
-                          type: string
-                        workPermits:
-                          items:
-                            type: object 
-                            properties:
-                              code:
-                                type: string
+                        order_id:
+                          type: number
+                        item_id:
+                          type: number
+                        quantity:
+                          type: number
+                        total_price:
+                          type: number
                   meta:
                     type: object
                     properties:
@@ -304,31 +298,24 @@ paths:
                         type: number
     post:
       tags:
-        - Technicians
-      summary: Add Technician
-      description: Add Technician
-      operationId: addTechnician
+        - order_details
+      summary: Add order detail
+      description: Add order detail
+      operationId: addOrderDetail
       requestBody:
         content:
           application/json:
             schema:
               type: object
               properties:
-                code:
-                  type: string
-                firstName:
-                  type: string
-                lastName:
-                  type: string
-                type:
-                  type: string
-                workPermits:
-                  type: array
-                  items:
-                    type: object
-                    properties:
-                      code:
-                        type: string
+                order_id:
+                  type: number
+                item_id:
+                  type: number
+                quantity:
+                  type: number
+                total_price:
+                  type: number
       responses:
         '201':
           description: Success Response
@@ -340,60 +327,42 @@ paths:
                   data:
                     type: object
                     properties:
-                      code:
-                        type: string
-                      firstName:
-                        type: string
-                      lastName:
-                        type: string
-                      type:
-                        type: string
-                      workPermits:
-                        type: array
-                        items:
-                          type: object
-                          properties:
-                            code:
-                              type: string
-                            name:
-                              type: string
-                  meta:
-                    type: object
-                    properties:
-                      message:
-                        type: string
-  /technicians/{technicianCode}:
+                      order_id:
+                        type: number
+                      item_id:
+                        type: number
+                      quantity:
+                        type: number
+                      total_price:
+                        type: number
+  #update/delete orders
+  /order_details/{orderDetail}:
     put:
       parameters:
-        - name: technicianCode
+        - name: orderDetail
           in: path
           required: true
           schema:
             type: string
       tags:
-        - Technicians
-      summary: Update Technician
-      description: Update Technician
-      operationId: updateTechnician
+        - order_details
+      summary: Update order details
+      description: Update order details
+      operationId: updateOrderDetails
       requestBody:
         content:
           application/json:
             schema:
               type: object
               properties:
-                firstName:
-                  type: string
-                lastName:
-                  type: string
-                type:
-                  type: string
-                workPermits:
-                  type: array
-                  items:
-                    type: object
-                    properties:
-                      code:
-                        type: string
+                order_id:
+                  type: number
+                item_id:
+                  type: number
+                quantity:
+                  type: number
+                total_price:
+                  type: number
       responses:
         '200':
           description: Success Response / Success Response - when remove state
@@ -402,26 +371,14 @@ paths:
               schema:
                 type: object
                 properties:
-                  data:
-                    type: object
-                    properties:
-                      code:
-                        type: string
-                      firstName:
-                        type: string
-                      lastName:
-                        type: string
-                      type:
-                        type: string
-                      workPermits:
-                        type: array
-                        items:
-                          type: object
-                          properties:
-                            code:
-                              type: string
-                            name:
-                              type: string
+                  order_id:
+                    type: number
+                  item_id:
+                    type: number
+                  quantity:
+                    type: number
+                  total_price:
+                    type: number
                   meta:
                     type: object
                     properties:
@@ -429,16 +386,16 @@ paths:
                         type: string
     delete:
       parameters:
-        - name: technicianCode
+        - name: orderDetail
           in: path
           required: true
           schema:
             type: string
       tags:
-        - Technicians
-      summary: Delete Technician
-      description: Delete Technician
-      operationId: deleteTechnician
+        - order_details
+      summary: Delete order detail
+      description: Delete order detail
+      operationId: deleteOrderDetail
       responses:
         '200':
           description: Success Response
@@ -454,13 +411,14 @@ paths:
                     properties:
                       message:
                         type: string
-  /states:
+  #get tables
+  /tables:
     get:
       tags:
-        - States
-      summary: Get States
-      description: Get States
-      operationId: getStates
+        - tables
+      summary: Get tables
+      description: Get tables
+      operationId: getTables
       parameters:
         - name: search
           in: query
@@ -480,318 +438,31 @@ paths:
                     items:
                       type: object
                       properties:
-                        code:
-                          type: string
-                        name:
-                          type: string
-                  meta:
-                    type: object
-                    properties:
-                      message:
-                        type: string
-  /products:
-    get:
-      tags:
-        - Products
-      summary: Get Products
-      description: Get Products
-      operationId: getProducts
-      parameters:
-        - name: isActive
-          in: query
-          schema:
-            type: string
-          description: It's optional and used to filter only active products
-      responses:
-        '200':
-          description: Success Response
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  data:
-                    type: array
-                    items:
-                      type: object
-                      properties:
-                        active:
-                          type: boolean
-                        code:
-                          type: string
-                        name:
-                          type: string
-                        typeCode:
-                          type: string
-                        unitCost:
+                        table_id:
                           type: number
-                        universalProductCode:
-                          type: string
-                  meta:
-                    type: object
-                    properties:
-                      message:
-                        type: string
-  /workOrderSummaries:
-    get:
-      tags:
-        - WorkOrders
-      summary: Get Summary
-      description: Get Summary
-      operationId: getSummary
-      parameters:
-        - name: customerLastName
-          in: query
-          schema:
-            type: string
-        - name: technicianLastName
-          in: query
-          schema:
-            type: string
-        - name: workOrderStatus
-          in: query
-          schema:
-            type: string
-        - name: page
-          in: query
-          schema:
-            type: string
-        - name: rpp
-          in: query
-          schema:
-            type: string
-        - name: sortOrder
-          in: query
-          schema:
-            type: string
-        - name: sortField
-          in: query
-          schema:
-            type: string
-      responses:
-        '200':
-          description: SuccessResponse
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  data:
-                    type: array
-                    items:
-                      type: object
-                      properties:
-                        customerFirstName:
-                          type: string
-                        customerLastName:
-                          type: string
-                        dateLastUpdated:
-                          type: string
-                        dateScheduled:
-                          type: string
-                        technicianCode:
-                          type: string
-                        technicianFirstName:
-                          type: string
-                        technicianLastName:
-                          type: string
-                        workOrderNumber:
+                        capacity:
                           type: number
-                        workOrderStatus:
-                          type: string
                   meta:
                     type: object
                     properties:
                       message:
                         type: string
-                      pageCount:
-                        type: number
-                      resultCount:
-                        type: number
-  /workOrders/{WORK_ORDER_NUMBER}:
-    get:
-      tags:
-        - WorkOrders
-      summary: Get WorkOrder Details
-      description: Get WorkOrder Details
-      operationId: getWorkorderDetails
-      responses:
-        '200':
-          description: Success Response
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  data:
-                    type: object
-                    properties:
-                      customerId:
-                        type: number
-                      dateOrdered:
-                        type: string
-                      dateTimeCompleted:
-                        type: string
-                      dateTimeLastUpdated:
-                        type: string
-                      dateTimeScheduled:
-                        type: string
-                      lineItems:
-                        type: array
-                        items:
-                          type: object
-                          properties:
-                            quantity:
-                              type: number
-                            skuCode:
-                              type: string
-                            tax:
-                              type: number
-                            taxable:
-                              type: boolean
-                            unitCost:
-                              type: number
-                            workOrderNumber:
-                              type: number
-                      statusCode:
-                        type: string
-                      technicianCode:
-                        type: string
-                      workOrderNumber:
-                        type: number
-                  meta:
-                    type: object
-                    properties:
-                      message:
-                        type: string
-    put:
-      tags:
-        - WorkOrders
-      summary: Update WorkOrder
-      description: Update WorkOrder
-      operationId: updateWorkorder
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                customerId:
-                  type: number
-                dateOrdered:
-                  type: string
-                dateTimeCompleted:
-                  type: string
-                lineItems:
-                  type: array
-                  items:
-                    type: object
-                    properties:
-                      quantity:
-                        type: number
-                      skuCode:
-                        type: string
-                      tax:
-                        type: number
-                      taxable:
-                        type: boolean
-                      unitCost:
-                        type: number
-                statusCode:
-                  type: string
-                technicianCode:
-                  type: string
-      responses:
-        '200':
-          description: Success Response / Remove Line Item / Add Line Item
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  data:
-                    type: object
-                    properties:
-                      customerId:
-                        type: number
-                      dateOrdered:
-                        type: string
-                      dateTimeCompleted:
-                        type: string
-                      dateTimeLastUpdated:
-                        type: string
-                      dateTimeScheduled:
-                        nullable: true
-                      lineItems:
-                        type: array
-                        items:
-                          type: object
-                          properties:
-                            quantity:
-                              type: number
-                            skuCode:
-                              type: string
-                            tax:
-                              type: number
-                            taxable:
-                              type: boolean
-                            unitCost:
-                              type: number
-                            workOrderNumber:
-                              type: number
-                      statusCode:
-                        type: string
-                      technicianCode:
-                        type: string
-                      workOrderNumber:
-                        type: number
-                  meta:
-                    type: object
-                    properties:
-                      message:
-                        type: string
-    parameters:
-      - name: WORK_ORDER_NUMBER
-        in: path
-        required: true
-        schema:
-          type: string
-  /workOrders:
     post:
       tags:
-        - WorkOrders
-      summary: Add WorkOrder
-      description: Add WorkOrder
-      operationId: addWorkorder
+        - tables
+      summary: Add tables
+      description: Add tables
+      operationId: addTables
       requestBody:
         content:
           application/json:
             schema:
               type: object
               properties:
-                customerId:
+                table_id:
                   type: number
-                dateOrdered:
-                  type: string
-                lineItems:
-                  type: array
-                  items:
-                    type: object
-                    properties:
-                      quantity:
-                        type: number
-                      skuCode:
-                        type: string
-                      tax:
-                        type: number
-                      taxable:
-                        type: boolean
-                      unitCost:
-                        type: number
-                statusCode:
-                  type: string
-                technicianCode:
-                  type: string
+                capacity:
+                  type: number
       responses:
         '201':
           description: Success Response
@@ -803,47 +474,354 @@ paths:
                   data:
                     type: object
                     properties:
-                      customerId:
+                      table_id:
                         type: number
-                      dateOrdered:
-                        type: string
-                      dateTimeCompleted:
-                        nullable: true
-                      dateTimeLastUpdated:
-                        nullable: true
-                      dateTimeScheduled:
-                        nullable: true
-                      lineItems:
-                        type: array
-                        items:
-                          type: object
-                          properties:
-                            quantity:
-                              type: number
-                            skuCode:
-                              type: string
-                            tax:
-                              type: number
-                            taxable:
-                              type: boolean
-                            unitCost:
-                              type: number
-                            workOrderNumber:
-                              type: number
-                      statusCode:
-                        type: string
-                      technicianCode:
-                        type: string
-                      workOrderNumber:
+                      capacity:
                         type: number
                   meta:
                     type: object
                     properties:
                       message:
                         type: string
+  /tables/{id}:
+    put:
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      tags:
+        - tables
+      summary: Update tables
+      description: Update tables
+      operationId: updateTables
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                table_id:
+                  type: number
+                capacity:
+                  type: number
+      responses:
+        '200':
+          description: Success Response / Success Response - when remove state
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  table_id:
+                    type: number
+                  capacity:
+                    type: number
+                  meta:
+                    type: object
+                    properties:
+                      message:
+                        type: string
+    delete:
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      tags:
+        - tables
+      summary: Delete table
+      description: Delete table
+      operationId: deleteTable
+      responses:
+        '200':
+          description: Success Response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    nullable: true
+                  meta:
+                    type: object
+                    properties:
+                      message:
+                        type: string
+  /menu_items:
+    get:
+      tags:
+        - menu_items
+      summary: Get menu items
+      description: Get menu items
+      operationId: getMenuItems
+      parameters:
+        - name: isActive
+          in: query
+          schema:
+            type: string
+          description: It's optional and used to filter only active items
+      responses:
+        '200':
+          description: Success Response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        item_id:
+                          type: number
+                        item_name:
+                          type: string
+                        unit_price:
+                          type: number
+                  meta:
+                    type: object
+                    properties:
+                      message:
+                        type: string
+
+    post:
+          tags:
+            - menu_items
+          summary: Add menu items
+          description: Add menu items
+          operationId: add menu items
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    item_id:
+                      type: number
+                    item_name:
+                      type: string
+                    unit_price:
+                      type: number
+          responses:
+            '201':
+              description: Success Response
+              content:
+                application/json:
+                  schema:
+                    type: object
+                    properties:
+                      data:
+                        type: object
+                        properties:
+                          item_id:
+                            type: number
+                          item_name:
+                            type: string
+                          quantity:
+                            type: number
+                      meta:
+                        type: object
+                        properties:
+                          message:
+                            type: string
+  /menu_items/{id}:
+    put:
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      tags:
+        - menu_items
+      summary: Update menu items
+      description: Update menu items
+      operationId: update menu items
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                item_id:
+                  type: number
+                item_name:
+                  type: string
+                unit_price:
+                  type: number
+      responses:
+        '200':
+          description: Success Response / Success Response - when remove state
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  menu_id:
+                    type: number
+                  menu_name:
+                    type: string
+                  unit_price:
+                    type: number
+                  meta:
+                    type: object
+                    properties:
+                      message:
+                        type: string
+    delete:
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      tags:
+        - menu_items
+      summary: Delete menu item
+      description: Delete menu item
+      operationId: deleteMenuItem
+      responses:
+        '200':
+          description: Success Response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    nullable: true
+                  meta:
+                    type: object
+                    properties:
+                      message:
+                        type: string
+  /servers:
+    post:
+      tags:
+        - servers
+      summary: Add servers
+      description: Add servers
+      operationId: addServers
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                server_id:
+                  type: number
+                first_name:
+                  type: string
+                last_name:
+                  type: string
+                availability:
+                    type: string
+      responses:
+        '201':
+          description: Success Response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      server_id:
+                        type: number
+                      first_name:
+                        type: string
+                      last_name:
+                        type: string
+                      availability:
+                        type: string
+                  meta:
+                    type: object
+                    properties:
+                      message:
+                        type: string
+  /servers/{id}:
+    put:
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      tags:
+        - servers
+      summary: Update servers
+      description: Update servers
+      operationId: updateServers
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                server_id:
+                  type: number
+                first_name:
+                  type: string
+                last_name:
+                  type: string
+                availability:
+                  type: string
+      responses:
+        '200':
+          description: Success Response / Success Response - when remove state
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  order_id:
+                    type: number
+                  item_id:
+                    type: number
+                  quantity:
+                    type: number
+                  total_price:
+                    type: number
+                  meta:
+                    type: object
+                    properties:
+                      message:
+                        type: string
+    delete:
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      tags:
+        - servers
+      summary: Delete server
+      description: Delete server
+      operationId: deleteServer
+      responses:
+        '200':
+          description: Success Response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    nullable: true
+                  meta:
+                    type: object
+                    properties:
+                      message:
+                        type: string
 tags:
-  - name: Customers
-  - name: Technicians
-  - name: States
-  - name: Products
-  - name: WorkOrders
+  - name: food_orders
+  - name: order_details
+  - name: menu_items
+  - name: tables
+  - name: servers
