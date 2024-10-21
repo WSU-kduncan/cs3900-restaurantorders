@@ -44,7 +44,6 @@ DELETE:
 ## food_orders
 GET:
     - GET allows the retrieval of information about food orders stored in the database.
-
     - It also allows you to retrieve all food orders based on their id.
     
 POST:
@@ -52,5 +51,4 @@ POST:
 
 PUT:
     - PUT allows the user to update an existing food order in the database.
-
     - It also allows the user to add a new food order by id with checking.
