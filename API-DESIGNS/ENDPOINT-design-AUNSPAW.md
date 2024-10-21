@@ -1,6 +1,6 @@
-## Order Master Endpoint Mapping:
+# Order Master Endpoint Mapping:
 
-# Customer:
+## Customer:
 GET /customers:
 	This will grab the list of customers
 
@@ -18,7 +18,7 @@ Delete /customers/:
 Delete customer
 
 
-# Server:
+## Server:
 GET /Server
 	Get Server list
 
@@ -34,18 +34,18 @@ Delete Server id
 
 
 
-# Table:
+## Table:
 GET /Table:
 Get list of tables
 
 
-# Products:
+## Products:
 GET /products:
 Gets list of products
 
 
 
-# Orders:
+## Orders:
 GET /orderSummaries:
 Get order summaries
 
