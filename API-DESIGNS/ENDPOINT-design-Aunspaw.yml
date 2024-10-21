@@ -1,10 +1,10 @@
 openapi: 3.0.3
 info:
-  title: work-order-pro-service Copy
+  title: order-master
   version: 1.0.0
   contact: {}
 servers:
-  - url: 'http://localhost:8080/work-order-pro-service'
+  - url: 'http://localhost:8080/order-master'
 paths:
   /customers:
     get:
@@ -20,7 +20,7 @@ paths:
             type: string
           description: >-
             It's an optional and allow to search by customer firstName,
-            lastName, city, state, WorkOrder status
+            lastName, server, table, Order status
         - name: page
           in: query
           schema:
