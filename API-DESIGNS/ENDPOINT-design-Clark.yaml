@@ -20,8 +20,7 @@ paths:
           schema:
             type: string
           description: >-
-            It's an optional and allow to search by customer firstName,
-            lastName, city, state, WorkOrder status
+            search by order attribute
         - name: page
           in: query
           schema:
@@ -36,12 +35,12 @@ paths:
           in: query
           schema:
             type: string
-          description: sortOrder is an optional (default value is desc)
+          description: sortOrder is an optional (default value is order_id)
         - name: sortField
           in: query
           schema:
             type: string
-          description: sortField is an optional (default value is dateLastUpdated)
+          description: sortField is an optional (default value is time_ordered)
       responses:
         '200':
           description: Success Response
@@ -116,31 +115,29 @@ paths:
               schema:
                 type: object
                 properties:
-                  data:
-                    type: object
-                    properties:
-                      order_id:
-                        type: number
-                      server_id:
-                        type: number
-                      table_id:
-                        type: number
-                      date:
-                        type: string
-                      time_ordered:
-                        type: string
-                      time_completed:
-                        type: string
-                      status:
-                        type: string
-                      special_instructions:
-                        type: string
+                  order_id:
+                    type: number
+                  server_id:
+                    type: number
+                  table_id:
+                    type: number
+                  date:
+                    type: string
+                  time_ordered:
+                    type: string
+                  time_completed:
+                    type: string
+                  status:
+                    type: string
+                  special_instructions:
+                    type: string
                   meta:
                     type: object
                     properties:
                       message:
                         type: string
-  /customers/{id}:
+  #manipulating individual orders (update and delete)
+  /orders/{id}:
     put:
       parameters:
         - name: id
@@ -149,33 +146,31 @@ paths:
           schema:
             type: integer
       tags:
-        - Customers
-      summary: Update Customer
-      description: Update Customer
-      operationId: updateCustomer
+        - food_orders
+      summary: Update order
+      description: Update order
+      operationId: updateOrder
       requestBody:
         content:
           application/json:
             schema:
               type: object
               properties:
-                addressLine1:
+                order_id:
+                  type: number
+                server_id:
+                  type: number
+                table_id:
+                  type: number
+                date:
                   type: string
-                addressLine2:
+                time_ordered:
                   type: string
-                city:
+                time_completed:
                   type: string
-                email:
+                status:
                   type: string
-                firstName:
-                  type: string
-                lastName:
-                  type: string
-                phone:
-                  type: string
-                state:
-                  type: string
-                zip:
+                special_instructions:
                   type: string
       responses:
         '200':
@@ -185,34 +180,28 @@ paths:
               schema:
                 type: object
                 properties:
-                  data:
-                    type: object
-                    properties:
-                      addressLine1:
-                        type: string
-                      addressLine2:
-                        type: string
-                      city:
-                        type: string
-                      email:
-                        type: string
-                      firstName:
-                        type: string
-                      id:
-                        type: number
-                      lastName:
-                        type: string
-                      phoneNumber:
-                        type: string
-                      state:
-                        type: string
-                      zip:
-                        type: string
+                  order_id:
+                    type: number
+                  server_id:
+                    type: number
+                  table_id:
+                    type: number
+                  date:
+                    type: string
+                  time_ordered:
+                    type: string
+                  time_completed:
+                    type: string
+                  status:
+                    type: string
+                  special_instructions:
+                    type: string
                   meta:
                     type: object
                     properties:
                       message:
                         type: string
+                    
     delete:
       parameters:
         - name: id
@@ -221,10 +210,10 @@ paths:
           schema:
             type: integer
       tags:
-        - Customers
-      summary: Delete Customer
-      description: Delete Customer
-      operationId: deleteCustomer
+        - food_orders
+      summary: Delete order
+      description: Delete order
+      operationId: deleteOrder
       responses:
         '200':
           description: Success Response
