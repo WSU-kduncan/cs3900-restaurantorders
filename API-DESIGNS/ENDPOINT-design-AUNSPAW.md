@@ -38,7 +38,7 @@ Delete /customers/:
 Delete customer
 
 
-# Table
+# Table:
 GET /Table:
 Get list of tables
 
