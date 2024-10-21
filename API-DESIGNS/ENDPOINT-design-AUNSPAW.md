@@ -27,7 +27,7 @@ PUT /server/{serverid}
   Update server id
 
 
-# DELETE:
+# Delete:
 Delete /server/{serverid}:
 Delete Server id
 
