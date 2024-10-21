@@ -1,219 +1,252 @@
 openapi: 3.0.3
 info:
-  title: ordermaster
+  title: order-master
   version: 1.0.0
   contact: {}
 servers:
-  - url: 'http://localhost:8080/ordermaster-service'
+  - url: 'http://localhost:8080/order-master'  # Base URL for the API
+
 paths:
-  #Getting and adding orders
-  /food-orders:
+  /customers:
     get:
       tags:
-        - food_orders
-      summary: Get Orders
-      description: Get orders from customers
-      operationId: getOrders
+        - Customers
+      summary: Get Customers  # Endpoint to fetch a list of customers
+      description: Get Customers  # A brief description of what this operation does
+      operationId: GetCustomers  # Unique identifier for this operation
       parameters:
         - name: search
-          in: query
+          in: query  # Parameter is sent in the query string
           schema:
             type: string
-          description: >-
-            search by order type
+          description: >
+            It's an optional parameter to search customers by firstName,
+            lastName, server, table, or Order status  # Search criteria description
         - name: page
           in: query
           schema:
             type: string
-          description: default value of 1 
+          description: It's optional, the default value is 1  # Pagination: page number (optional)
         - name: rpp
           in: query
           schema:
             type: string
-          description: optional (default value is 10)
+          description: results per page is optional (default value is 10)  # Pagination: results per page (optional)
         - name: sortOrder
           in: query
           schema:
             type: string
-          description: sortOrder but original value of order_id
+          description: sortOrder is an optional parameter (default value is desc)  # Sorting order (ascending/descending)
         - name: sortField
           in: query
           schema:
             type: string
-          description: sortField is an optional (default value is time_ordered)
+          description: sortField is optional (default is dateLastUpdated)  # Field to sort the results by
       responses:
         '200':
-          description: Success Response
+          description: Success Response  # Description for the 200 success response
           content:
             application/json:
               schema:
                 type: object
                 properties:
                   data:
-                    type: array
+                    type: array  # Response will include an array of customer objects
                     items:
                       type: object
                       properties:
-                        order_id:
-                          type: number
-                        server_id:
-                          type: number
-                        table_id:
-                          type: number
-                        date:
-                          type: string
-                        time_ordered:
-                          type: string
-                        time_completed:
-                          type: string
-                        status:
-                          type: string
-                        special_instructions:
-                          type: string
+                        addressLine1:
+                          type: string  # Customer's address line 1
+                        addressLine2:
+                          type: string  # Customer's address line 2
+                        city:
+                          type: string  # Customer's city
+                        dateAdded:
+                          type: string  # Date the customer was added
+                        dateLastUpdated:
+                          type: string  # Date when customer information was last updated
+                        email:
+                          type: string  # Customer's email address
+                        firstName:
+                          type: string  # Customer's first name
+                        id:
+                          type: number  # Customer's unique ID
+                        lastName:
+                          type: string  # Customer's last name
+                        latestWorkOrderStatus:
+                          type: string  # Latest work order status for the customer
+                        phone:
+                          type: string  # Customer's phone number
+                        state:
+                          type: string  # Customer's state
+                        zip:
+                          type: string  # Customer's zip code
                   meta:
                     type: object
                     properties:
                       message:
-                        type: string
+                        type: string  # Meta message (e.g., success or error details)
                       pageCount:
-                        type: number
+                        type: number  # Total number of pages
                       resultCount:
-                        type: number
+                        type: number  # Total number of results
     post:
       tags:
-        - food_orders
-      summary: Add an Order
-      description: Add order
-      operationId: addOrder
+        - Customers
+      summary: Add Customer  # Endpoint to create a new customer
+      description: Add Customer
+      operationId: addCustomer  # Unique identifier for this operation
       requestBody:
         content:
           application/json:
             schema:
               type: object
               properties:
-                order_id:
-                  type: number
-                server_id:
-                  type: number
-                table_id:
-                  type: number
-                date:
-                  type: string
-                time_ordered:
-                  type: string
-                time_completed:
-                  type: string
-                status:
-                  type: string
-                special_instructions:
-                  type: string
+                addressLine1:
+                  type: string  # Customer's address line 1
+                addressLine2:
+                  type: string  # Customer's address line 2
+                city:
+                  type: string  # Customer's city
+                email:
+                  type: string  # Customer's email
+                firstName:
+                  type: string  # Customer's first name
+                lastName:
+                  type: string  # Customer's last name
+                phone:
+                  type: string  # Customer's phone number
+                state:
+                  type: string  # Customer's state
+                zip:
+                  type: string  # Customer's zip code
       responses:
         '200':
-          description: Success Response
+          description: Success Response  # Response for successful customer creation
           content:
             application/json:
               schema:
                 type: object
                 properties:
-                  order_id:
-                    type: number
-                  server_id:
-                    type: number
-                  table_id:
-                    type: number
-                  date:
-                    type: string
-                  time_ordered:
-                    type: string
-                  time_completed:
-                    type: string
-                  status:
-                    type: string
-                  special_instructions:
-                    type: string
+                  data:
+                    type: object  # Response will contain the created customer data
+                    properties:
+                      addressLine1:
+                        type: string  # Created customer's address line 1
+                      addressLine2:
+                        type: string  # Created customer's address line 2
+                      city:
+                        type: string  # Created customer's city
+                      email:
+                        type: string  # Created customer's email
+                      firstName:
+                        type: string  # Created customer's first name
+                      id:
+                        type: number  # Unique ID of the created customer
+                      lastName:
+                        type: string  # Created customer's last name
+                      phoneNumber:
+                        type: string  # Created customer's phone number
+                      state:
+                        type: string  # Created customer's state
+                      zip:
+                        type: string  # Created customer's zip code
                   meta:
                     type: object
                     properties:
                       message:
-                        type: string
-  #manipulating individual orders (update and delete)
-  /orders/{id}:
+                        type: string  # Meta message (e.g., confirmation)
+  /customers/{id}:
     put:
       parameters:
         - name: id
-          in: path
+          in: path  # Path parameter for customer ID
           required: true
           schema:
-            type: integer
+            type: integer  # Customer ID is an integer
       tags:
-        - food_orders
-      summary: Update order
-      description: Update order
-      operationId: updateOrder
+        - Customers
+      summary: Update Customer  # Endpoint to update customer information
+      description: Update Customer
+      operationId: updateCustomer  # Unique identifier for this operation
       requestBody:
         content:
           application/json:
             schema:
               type: object
               properties:
-                order_id:
-                  type: number
-                server_id:
-                  type: number
-                table_id:
-                  type: number
-                date:
-                  type: string
-                time_ordered:
-                  type: string
-                time_completed:
-                  type: string
-                status:
-                  type: string
-                special_instructions:
-                  type: string
+                addressLine1:
+                  type: string  # Updated address line 1
+                addressLine2:
+                  type: string  # Updated address line 2
+                city:
+                  type: string  # Updated city
+                email:
+                  type: string  # Updated email
+                firstName:
+                  type: string  # Updated first name
+                lastName:
+                  type: string  # Updated last name
+                phone:
+                  type: string  # Updated phone number
+                state:
+                  type: string  # Updated state
+                zip:
+                  type: string  # Updated zip code
       responses:
         '200':
-          description: Success Response
+          description: Success Response  # Response for successful customer update
           content:
             application/json:
               schema:
                 type: object
                 properties:
-                  order_id:
-                    type: number
-                  server_id:
-                    type: number
-                  table_id:
-                    type: number
-                  date:
-                    type: string
-                  time_ordered:
-                    type: string
-                  time_completed:
-                    type: string
-                  status:
-                    type: string
-                  special_instructions:
-                    type: string
+                  data:
+                    type: object  # Updated customer data
+                    properties:
+                      addressLine1:
+                        type: string  # Updated address line 1
+                      addressLine2:
+                        type: string  # Updated address line 2
+                      city:
+                        type: string  # Updated city
+                      email:
+                        type: string  # Updated email
+                      firstName:
+                        type: string  # Updated first name
+                      id:
+                        type: number  # Customer's unique ID
+                      lastName:
+                        type: string  # Updated last name
+                      phoneNumber:
+                        type: string  # Updated phone number
+                      state:
+                        type: string  # Updated state
+                      zip:
+                        type: string  # Updated zip code
                   meta:
                     type: object
                     properties:
                       message:
-                        type: string
-                    
+                        type: string  # Meta message (e.g., confirmation)
     delete:
       parameters:
         - name: id
-          in: path
+          in: path  # Path parameter for customer ID
           required: true
           schema:
-            type: integer
+            type: integer  # Customer ID to delete
       tags:
-        - food_orders
-      summary: Delete order
-      description: Delete order
-      operationId: deleteOrder
+        - Customers
+      summary: Delete Customer  # Endpoint to delete a customer by ID
+      description: Delete Customer
+      operationId: deleteCustomer  # Unique identifier for this operation
+
+      tags:
+        - Customers
+      summary: Delete Customer
+      description: Delete Customer
+      operationId: deleteCustomer
       responses:
         '200':
           description: Success Response
@@ -229,13 +262,13 @@ paths:
                     properties:
                       message:
                         type: string
-  /technicians:
+  /Server:
     get:
       tags:
-        - Technicians
-      summary: Get Technicians
-      description: Get Technicians
-      operationId: getTechnicians
+        - Server
+      summary: Get Server
+      description: Get Server
+      operationId: getServer
       parameters:
         - name: search
           in: query
@@ -263,7 +296,7 @@ paths:
           in: query
           schema:
             type: string
-          description: sortField is an optional (default value is technician code)
+          description: sortField is an optional (default value is server code)
       responses:
         '200':
           description: Success Response
@@ -304,10 +337,10 @@ paths:
                         type: number
     post:
       tags:
-        - Technicians
-      summary: Add Technician
-      description: Add Technician
-      operationId: addTechnician
+        - Server
+      summary: Add Server
+      description: Add Server
+      operationId: addServer
       requestBody:
         content:
           application/json:
@@ -362,19 +395,19 @@ paths:
                     properties:
                       message:
                         type: string
-  /technicians/{technicianCode}:
+  /server/{serverid}:
     put:
       parameters:
-        - name: technicianCode
+        - name: Serverid
           in: path
           required: true
           schema:
             type: string
       tags:
-        - Technicians
-      summary: Update Technician
-      description: Update Technician
-      operationId: updateTechnician
+        - Server
+      summary: Update server
+      description: Update server
+      operationId: updateserver
       requestBody:
         content:
           application/json:
@@ -429,16 +462,16 @@ paths:
                         type: string
     delete:
       parameters:
-        - name: technicianCode
+        - name: serverid
           in: path
           required: true
           schema:
             type: string
       tags:
-        - Technicians
-      summary: Delete Technician
-      description: Delete Technician
-      operationId: deleteTechnician
+        - Server
+      summary: Delete Server
+      description: Delete Server
+      operationId: deleteServer
       responses:
         '200':
           description: Success Response
@@ -454,13 +487,13 @@ paths:
                     properties:
                       message:
                         type: string
-  /states:
+  /Table:
     get:
       tags:
-        - States
-      summary: Get States
-      description: Get States
-      operationId: getStates
+        - Table
+      summary: Get Table
+      description: Get Table
+      operationId: getTable
       parameters:
         - name: search
           in: query
@@ -532,10 +565,10 @@ paths:
                     properties:
                       message:
                         type: string
-  /workOrderSummaries:
+  /orderSummaries:
     get:
       tags:
-        - WorkOrders
+        - Orders
       summary: Get Summary
       description: Get Summary
       operationId: getSummary
@@ -544,11 +577,11 @@ paths:
           in: query
           schema:
             type: string
-        - name: technicianLastName
+        - name: serverLastName
           in: query
           schema:
             type: string
-        - name: workOrderStatus
+        - name: orderStatus
           in: query
           schema:
             type: string
@@ -608,13 +641,13 @@ paths:
                         type: number
                       resultCount:
                         type: number
-  /workOrders/{WORK_ORDER_NUMBER}:
+  /Orders/{ORDER_ID}:
     get:
       tags:
-        - WorkOrders
-      summary: Get WorkOrder Details
-      description: Get WorkOrder Details
-      operationId: getWorkorderDetails
+        - Orders
+      summary: Get Order Details
+      description: Get Order Details
+      operationId: getOrderDetails
       responses:
         '200':
           description: Success Response
@@ -666,10 +699,10 @@ paths:
                         type: string
     put:
       tags:
-        - WorkOrders
-      summary: Update WorkOrder
-      description: Update WorkOrder
-      operationId: updateWorkorder
+        - Orders
+      summary: Update Order
+      description: Update Order
+      operationId: updateOrder
       requestBody:
         content:
           application/json:
@@ -751,18 +784,18 @@ paths:
                       message:
                         type: string
     parameters:
-      - name: WORK_ORDER_NUMBER
+      - name: ORDER_NUMBER
         in: path
         required: true
         schema:
           type: string
-  /workOrders:
+  /Orders:
     post:
       tags:
-        - WorkOrders
-      summary: Add WorkOrder
-      description: Add WorkOrder
-      operationId: addWorkorder
+        - Orders
+      summary: Add Order
+      description: Add Order
+      operationId: addOrder
       requestBody:
         content:
           application/json:
@@ -843,7 +876,7 @@ paths:
                         type: string
 tags:
   - name: Customers
-  - name: Technicians
-  - name: States
+  - name: Server
+  - name: Table
   - name: Products
-  - name: WorkOrders
+  - name: Orders
