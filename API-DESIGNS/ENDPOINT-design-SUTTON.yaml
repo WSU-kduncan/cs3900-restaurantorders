@@ -1,1 +1,332 @@
 
+openapi: 3.0.3
+info:
+  title: Restaurant Orders - Menu Items API
+  version: 1.0.0
+servers:
+  - url: 'http://localhost:8080/restaurant-orders-service'
+paths:
+  /menu_items:
+    get:
+      tags:
+        - Menu_Items
+      summary: Get Menu Items
+      description: Retrieve all menu items in the restaurant
+      operationId: getMenuItems
+      parameters:
+        - name: search
+          in: query
+          schema:
+            type: string
+          description: >-
+            Allows searching by menu item name or category.
+        - name: page
+          in: query
+          schema:
+            type: integer
+          description: Page number (default is 1)
+        - name: rpp
+          in: query
+          schema:
+            type: integer
+          description: Results per page (default is 10)
+        - name: sortOrder
+          in: query
+          schema:
+            type: string
+          description: Sort order (default is 'desc')
+        - name: sortField
+          in: query
+          schema:
+            type: string
+          description: Field to sort by (default is 'dateAdded')
+      responses:
+        '200':
+          description: Success Response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                    name:
+                      type: string
+                    price:
+                      type: number
+                    availability:
+                      type: boolean
+                    category:
+                      type: string
+                    dateAdded:
+                      type: string
+                  meta:
+                    type: object
+                    properties:
+                      message:
+                        type: string
+                      pageCount:
+                        type: integer
+                      resultCount:
+                        type: integer
+    post:
+      tags:
+        - Menu_Items
+      summary: Add Menu Item
+      description: Add a new item to the menu
+      operationId: addMenuItem
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                price:
+                  type: number
+                availability:
+                  type: boolean
+                category:
+                  type: string
+      responses:
+        '201':
+          description: Menu item created successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                      name:
+                        type: string
+                      price:
+                        type: number
+                      availability:
+                        type: boolean
+                      category:
+                        type: string
+                  meta:
+                    type: object
+                    properties:
+                      message:
+                        type: string
+  /menu_items/{id}:
+    put:
+      tags:
+        - Menu_Items
+      summary: Update Menu Item
+      description: Update details of an existing menu item
+      operationId: updateMenuItem
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+          description: ID of the menu item to update
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                price:
+                  type: number
+                availability:
+                  type: boolean
+                category:
+                  type: string
+      responses:
+        '200':
+          description: Menu item updated successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                      name:
+                        type: string
+                      price:
+                        type: number
+                      availability:
+                        type: boolean
+                      category:
+                        type: string
+                  meta:
+                    type: object
+                    properties:
+                      message:
+                        type: string
+    delete:
+      tags:
+        - Menu_Items
+      summary: Delete Menu Item
+      description: Delete a menu item by its ID
+      operationId: deleteMenuItem
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+          description: ID of the menu item to delete
+      responses:
+        '200':
+          description: Menu item deleted successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    nullable: true
+                  meta:
+                    type: object
+                    properties:
+                      message:
+                        type: string
+  /tables:
+    get:
+      tags:
+        - Tables
+      summary: Get Tables
+      description: Retrieve all tables in the restaurant
+      operationId: getTables
+      parameters:
+        - name: search
+          in: query
+          schema:
+            type: string
+          description: >-
+            Allows searching tables by table id or capacity.
+      responses:
+        '200':
+          description: Success Response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    table_id:
+                      type: integer
+                    capacity:
+                      type: integer
+                  meta:
+                    type: object
+                    properties:
+                      message:
+                        type: string
+  /food_orders:
+    get:
+      tags:
+        - Food_orders
+      summary: Get Food Orders
+      description: Retrieve all food orders
+      operationId: getFoodOrders
+      parameters:
+        - name: date
+          in: query
+          schema:
+            type: string
+          description: Optional filter by date
+        - name: status
+          in: query
+          schema:
+            type: string
+          description: Optional filter by order status
+      responses:
+        '200':
+          description: Success Response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    order_id:
+                      type: integer
+                    date:
+                      type: string
+                    status:
+                      type: string
+                    server_id:
+                      type: integer
+                    table_id:
+                      type: integer
+                  meta:
+                    type: object
+                    properties:
+                      message:
+                        type: string
+                      pageCount:
+                        type: integer
+                      resultCount:
+                        type: integer
+    post:
+      tags:
+        - Food_orders
+      summary: Add Food Order
+      description: Add a new food order
+      operationId: addFoodOrder
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                date:
+                  type: string
+                status:
+                  type: string
+                server_id:
+                  type: integer
+                table_id:
+                  type: integer
+      responses:
+        '201':
+          description: Food order created successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      order_id:
+                        type: integer
+                      date:
+                        type: string
+                      status:
+                        type: string
+                      server_id:
+                        type: integer
+                      table_id:
+                        type: integer
+                  meta:
+                    type: object
+                    properties:
+                      message:
+                        type: string
+tags:
+  - name: Menu_Items
+  - name: Tables
+  - name: Food_orders
+
