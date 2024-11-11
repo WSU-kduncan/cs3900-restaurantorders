@@ -1,8 +1,9 @@
 package com.wsu.ordermasterservice.service;
 
+import 
 import com.wsu.ordermasterservice.dto.FoodOrderDTO;
 import com.wsu.ordermasterservice.model.FoodOrder;
-import com.wsu.ordermasterservice.repository.FoodOrder;
+import com.wsu.ordermasterservice.repository.FoodOrderRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
