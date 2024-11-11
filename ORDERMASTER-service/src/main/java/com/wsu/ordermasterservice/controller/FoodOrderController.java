@@ -7,7 +7,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import com.wsu.ordermasterservice.dto.FoodOrderDTO;
 import com.wsu.ordermasterservice.model.FoodOrder;
-import com.wsu.ordermasterservice.repository.FoodOrderRepository;
 import com.wsu.ordermasterservice.service.FoodOrderService;
 
 @RestController
