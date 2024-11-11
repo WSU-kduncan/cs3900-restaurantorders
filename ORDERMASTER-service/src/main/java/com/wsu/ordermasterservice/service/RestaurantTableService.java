@@ -39,7 +39,7 @@ public class RestaurantTableService {
 
     public RestaurantTableDTO updateRestaurantTable(Integer tableId, RestaurantTableDTO restaurantTableDTO) {
         RestaurantTable restaurantTable = restaurantTableRepository.findById(tableId).orElseThrow(() -> new RuntimeException("Restaurant table not found"));
-        restaurantTable.setTableId(restaurantTableDTO.getTableId());
+        restaurantTable.setTableId(tableId);
         restaurantTable.setCapacity(restaurantTableDTO.getCapacity());
         return convertToDTO(restaurantTableRepository.save(restaurantTable));
     }
