@@ -49,26 +49,30 @@ UPDATE order_details SET orderId = ?, menuItemId = ?, quantity = ?, price = ? WH
 ```
 * **Business Logic:** The PUT endpoint is necessary for editing individual items in an order. For example, if the quantity or item price changes, this endpoint allows for modifying the existing record.
 
-5. DELETE /order_details/{id}
-Purpose: Remove a specific order detail entry from the database.
-Data Ingested from Frontend:
-Path parameter id - the unique ID of the order_detail entry to delete.
-Return Data:
-Returns a 204 No Content response to indicate successful deletion.
-Database Query:
-sql
-Copy code
+5. **DELETE /order_details/{id}**
+
+* **Purpose:** Remove a specific order detail entry from the database.
+* **Data Ingested from Frontend:**
+   * Path parameter 'id' - the unique ID of the order_detail entry to delete.
+* **Return Data:**
+   * Returns a '204 No Content' response to indicate successful deletion.
+* **Database Query:**
+```
 DELETE FROM order_details WHERE id = ?;
-Business Logic: This endpoint is suitable for removing individual items from an order. For instance, if a customer decides to cancel an item in their order, this allows for deletion of that item’s record.
-6. DELETE /order_details
-Purpose: Remove all entries from the order_details table.
-Data Ingested from Frontend: None.
-Return Data:
-Returns a 204 No Content response to indicate all entries were successfully deleted.
-Database Query:
-sql
-Copy code
+```
+* **Business Logic:** This endpoint is suitable for removing individual items from an order. For instance, if a customer decides to cancel an item in their order, this allows for deletion of that item’s record.
+
+6. **DELETE /order_details**
+* **Purpose:** Remove all entries from the 'order_details' table.
+* **Data Ingested from Frontend:** None.
+* **Return Data:**
+   * Returns a '204 No Content' response to indicate all entries were successfully deleted.
+* **Database Query:**
+```
 DELETE FROM order_details;
-Business Logic: Although this endpoint allows clearing all records, it would generally be restricted to admin use due to the risk of data loss. It may be useful for testing or clearing data between sessions.
-Justification for Endpoint Mappings
-All four endpoint mappings (GET, POST, PUT, and DELETE) are essential for managing the order_details resource as each allows distinct and necessary CRUD operations. By supporting these operations, the application provides flexibility for retrieving, creating, updating, and deleting records based on user needs and business requirements.
+```
+* **Business Logic:** Although this endpoint allows clearing all records, it would generally be restricted to admin use due to the risk of data loss. It may be useful for testing or clearing data between sessions.
+
+### **Justification for Endpoint Mappings**
+
+All four endpoint mappings ('GET', 'POST', 'PUT', and 'DELETE') are essential for managing the 'order_details' resource as each allows distinct and necessary CRUD operations. By supporting these operations, the application provides flexibility for retrieving, creating, updating, and deleting records based on user needs and business requirements.
