@@ -26,7 +26,7 @@ public class MenuItemController
         return ResponseEntity.ok(menuItemService.getAllMenuItems());
     }
 
-    @GetMapping("/{menuName}")
+    @GetMapping("/{itemName}")
     public ResponseEntity<MenuItemDTO> getItemByName(@PathVariable String item_name)
     {
         return ResponseEntity.ok(menuItemService.getName(item_name));
