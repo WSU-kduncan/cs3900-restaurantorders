@@ -7,9 +7,9 @@ The order_details resource allows the retrieval, creation, updating, and deletio
 ### Endpoint Mappings
 
 1.  **GET /order_details**
-* Purpose: Retrieve a list of all order detail records.
-* Data Ingested from Frontend: None required for basic retrieval of all records. (In the future, optional query parameters could be used for filtering.)
-* Return Data:
+* **Purpose:** Retrieve a list of all order detail records.
+* **Data Ingested from Frontend:** None required for basic retrieval of all records. (In the future, optional query parameters could be used for filtering.)
+* **Return Data:**
     * Returns a JSON array of all order_detail entries, each including fields such as id, orderId, menuItemId, quantity, and price.
 * Database Query:
 ```
