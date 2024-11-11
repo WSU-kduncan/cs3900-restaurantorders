@@ -1,8 +1,8 @@
 package com.wsu.ordermasterservice.service;
 
-import com.wsu.ordermasterservice.dto.RestaurantTableDTO;
-import com.wsu.ordermasterservice.model.RestaurantTable;
-import com.wsu.ordermasterservice.repository.RestaurantTableRepository;
+import com.wsu.ordermasterservice.dto.FoodOrderDTO;
+import com.wsu.ordermasterservice.model.FoodOrder;
+import com.wsu.ordermasterservice.repository.FoodOrder;
 import lombok.RequiredArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -37,7 +37,7 @@ public class FoodOrderService {
             foodOrder.setOrderId(id);
             return convertToDTO(foodOrderRepository.save(foodOrder));
         } else {
-            throw new RuntimeException("Order not found"); // Handle more gracefully in production
+            throw new RuntimeException("Order not found"); 
         }
     }
 
