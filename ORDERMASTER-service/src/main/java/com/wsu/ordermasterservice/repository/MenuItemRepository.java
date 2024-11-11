@@ -8,5 +8,5 @@ import com.wsu.ordermasterservice.model.MenuItem;
 @Repository
 public interface MenuItemRepository extends JpaRepository<MenuItem, Integer>
 {
-
+    MenuItem findByItemName(String itemName);
 }

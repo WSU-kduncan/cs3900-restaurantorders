@@ -31,19 +31,23 @@ public class MenuItemService
         }
     }
 
-    public MenuItemDTO getMenuItemByName(Integer menuItemName) 
+    public MenuItemDTO getName(String menuItemName) 
     {
-        MenuItem menuItem = menuItemRepository.findById(menuItemName).orElseThrow(() -> new RuntimeException("Server not found"));
+        try
+        {
+        MenuItem menuItem = menuItemRepository.findByItemName(menuItemName);
         return convertToDTO(menuItem);
+        }
+        catch(Exception e)
+        {
+            log.error("Failed to retrieve menu item. Exception:", e);
+            throw new DatabaseErrorException("Failed to retrieve item.", e);
+        }
     }
 
-    private MenuItemDTO convertToDTO(MenuItem menuItem) 
+    private MenuItemDTO convertToDTO(MenuItem menuItems) 
     {
-        return new MenuItemDTO
-        (
-            menuItem.getMenuItemId(),
-            menuItem.getItemName(),
-            menuItem.getUnitPrice()
-        );
+        return MenuItemDTO.builder().menuItemId(menuItems.getMenuItemId())
+        .itemName(menuItems.getItemName()).unitPrice(menuItems.getUnitPrice()).build();
     }
 }
