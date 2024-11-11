@@ -13,7 +13,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class ResturantTableDTO {
+public class RestaurantTableDTO {
 
     private Integer tableId;
 

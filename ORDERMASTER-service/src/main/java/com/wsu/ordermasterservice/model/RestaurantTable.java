@@ -19,7 +19,7 @@ import lombok.Setter;
 @Setter
 @Builder
 @Table(name = "tables")
-public class ResturantTable {
+public class RestaurantTable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
