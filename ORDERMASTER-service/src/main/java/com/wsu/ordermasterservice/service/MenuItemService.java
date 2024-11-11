@@ -31,9 +31,9 @@ public class MenuItemService
         }
     }
 
-    public MenuItemDTO getMenuItemById(Integer menuItemId) 
+    public MenuItemDTO getMenuItemByName(Integer menuItemName) 
     {
-        MenuItem menuItem = menuItemRepository.findById(menuItemId).orElseThrow(() -> new RuntimeException("Server not found"));
+        MenuItem menuItem = menuItemRepository.findById(menuItemName).orElseThrow(() -> new RuntimeException("Server not found"));
         return convertToDTO(menuItem);
     }
 
@@ -44,13 +44,6 @@ public class MenuItemService
             menuItem.getMenuItemId(),
             menuItem.getItemName(),
             menuItem.getUnitPrice()
-        );
-    }
-    private MenuItem convertToEntity(MenuItemDTO menuItemDTO) {
-        return new MenuItem(
-                menuItemDTO.getMenuItemId(),
-                menuItemDTO.getItemName(),
-                menuItemDTO.getUnitPrice()
         );
     }
 }
