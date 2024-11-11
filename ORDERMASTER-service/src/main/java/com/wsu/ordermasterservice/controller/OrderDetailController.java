@@ -1,6 +1,7 @@
 package com.wsu.ordermasterservice.controller;
 
 import com.wsu.ordermasterservice.model.OrderDetail;
+import com.wsu.ordermasterservice.service.OrderDetailService;
 import java.util.List;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
