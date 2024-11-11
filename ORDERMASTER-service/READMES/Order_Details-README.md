@@ -5,7 +5,8 @@ This document provides an overview of the order_details resource, defining its p
 The order_details resource allows the retrieval, creation, updating, and deletion of individual order detail records. Each record in order_details is associated with a specific order, storing information like the menu item, quantity, and price.
 
 ### Endpoint Mappings
-1. **GET /order_details**
+
+1.  **GET /order_details**
 * Purpose: Retrieve a list of all order detail records.
 * Data Ingested from Frontend: None required for basic retrieval of all records. (In the future, optional query parameters could be used for filtering.)
 * Return Data:
