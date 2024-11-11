@@ -1,10 +1,9 @@
 package com.wsu.ordermasterservice.service;
 
-import com.wsu.ordermasterservice.dto.ServerDTO;
-import com.wsu.ordermasterservice.model.Server;
-import com.wsu.ordermasterservice.repository.ServerRepository;
+import com.wsu.ordermasterservice.dto.RestaurantTableDTO;
+import com.wsu.ordermasterservice.model.RestaurantTable;
+import com.wsu.ordermasterservice.repository.RestaurantTableRepository;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -15,7 +14,6 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
-
 @Service
 @RequiredArgsConstructor
 public class FoodOrderService {
