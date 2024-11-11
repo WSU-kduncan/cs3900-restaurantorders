@@ -1,10 +1,10 @@
 package com.wsu.ordermasterservice.service;
 
+import com.wsu.ordermasterservice.dto.OrderDetailDTO;
 import com.wsu.ordermasterservice.model.OrderDetail;
 import com.wsu.ordermasterservice.repository.OrderDetailRepository;
 import java.util.List;
 import java.util.Optional;
-
 
 @Service
 public class OrderDetailService {
