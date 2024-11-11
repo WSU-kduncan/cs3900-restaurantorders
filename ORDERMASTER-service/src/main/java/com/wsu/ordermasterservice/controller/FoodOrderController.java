@@ -3,6 +3,9 @@ import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import com.wsu.ordermasterservice.dto.FoodOrderDTO;
+import com.wsu.ordermasterservice.model.FoodOrder;
+import com.wsu.ordermasterservice.repository.FoodOrderRepository;
 
 @RestController
 @RequestMapping("/api/food_orders")
