@@ -10,7 +10,7 @@ import com.wsu.ordermasterservice.model.FoodOrder;
 import com.wsu.ordermasterservice.service.FoodOrderService;
 
 @RestController
-@RequestMapping("/api/food_orders")
+@RequestMapping("/foodOrders")
 @RequiredArgsConstructor
 public class FoodOrderController {
     private final FoodOrderService foodOrderService;

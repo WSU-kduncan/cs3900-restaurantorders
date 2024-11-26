@@ -17,12 +17,13 @@ import lombok.extern.slf4j.Slf4j;
 public class MenuItemService 
 {
     private final MenuItemRepository menuItemRepository;
+    String itemName;
 
     public List<MenuItemDTO> getAllMenuItems() 
     {
         try 
         {
-            return menuItemRepository.findAll().stream().map(this::convertToDTO).toList();
+            return menuItemRepository.findAllByItemNameContaining(itemName).stream().map(this::convertToDTO).toList();
         }
         catch (Exception e) 
         {

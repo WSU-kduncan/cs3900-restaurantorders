@@ -25,7 +25,7 @@ public class FoodOrder {
     private Integer orderId;
 
     @Column(name = "server_id")
-    private Server server;
+    private Integer server;
 
     @Column(name = "table_id")
     private Integer table;

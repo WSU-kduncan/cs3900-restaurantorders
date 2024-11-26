@@ -5,7 +5,6 @@ import com.wsu.ordermasterservice.model.Server;
 import com.wsu.ordermasterservice.repository.ServerRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-//import static com.wsu.ordermasterservice.utilities.CommonUtils.sort;
 import java.util.List;
 import org.springframework.stereotype.Service;
 
