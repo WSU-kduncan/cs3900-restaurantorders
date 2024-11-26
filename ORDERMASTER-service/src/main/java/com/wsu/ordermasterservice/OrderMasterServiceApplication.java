@@ -3,8 +3,8 @@ package com.wsu.ordermasterservice;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+//SpringBootApplication(scanBasePackages = {"controller","service","model", "repository"})
 @SpringBootApplication
-
 public class OrderMasterServiceApplication {
 
 	/**
@@ -14,5 +14,4 @@ public class OrderMasterServiceApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(OrderMasterServiceApplication.class, args);
 	}
-
 }
