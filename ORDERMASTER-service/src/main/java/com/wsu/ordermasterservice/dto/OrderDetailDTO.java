@@ -27,6 +27,4 @@ public class OrderDetailDTO {
 
     @NotNull(message = "Price is required")
     private Double price;
-
-    // Add additional fields and validation as necessary.
 }

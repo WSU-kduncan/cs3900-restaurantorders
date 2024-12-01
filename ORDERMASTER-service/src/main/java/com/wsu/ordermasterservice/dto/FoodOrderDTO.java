@@ -4,6 +4,9 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.util.Date;
+
 import jakarta.validation.constraints.NotBlank;
 
 @Getter
@@ -17,14 +20,16 @@ public class FoodOrderDTO {
     private Integer tableId;
 
     @NotBlank(message = "Date is required")
-    private String date;
+    private Date date;
 
     @NotBlank(message = "Time ordered is required")
-    private String timeOrdered;
+    private Date timeOrdered;
 
-    private String timeCompleted;
+    private Date timeCompleted;
 
     @NotBlank(message = "Status is required")
     private String status;
+
+    private String specialInstructions;
 
 }

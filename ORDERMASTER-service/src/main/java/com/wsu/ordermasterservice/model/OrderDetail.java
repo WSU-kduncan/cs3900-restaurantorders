@@ -22,20 +22,16 @@ import lombok.Setter;
 public class OrderDetail {
 
     @Id
+    @Column(name = "order_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    @Column(nullable = false)
     private Long orderId;
 
-    @Column(nullable = false)
+    @Column(nullable = false, name = "item_id")
     private Long menuItemId;
 
-    @Column(nullable = false)
+    @Column(nullable = false, name = "quantity")
     private Integer quantity;
 
-    @Column(nullable = false)
+    @Column(nullable = false, name = "total_item_price")
     private Double price;
-
-    // Additional fields can be added here as necessary.
 }

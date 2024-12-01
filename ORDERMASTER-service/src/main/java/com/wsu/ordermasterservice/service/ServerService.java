@@ -52,19 +52,20 @@ public class ServerService {
     }
 
     private ServerDTO convertToDTO(Server server) {
-        return new ServerDTO(
-                server.getServerId(),
-                server.getFirstName(),
-                server.getLastName(),
-                server.getAvailability()
-        );
+        return server != null ? ServerDTO.builder()
+                .serverId(server.getServerId())
+                .firstName(server.getFirstName())
+                .lastName(server.getLastName())
+                .availability(server.getAvailability())
+                .build() : null;
     }
+    
     private Server convertToEntity(ServerDTO serverDTO) {
-        return new Server(
-                serverDTO.getServerId(),
-                serverDTO.getFirstName(),
-                serverDTO.getLastName(),
-                serverDTO.getAvailability()
-        );
+        return Server.builder()
+                .serverId(serverDTO.getServerId())
+                .firstName(serverDTO.getFirstName())
+                .lastName(serverDTO.getLastName())
+                .availability(serverDTO.getAvailability())
+                .build();
     }
 }

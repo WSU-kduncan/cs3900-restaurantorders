@@ -1,10 +1,11 @@
 package com.wsu.ordermasterservice.controller;
 
+import com.wsu.ordermasterservice.dto.OrderDetailDTO;
 import com.wsu.ordermasterservice.model.OrderDetail;
 import com.wsu.ordermasterservice.service.OrderDetailService;
-import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
+import java.util.List;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -18,11 +19,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 @RestController
+@RequiredArgsConstructor
 @RequestMapping("/orderDetails")
 public class OrderDetailController {
 
-    @Autowired
-    private OrderDetailService orderDetailService;
+    private final OrderDetailService orderDetailService;
 
     @GetMapping
     public ResponseEntity<List<OrderDetail>> getAllOrderDetails() {
@@ -31,8 +32,8 @@ public class OrderDetailController {
     }
 
     @PostMapping
-    public ResponseEntity<OrderDetail> addOrderDetail(@RequestBody OrderDetail orderDetail) {
-        OrderDetail newOrderDetail = orderDetailService.addOrderDetail(orderDetail);
+    public ResponseEntity<OrderDetailDTO> addOrderDetail(@RequestBody OrderDetailDTO orderDetailDTO) {
+        OrderDetailDTO newOrderDetail = orderDetailService.addOrderDetail(orderDetailDTO);
         return new ResponseEntity<>(newOrderDetail, HttpStatus.CREATED);
     }
 

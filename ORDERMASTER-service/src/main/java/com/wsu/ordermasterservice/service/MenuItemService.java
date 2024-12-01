@@ -17,9 +17,8 @@ import lombok.extern.slf4j.Slf4j;
 public class MenuItemService 
 {
     private final MenuItemRepository menuItemRepository;
-    String itemName;
 
-    public List<MenuItemDTO> getAllMenuItems() 
+    public List<MenuItemDTO> getAllMenuItems(String itemName) 
     {
         try 
         {
