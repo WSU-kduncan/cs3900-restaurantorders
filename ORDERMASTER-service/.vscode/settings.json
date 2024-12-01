@@ -1,0 +1,5 @@
+{
+    "java.compile.nullAnalysis.mode": "automatic",
+    "docker.dockerPath": "/usr/local/bin/docker",
+    "java.configuration.updateBuildConfiguration": "interactive"
+}

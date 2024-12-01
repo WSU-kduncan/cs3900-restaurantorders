@@ -1,0 +1,13 @@
+<h1>Log in</h1>
+<br>
+<div class="login-widget" >
+    <b>Email:</b>
+    <input id="searchbar" autofocus = autofocus type="text" placeholder="Email" />
+    <b>Password:</b>
+    <input id="searchbar" type="text" placeholder="Password" />
+    <div class="button-widget">
+    <button class="submit-button" [ngStyle]="{'background-color': backgroundColor}" (pointerenter)="buttonStyle()" (pointerleave)="buttonStyle()">Log in!</button>
+    <!-- TODO: nooooo, not with both of the buttons highlighting again... -->
+    <button class="submit-button" [ngStyle]="{'background-color': backgroundColor}" (pointerenter)="buttonStyle()" (pointerleave)="buttonStyle()">Register</button>
+    </div>
+</div>
