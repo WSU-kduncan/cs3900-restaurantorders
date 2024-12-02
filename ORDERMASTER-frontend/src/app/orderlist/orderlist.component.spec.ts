@@ -2,21 +2,21 @@
 
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ContactComponent } from './contact.component';
+import { OrderlistComponent } from './orderlist.component';
 
 import { ReactiveFormsModule } from '@angular/forms';
 
-describe('ContactComponent', () => {
+describe('OrderlistComponent', () => {
 
-  let component: ContactComponent;
+  let component: OrderlistComponent;
 
-  let fixture: ComponentFixture;
+  let fixture: ComponentFixture<any>;
 
   beforeEach(async () => {
 
     await TestBed.configureTestingModule({
 
-      declarations: [ ContactComponent ],
+      declarations: [ OrderlistComponent ],
 
       imports: [ ReactiveFormsModule ]
 
@@ -24,7 +24,7 @@ describe('ContactComponent', () => {
 
     .compileComponents();
 
-    fixture = TestBed.createComponent(ContactComponent);
+    fixture = TestBed.createComponent(OrderlistComponent);
 
     component = fixture.componentInstance;
 
@@ -40,21 +40,21 @@ describe('ContactComponent', () => {
 
   it('should have invalid form when empty', () => {
 
-    expect(component.contactForm.valid).toBeFalsy();
+    expect(component.orders).toBeFalsy();
 
   });
 
-  it('should validate email field correctly', () => {
+  it('should have an ID', () => {
 
-    const email = component.contactForm.controls['email'];
+    const orderId = component.orders['orderId'];
 
-    email.setValue('invalid-email');
+    orderId.setValue('');
 
-    expect(email.valid).toBeFalsy();
+    expect(orderId.valid).toBeFalsy();
 
-    email.setValue('valid@example.com');
+    orderId.setValue('1');
 
-    expect(email.valid).toBeTruthy();
+    expect(orderId.valid).toBeTruthy();
 
   });
 
