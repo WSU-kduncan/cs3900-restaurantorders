@@ -1,0 +1,844 @@
+openapi: 3.0.3
+info:
+  title: ordermaster
+  version: 1.0.0
+  contact: {}
+servers:
+  - url: 'http://localhost:8080/ordermaster-service'
+paths:
+  /FoodOrder:
+    get:
+      tags:
+        - FoodOrder
+      summary: Get Orders
+      description: Get all orders from database; filter based on query
+      operationId: getOrders
+      parameters:
+        - name: search
+          in: query
+          schema:
+            type: string
+          description: >-
+            search by order attribute
+        - name: page
+          in: query
+          schema:
+            type: string
+          description: It's optional (default value is 1)
+        - name: rpp
+          in: query
+          schema:
+            type: string
+          description: results per page is optional (default value is 10)
+        - name: sortOrder
+          in: query
+          schema:
+            type: string
+          description: optional
+        - name: sortField
+          in: query
+          schema:
+            type: string
+          description: optional
+      responses:
+        '200':
+          description: Success Response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        orderId:
+                          type: integer
+                        server:
+                          type: integer
+                        table:
+                          type: integer
+                        date:
+                          type: string
+                        timeOrdered:
+                          type: string
+                        timeCompleted:
+                          type: string
+                        status:
+                          type: string
+                        specialInstructions:
+                          type: string
+                  meta:
+                    type: object
+                    properties:
+                      message:
+                        type: string
+                      pageCount:
+                        type: number
+                      resultCount:
+                        type: number
+    post:
+      tags:
+        - FoodOrder
+      summary: Add an Order
+      description: Add order to database
+      operationId: addOrder
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                orderId:
+                  type: integer
+                server:
+                  type: integer
+                table:
+                  type: integer
+                date:
+                  type: string
+                timeOrdered:
+                  type: string
+                timeCompleted:
+                  type: string
+                status:
+                  type: string
+                specialInstructions:
+                  type: string
+      responses:
+        '200':
+          description: Success Response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  orderId:
+                    type: number
+                  server:
+                    type: number
+                  table:
+                    type: number
+                  date:
+                    type: string
+                  timeOrdered:
+                    type: string
+                  timeCompleted:
+                    type: string
+                  status:
+                    type: string
+                  specialInstructions:
+                    type: string
+                  meta:
+                    type: object
+                    properties:
+                      message:
+                        type: string
+  /FoodOrder/{orderId}:
+    put:
+      parameters:
+        - name: orderId
+          in: path
+          required: true
+          schema:
+            type: integer
+      tags:
+        - FoodOrder
+      summary: Update order
+      description: Update an order in the database
+      operationId: updateOrder
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                orderId:
+                  type: integer
+                server:
+                  type: integer
+                table:
+                  type: integer
+                date:
+                  type: string
+                timeOrdered:
+                  type: string
+                timeCompleted:
+                  type: string
+                status:
+                  type: string
+                specialInstructions:
+                  type: string
+      responses:
+        '200':
+          description: Success Response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  orderId:
+                    type: integer
+                  server:
+                    type: integer
+                  table:
+                    type: integer
+                  date:
+                    type: string
+                  timeOrdered:
+                    type: string
+                  timeCompleted:
+                    type: string
+                  status:
+                    type: string
+                  specialInstructions:
+                    type: string
+                  meta:
+                    type: object
+                    properties:
+                      message:
+                        type: string
+    delete:
+      parameters:
+        - name: orderId
+          in: path
+          required: true
+          schema:
+            type: integer
+      tags:
+        - FoodOrder
+      summary: Delete order
+      description: Remove an order from database
+      operationId: deleteOrder
+      responses:
+        '200':
+          description: Success Response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    nullable: true
+                  meta:
+                    type: object
+                    properties:
+                      message:
+                        type: string
+  /OrderDetail:
+    get:
+      tags:
+        - OrderDetail
+      summary: Get Order Details
+      description: Get all order details from database
+      operationId: getAllOrderDetails
+      responses:
+        '200':
+          description: Success Response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                        orderId:
+                          type: integer
+                        menuItemId:
+                          type: integer
+                        quantity:
+                          type: integer
+                        price:
+                          type: integer
+                  meta:
+                    type: object
+                    properties:
+                      message:
+                        type: string
+                      pageCount:
+                        type: number
+                      resultCount:
+                        type: number
+    post:
+      tags:
+        - OrderDetail
+      summary: Add order detail
+      description: Add an order detail to the database
+      operationId: addOrderDetail
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                orderId:
+                  type: integer
+                menuItemId:
+                  type: integer
+                quantity:
+                  type: integer
+                price:
+                  type: integer
+      responses:
+        '201':
+          description: Success Response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      orderId:
+                        type: integer
+                      menuItemId:
+                        type: integer
+                      quantity:
+                        type: integer
+                      price:
+                        type: integer
+    delete:
+      tags:
+        - OrderDetail
+      summary: Delete all order details
+      description: Batch delete all order details
+      operationId: deleteAllOrderDetails
+      responses:
+        '200':
+          description: Success Response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    nullable: true
+                  meta:
+                    type: object
+                    properties:
+                      message:
+                        type: string
+  /OrderDetail/{id}:
+    put:
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      tags:
+        - OrderDetail
+      summary: Update order details
+      description: Update an order detail
+      operationId: updateOrderDetail
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                orderId:
+                  type: integer
+                menuItemId:
+                  type: integer
+                quantity:
+                  type: integer
+                price:
+                  type: integer
+      responses:
+        '200':
+          description: Success Response / Success Response - when remove state
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  orderId:
+                    type: integer
+                  menuItemId:
+                    type: integer
+                  quantity:
+                    type: integer
+                  price:
+                    type: integer
+                  meta:
+                    type: object
+                    properties:
+                      message:
+                        type: string
+    delete:
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      tags:
+        - OrderDetail
+      summary: Delete order detail
+      description: Delete an order detail
+      operationId: deleteOrderDetail
+      responses:
+        '200':
+          description: Success Response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    nullable: true
+                  meta:
+                    type: object
+                    properties:
+                      message:
+                        type: string
+  /RestaurantTable:
+    get:
+      tags:
+        - RestaurantTable
+      summary: Get tables
+      description: Get all tables from database
+      operationId: getAllRestaurantTables
+      responses:
+        '200':
+          description: Success Response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        tableId:
+                          type: integer
+                        capacity:
+                          type: integer
+                  meta:
+                    type: object
+                    properties:
+                      message:
+                        type: string
+    post:
+      tags:
+        - RestaurantTable
+      summary: Add tables
+      description: Add a table to the database
+      operationId: createrestaurantTable
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                tableId:
+                  type: integer
+                capacity:
+                  type: integer
+      responses:
+        '201':
+          description: Success Response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      tableId:
+                        type: integer
+                      capacity:
+                        type: integer
+                  meta:
+                    type: object
+                    properties:
+                      message:
+                        type: string
+  /RestaurantTable/{tableId}:
+    get:
+        tags:
+          - RestaurantTable
+        summary: Get one table
+        description: Get one table from database
+        operationId: getrestaurantTableById
+        parameters:
+          - name: tableId
+            in: path
+            required: true
+            schema:
+              type: integer
+        responses:
+          '200':
+            description: Success Response
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    data:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          tableId:
+                            type: integer
+                          capacity:
+                            type: integer
+                    meta:
+                      type: object
+                      properties:
+                        message:
+                          type: string
+    put:
+      parameters:
+        - name: tableId
+          in: path
+          required: true
+          schema:
+            type: string
+      tags:
+        - RestaurantTable
+      summary: Update tables
+      description: Update a table
+      operationId: updaterestaurantTable
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                tableId:
+                  type: integer
+                capacity:
+                  type: integer
+      responses:
+        '200':
+          description: Success Response / Success Response - when remove state
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  tableId:
+                    type: integer
+                  capacity:
+                    type: integer
+                  meta:
+                    type: object
+                    properties:
+                      message:
+                        type: string
+    delete:
+      parameters:
+        - name: tableId
+          in: path
+          required: true
+          schema:
+            type: integer
+      tags:
+        - RestaurantTable
+      summary: Delete table
+      description: Delete a table
+      operationId: deleteRestaurantTable
+      responses:
+        '200':
+          description: Success Response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    nullable: true
+                  meta:
+                    type: object
+                    properties:
+                      message:
+                        type: string
+  /MenuItem:
+    get:
+      tags:
+        - MenuItem
+      summary: Get menu items
+      description: Get all menu items
+      operationId: getAllMenuItems
+      parameters:
+        - name: itemName
+          in: query
+          schema:
+            type: string
+          description: optional
+      responses:
+        '200':
+          description: Success Response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        menuItemId:
+                          type: integer
+                        itemName:
+                          type: string
+                        unitPrice:
+                          type: number
+                  meta:
+                    type: object
+                    properties:
+                      message:
+                        type: string
+  /MenuItem/{itemName}:
+    get:
+      tags:
+        - MenuItem
+      summary: Get menu item
+      description: Get individual menu item
+      operationId: getItemByName
+      parameters:
+        - name: itemName
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success Response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        menuItemId:
+                          type: integer
+                        itemName:
+                          type: string
+                        unitPrice:
+                          type: number
+                  meta:
+                    type: object
+                    properties:
+                      message:
+                        type: string        
+  /Server:
+    get:
+      tags:
+        - Server
+      summary: Get all servers
+      description: Get all servers
+      operationId: getAllServers
+      responses:
+        '200':
+          description: Success Response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        serverId:
+                          type: integer
+                        firstName:
+                          type: string
+                        lastName:
+                          type: string
+                        availability:
+                          type: string
+                  meta:
+                    type: object
+                    properties:
+                      message:
+                        type: string
+    post:
+      tags:
+        - Server
+      summary: Add server
+      description: Add a server to the database
+      operationId: createServer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                serverId:
+                  type: number
+                firstName:
+                  type: string
+                lastName:
+                  type: string
+                availability:
+                    type: string
+      responses:
+        '201':
+          description: Success Response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      serverId:
+                        type: number
+                      firstName:
+                        type: string
+                      lastName:
+                        type: string
+                      availability:
+                        type: string
+                  meta:
+                    type: object
+                    properties:
+                      message:
+                        type: string
+  /Server/{serverId}:
+    get:
+      tags:
+        - Server
+      summary: Get server
+      description: Get individual server
+      operationId: getServerById
+      parameters:
+        - name: serverId
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Success Response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        serverId:
+                          type: integer
+                        firstName:
+                          type: string
+                        lastName:
+                          type: string
+                        availability:
+                          type: string
+                  meta:
+                    type: object
+                    properties:
+                      message:
+                        type: string
+    put:
+      parameters:
+        - name: serverId
+          in: path
+          required: true
+          schema:
+            type: string
+      tags:
+        - Server
+      summary: Update server
+      description: Update a server
+      operationId: updateServer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                serverId:
+                  type: number
+                firstName:
+                  type: string
+                lastName:
+                  type: string
+                availability:
+                  type: string
+      responses:
+        '200':
+          description: Success Response / Success Response - when remove state
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  serverId:
+                    type: number
+                  firstName:
+                    type: string
+                  lastName:
+                    type: number
+                  availability:
+                    type: number
+                  meta:
+                    type: object
+                    properties:
+                      message:
+                        type: string
+    delete:
+      parameters:
+        - name: serverId
+          in: path
+          required: true
+          schema:
+            type: string
+      tags:
+        - Server
+      summary: Delete server
+      description: Delete a server
+      operationId: deleteServer
+      responses:
+        '200':
+          description: Success Response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    nullable: true
+                  meta:
+                    type: object
+                    properties:
+                      message:
+                        type: string
+tags:
+  - name: FoodOrder
+  - name: OrderDetail
+  - name: MenuItem
+  - name: RestaurantTable
+  - name: Server
