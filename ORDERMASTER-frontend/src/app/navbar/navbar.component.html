@@ -1,0 +1,19 @@
+
+<section>
+    <form>
+        <div class="navbar" >
+            <!-- extends the searchbar when hovered over -->
+            <!-- TODO: Ideally i wanted the searchbar to extend when its ready to receive input (ie. being clicked on), and then returned when the user clicks off of it. Apparently this isn't as easy to do as one would think. Later maybe. -->
+            <!-- At the moment, it extends when focused and resets when you click it again/reload -->
+            <!-- TODO: Also ideally, i wanted it to have an animation for extending. Also seems a bit too complex for a proof-of-concept. -->
+            <input id="searchbar" autofocus = autofocus (click) ="toggleSearchBar()" [ngStyle]="{'width': width}" type="text" placeholder="Search..." />
+            <button id="search" class="search-button" type="image"><img src="SearchButton.png" alt="Search" style="background-color:rgb(107, 141, 228); display: grid; margin: auto"></button>
+            <div id="filler" class="filler"></div>
+            <!-- TODO: got so sick of the numerous objects that i kinda just gave up. all of the buttons animate when you hover over one. -->
+            <input type="button" routerLink = "/orders/:id" id="OrderList" [ngStyle]="{'background-color': backgroundColor}" (pointerenter)="navButtonStyle()" (pointerleave)="navButtonStyle()" class="navbar-button" value="Order List">
+            <input type="button" routerLink = "/contact" id="Contact" [ngStyle]="{'background-color': backgroundColor}" (pointerenter)="navButtonStyle()" (pointerleave)="navButtonStyle()" class="navbar-button" value="Contact">
+            <input type="button" routerLink = "/about" id="About" [ngStyle]="{'background-color': backgroundColor}" (pointerenter)="navButtonStyle()" (pointerleave)="navButtonStyle()" class="navbar-button" value="About">
+            <input type="button" routerLink = "/login" id="Login" [ngStyle]="{'background-color': backgroundColor}" (pointerenter)="navButtonStyle()" (pointerleave)="navButtonStyle()" class="navbar-button" value="Login">
+        </div>  
+    </form>
+</section>
