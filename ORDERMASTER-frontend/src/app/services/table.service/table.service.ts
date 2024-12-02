@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Table } from '../../models/table.model/table.model';
+import { CommonModule } from '@angular/common';
 
 @Injectable({
   providedIn: 'root'

@@ -1,14 +1,20 @@
 <section>
-   <span class="overview">
-        <!-- TODO: ehh. Right now, you have to statically add new tables. The final version will certainly fix this.   -->
-        <!-- TODO: They also don't do anything as buttons yet, they're kinda just here. -->
-        <!-- I now kinda know how to do this, so should be here soon, hopefully. -->
+    <span class="overview">
+    
+    
+    <ng-container *ngIf="tables.length > 0; else placeholder">
+        
+        <button *ngFor="let table of tables" class="table">
+            {{ table.tableId }}
+        </button>
+    </ng-container>
+    <ng-template #placeholder>
         <button class="table">
             1
         </button>
-        <!-- Ideally, the user would click here to enter a menu for making a new table. -->
         <button class="table">
             +
         </button>
+    </ng-template>
     </span>
 </section>
