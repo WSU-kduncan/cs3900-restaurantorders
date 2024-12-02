@@ -1,0 +1,7 @@
+<h1>Contact</h1>
+Questions or comments? Please type them into the box below.
+<br>
+<!-- It looks a bit odd left-aligned like this, but it looks even odder center-aligned, and it looks even odder if it fills the width of the screen. I feel like most contact forms I've seen are left-aligned. Odd. -->
+<textarea id="inputfield" autofocus = autofocus type="text" placeholder="Type here..."></textarea>
+<br>
+<button id="submit" class="submit-button" [ngStyle]="{'background-color': backgroundColor}" (pointerenter)="buttonStyle()" (pointerleave)="buttonStyle()" >Submit</button>

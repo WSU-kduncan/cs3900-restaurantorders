@@ -1,0 +1,17 @@
+/* You can add global styles to this file, and also import other style files */
+/* The program currently has a nice pastel purple color and very flat objects. This is kinda my style. Possibly not entirely the best, though */
+h1
+{
+    color:rgb(54, 0, 104);
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+}
+h3
+{
+    color:rgb(54, 0, 104);
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+}
+*
+{
+    background-color:rgb(168, 184, 226)
+    
+}

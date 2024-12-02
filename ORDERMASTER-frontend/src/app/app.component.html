@@ -1,0 +1,18 @@
+<!-- man, this sure is a clean file, huh? -->
+<main>
+  <div class="header" style="display: flex">
+    <h1><a routerLink = "/" [ngStyle]="{'text-decoration': 'inherit'}">{{title}}</a></h1>
+    <div id="filler" class="filler"></div>
+    <!-- 12-hour time is for the weak. -->
+     <!-- might be a second or two off, but shouldn't matter, mostly is just here for referencing the order times, which don't even have seconds visible. -->
+    <h3 style="margin-right:10px; align-self: center; font-size: x-large;">Time: {{getDate() | date:'HH:mm:ss'}}</h3>
+  </div>
+  <section class="content">
+    <app-navbar style= "position: sticky; top: 0">
+      <!-- WOAH that looks cool......-->
+      <!-- HTML is fun :) -->
+    </app-navbar>
+    <router-outlet></router-outlet>
+  </section>
+</main>
+

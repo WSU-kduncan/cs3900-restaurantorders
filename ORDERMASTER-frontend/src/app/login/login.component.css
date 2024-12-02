@@ -1,0 +1,53 @@
+.login-widget
+{
+    margin-left: auto;
+    margin-right: auto;
+    background: rgb(98, 128, 204);
+    width: 30vw;
+    min-width: 500px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    border-radius: 8px;
+    align-content: start;
+    justify-content: center;
+}
+
+/* has to be separate so that the button appear side-by-side instead of stacking */
+.button-widget
+{
+    display: flex;
+    justify-content: center;
+}
+
+input[type="text"]
+{
+    margin-bottom: auto;
+    margin-left:auto;
+    margin-right: auto;
+    border: solid 4px rgb(98, 128, 204);
+    background-color: rgb(107, 141, 228);
+    color:rgb(19, 4, 48);
+    font-size: large;
+    margin: 8px;
+    padding: 10px;
+    border-radius: 8px;
+    max-height: 20%;
+}
+
+.submit-button
+{
+  border:transparent;
+  font-size: large;
+  background-color: rgb(107, 141, 228);
+  border-radius: 8px; 
+   margin:8px;
+  min-height: 40px;
+  width: 80%;
+}
+*
+{
+    background-color: inherit;
+    margin: 6px;
+}
+
