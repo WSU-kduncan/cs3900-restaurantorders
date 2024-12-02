@@ -10,10 +10,10 @@
             <button id="search" class="search-button" type="image"><img src="SearchButton.png" alt="Search" style="background-color:rgb(107, 141, 228); display: grid; margin: auto"></button>
             <div id="filler" class="filler"></div>
             <!-- TODO: got so sick of the numerous objects that i kinda just gave up. all of the buttons animate when you hover over one. -->
-            <input type="button" routerLink = "/orders/:id" id="OrderList" [ngStyle]="{'background-color': backgroundColor}" (pointerenter)="navButtonStyle()" (pointerleave)="navButtonStyle()" class="navbar-button" value="Order List">
-            <input type="button" routerLink = "/contact" id="Contact" [ngStyle]="{'background-color': backgroundColor}" (pointerenter)="navButtonStyle()" (pointerleave)="navButtonStyle()" class="navbar-button" value="Contact">
-            <input type="button" routerLink = "/about" id="About" [ngStyle]="{'background-color': backgroundColor}" (pointerenter)="navButtonStyle()" (pointerleave)="navButtonStyle()" class="navbar-button" value="About">
-            <input type="button" routerLink = "/login" id="Login" [ngStyle]="{'background-color': backgroundColor}" (pointerenter)="navButtonStyle()" (pointerleave)="navButtonStyle()" class="navbar-button" value="Login">
+            <input type="button" routerLink = "/orders/:id" id="OrderList" [ngStyle]="{'background-color': backgroundColor}" (pointerenter)="toggleBackground($event)" (pointerleave)="toggleBackground($event)" class="navbar-button" value="Order List">
+            <input type="button" routerLink = "/contact" id="Contact" [ngStyle]="{'background-color': backgroundColor}" (pointerenter)="toggleBackground($event)" (pointerleave)="toggleBackground($event)" class="navbar-button" value="Contact">
+            <input type="button" routerLink = "/about" id="About" [ngStyle]="{'background-color': backgroundColor}" (pointerenter)="toggleBackground($event)" (pointerleave)="toggleBackground($event)" class="navbar-button" value="About">
+            <input type="button" routerLink = "/login" id="Login" [ngStyle]="{'background-color': backgroundColor}" (pointerenter)="toggleBackground($event)" (pointerleave)="toggleBackground($event)" class="navbar-button" value="Login">
         </div>  
     </form>
 </section>
