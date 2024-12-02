@@ -7,7 +7,6 @@ import { LoginComponent } from './login/login.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
-import { ContactComponent } from './contact/contact.component';
 
 
 export const routes: Routes = [
