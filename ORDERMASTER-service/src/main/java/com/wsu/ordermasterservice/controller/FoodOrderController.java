@@ -41,9 +41,9 @@ public class FoodOrderController {
         return ResponseEntity.ok(updatedOrder);
     }
 
-    // @DeleteMapping("/{id}")
-    // public ResponseEntity<Void> deleteOrder(@PathVariable Integer id) {
-    //     foodOrderService.deleteOrder(id);
-    //     return ResponseEntity.ok().build();
-    // }
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteOrder(@PathVariable Integer id) {
+        foodOrderService.deleteOrder(id);
+        return ResponseEntity.ok().build();
+    }
 }

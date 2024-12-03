@@ -7,7 +7,10 @@ import lombok.Setter;
 
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 @Getter
 @Setter
@@ -22,10 +25,13 @@ public class FoodOrderDTO {
     @NotBlank(message = "Date is required")
     private Date date;
 
-    @NotBlank(message = "Time ordered is required")
+    @NotNull(message = "Time ordered is required")
+    @JsonFormat(pattern = "HH:mm:ss")
     private Date timeOrdered;
 
+    @JsonFormat(pattern = "HH:mm:ss")
     private Date timeCompleted;
+
 
     @NotBlank(message = "Status is required")
     private String status;
