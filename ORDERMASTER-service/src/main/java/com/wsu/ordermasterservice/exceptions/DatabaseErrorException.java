@@ -1,4 +1,4 @@
-package com.wsu.ordermasterservice.service;
+package com.wsu.ordermasterservice.exceptions;
 
 public class DatabaseErrorException extends RuntimeException {
 
