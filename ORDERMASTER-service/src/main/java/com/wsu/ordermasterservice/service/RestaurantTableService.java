@@ -1,6 +1,7 @@
 package com.wsu.ordermasterservice.service;
 
 import com.wsu.ordermasterservice.dto.RestaurantTableDTO;
+import com.wsu.ordermasterservice.exceptions.DatabaseErrorException;
 import com.wsu.ordermasterservice.model.RestaurantTable;
 import com.wsu.ordermasterservice.repository.RestaurantTableRepository;
 import lombok.RequiredArgsConstructor;

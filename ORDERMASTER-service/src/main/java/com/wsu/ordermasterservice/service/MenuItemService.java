@@ -5,9 +5,9 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.wsu.ordermasterservice.dto.MenuItemDTO;
+import com.wsu.ordermasterservice.exceptions.DatabaseErrorException;
 import com.wsu.ordermasterservice.model.MenuItem;
 import com.wsu.ordermasterservice.repository.MenuItemRepository;
-
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 

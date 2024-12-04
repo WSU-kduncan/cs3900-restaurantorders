@@ -1,6 +1,7 @@
 package com.wsu.ordermasterservice.service;
 
 import com.wsu.ordermasterservice.dto.ServerDTO;
+import com.wsu.ordermasterservice.exceptions.DatabaseErrorException;
 import com.wsu.ordermasterservice.model.Server;
 import com.wsu.ordermasterservice.repository.ServerRepository;
 import lombok.RequiredArgsConstructor;
