@@ -26,10 +26,10 @@ public class FoodOrderDTO {
     private Date date;
 
     @NotNull(message = "Time ordered is required")
-    @JsonFormat(pattern = "HH:mm:ss")
+    @JsonFormat(pattern="yyyy-MM-dd'T'HH:mm:ss")
     private Date timeOrdered;
 
-    @JsonFormat(pattern = "HH:mm:ss")
+    @JsonFormat(pattern="yyyy-MM-dd'T'HH:mm:ss")
     private Date timeCompleted;
 
 
