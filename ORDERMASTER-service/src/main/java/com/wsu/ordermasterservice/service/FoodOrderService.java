@@ -1,6 +1,5 @@
 package com.wsu.ordermasterservice.service;
 
-
 import com.wsu.ordermasterservice.dto.FoodOrderDTO;
 import com.wsu.ordermasterservice.model.FoodOrder;
 import com.wsu.ordermasterservice.repository.FoodOrderRepository;

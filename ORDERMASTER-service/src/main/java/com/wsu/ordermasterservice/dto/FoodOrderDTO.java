@@ -22,7 +22,7 @@ public class FoodOrderDTO {
     private Integer serverId;
     private Integer tableId;
 
-    @NotBlank(message = "Date is required")
+    @NotNull(message = "Date is required")
     private Date date;
 
     @NotNull(message = "Time ordered is required")
