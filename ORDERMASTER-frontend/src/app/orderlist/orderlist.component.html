@@ -1,6 +1,35 @@
 <h1>Order List</h1>
-<div style="height:50vh;
-            overflow-y:scroll;">
-</div>
-<orders></orders>
+
+<div *ngIf="selectedOrder; else noSelection">
+    <span>
+    <h3 style="background-color: inherit">Selected User:</h3>
+    Order ID: {{selectedOrder.orderId}}
+    <br>
+    Assigned Server: {{selectedOrder.serverId}}
+    </span>
+  </div>
+
+<ng-template #noSelection>
+    <span>
+    Click an order to view detailed information.
+</span>
+</ng-template>
+<table class="orders" style="width:90vw;">
+  <tr>
+      <th>Order ID</th>
+      <th>Table #</th>
+      <th>Assigned Server</th>
+      <th>Time Ordered</th>
+      <th>Status</th>
+    </tr>
+    <!-- cool for-loop to dynamically generate orders -->
+    <tr (click)="goToOrderId(order.orderId)" *ngFor="let order of orders">
+      <td>{{order.orderId}}</td>
+      <td>{{order.tableId}}</td>
+      <td>(ID {{order.serverId}}) {{getServerName(order.serverId)}}</td>
+      <td>{{order.timeOrdered}}</td>
+      <td>{{order.status}}</td>
+  </tr>
+</table>
+
 <router-outlet></router-outlet>
