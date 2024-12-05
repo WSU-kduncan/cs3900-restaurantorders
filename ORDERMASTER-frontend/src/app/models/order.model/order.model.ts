@@ -3,9 +3,9 @@ export interface Order
     orderId: number;
     serverId: number;
     tableId: number;
-    //date: Date;
+    date: string;
     timeOrdered: string; //temporary just for data entry purposes
-    //timeCompleted: Date;
+    timeCompleted: string;
     status: string;
     //specialInstructions: string;
 }

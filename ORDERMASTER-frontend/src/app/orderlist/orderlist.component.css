@@ -8,14 +8,19 @@ span {
   margin-right: auto;
   margin-bottom: 20px;
   background: rgb(98, 128, 204);
-  width: 87vw;
+  width: 85%;
   min-height: 20vh;
   height: auto;
-  display: flex;
+  display: grid;
   flex-direction: column;
   border-radius: 8px;
   padding: 20px;
   font-weight: bold;
+  align-self: center;
+}
+.detail
+{
+  background: rgb(98, 128, 204);   
 }
 th
 {

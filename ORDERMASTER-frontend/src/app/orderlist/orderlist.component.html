@@ -1,12 +1,28 @@
 <h1>Order List</h1>
 
-<div *ngIf="selectedOrder; else noSelection">
+<div *ngIf="selectedOrder; else noSelection" style="position: sticky; top: 0">
     <span>
     <h3 style="background-color: inherit">Selected User:</h3>
     Order ID: {{selectedOrder.orderId}}
     <br>
-    Assigned Server: {{selectedOrder.serverId}}
+    Assigned Server: {{getServerName(selectedOrder.serverId)}} (ID {{selectedOrder.serverId}})
+    <br>
+    Table Number: {{selectedOrder.tableId}}
+    <br>
+    Time Ordered: {{selectedOrder.date}} {{selectedOrder.timeOrdered}} 
+    <br>
+    <a *ngIf="selectedOrder.timeCompleted; else inProgress" class="detail"> Time Completed: {{selectedOrder.date}} {{selectedOrder.timeCompleted}} </a>
+    <ng-template #inProgress><a class="detail"> Time Completed: N/A </a> </ng-template>
     </span>
+    <table class="orders" style="width:90vw">
+        <tr>
+            <th style="width: 10%">Order ID</th>
+            <th style="width: 10%">Table #</th>
+            <th>Assigned Server</th>
+            <th style="width: 15%">Time Ordered</th>
+            <th style="width: 15%">Status</th>
+          </tr>
+          </table>
   </div>
 
 <ng-template #noSelection>
@@ -14,21 +30,14 @@
     Click an order to view detailed information.
 </span>
 </ng-template>
-<table class="orders" style="width:90vw;">
-  <tr>
-      <th>Order ID</th>
-      <th>Table #</th>
-      <th>Assigned Server</th>
-      <th>Time Ordered</th>
-      <th>Status</th>
-    </tr>
+<table class="orders" style="width:90vw">
     <!-- cool for-loop to dynamically generate orders -->
     <tr (click)="goToOrderId(order.orderId)" *ngFor="let order of orders">
-      <td>{{order.orderId}}</td>
-      <td>{{order.tableId}}</td>
-      <td>(ID {{order.serverId}}) {{getServerName(order.serverId)}}</td>
-      <td>{{order.timeOrdered}}</td>
-      <td>{{order.status}}</td>
+      <td style="width: 10%">{{order.orderId}}</td>
+      <td style="width: 10%">{{order.tableId}}</td>
+      <td>{{getServerName(order.serverId)}}</td>
+      <td style="width: 15%">{{order.timeOrdered}}</td>
+      <td style="width: 15%">{{order.status}}</td>
   </tr>
 </table>
 
