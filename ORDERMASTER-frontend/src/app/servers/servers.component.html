@@ -1,0 +1,43 @@
+<h1>Server List</h1>
+
+ <!-- Add Server Form -->
+ <div class="add-server-form">
+  <form>
+      <h2>Add New Server</h2>
+
+      <label for="serverName">Server First Name:</label>
+      <input type="text" id="serverFName" name="serverFName" placeholder="Enter server first name" required />
+
+      <label for="serverRole">Server LastName:</label>
+      <input type="text" id="serverLName" name="serverLName" placeholder="Enter server last name" required />
+
+      <label for="serverAvailability">Server Availability:</label>
+      <input type="text" id="serverAvailability" name="serverAvailability" placeholder="Enter server available times" required />
+
+      <button type="submit">Add Server</button>
+  </form>
+</div>
+
+
+<!-- Server List -->
+<div class="server-list">
+  <table>
+    <thead>
+      <tr>
+        <th>Server ID</th>
+        <th>Server Name</th>
+        <th>Server Role</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of Servers">
+        <td> {{ item.serverId }} </td>
+        <td>{{ item.firstName }}</td>
+        <td>{{ item.lastName }}</td>
+        <td>{{ item.availability }}</td>
+        <td><button>Edit Server</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

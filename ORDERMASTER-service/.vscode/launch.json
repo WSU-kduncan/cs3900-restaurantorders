@@ -1,0 +1,20 @@
+{
+    "configurations": [
+      {
+        "type": "java",
+        "name": "OrderMasterServiceApplication",
+        "request": "launch",
+        "mainClass": "com.wsu.ordermasterservice.OrderMasterServiceApplication",
+        "projectName": "ORDERMASTER-service",
+        "args": "",
+        "env": {
+          "SERVER_PORT": "8080",
+          "SERVER_CONTEXT_PATH": "/ordermaster-service",
+          "DATABASE_URL": "jdbc:mariadb://host.docker.internal:3306/ordermaster",
+          "DATABASE_USERNAME": "user",
+          "DATABASE_PASSWORD": "password",
+          "DATABASE_DRIVER": "org.mariadb.jdbc.Driver"
+        }
+      }
+    ]
+  }

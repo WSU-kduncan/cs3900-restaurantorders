@@ -1,0 +1,53 @@
+
+  /* general object for the whole thing */
+  .navbar
+  {
+    display: flex;
+    /* currently set up to never wrap no matter what.*/
+    /* The wrapping works on my browser up to the minimum width that i can shrink the window to. Also works up to 300% zoom. I consider that a win */
+    flex-wrap: nowrap;
+    padding: 8px;
+    background-color: rgb(168, 184, 226) ;
+  }
+  /* used to ensure that the buttons aligned to the right actually stay aligned to the right. possibly not the best way but it works. */
+  .filler
+  {
+    display: flex;
+    flex-grow: 2;
+  }
+
+  /* text box */
+  input[type="text"] {
+    border: solid 4px rgb(98, 128, 204);
+    background: rgb(98, 128, 204);
+    color:rgb(19, 4, 48);
+    font-size: large;
+    padding: 10px;
+    margin-left: 10px;
+    /* this stuff rounds the left corners. Put together with the search button, this gives the illusion that theyre one big object instead of 2. */
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+
+  }
+  /* right-aligned buttons */
+  .navbar-button {
+    border:transparent;
+    font-size: large;
+    background-color: rgb(98, 128, 204);
+    border-radius: 8px;
+    margin-right:10px; 
+    /* slightly jank way to make the button not shrink when moused over.  */
+    min-height: 55px;
+    
+  }
+  /* search button */
+.search-button {
+  border: solid 4px rgb(107, 141, 228);
+  font-size: large;
+  background-color: rgb(107, 141, 228);
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+  margin-right: 5px;
+}
+
+  

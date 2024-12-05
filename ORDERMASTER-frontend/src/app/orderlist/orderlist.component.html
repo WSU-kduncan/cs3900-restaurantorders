@@ -1,0 +1,75 @@
+<h1>Order List</h1>
+<div style="position: sticky; top: 0">
+<div *ngIf="selectedOrder; else noSelection">
+    <span>
+        <div class="tab-container" style="background-color: inherit">
+            <button (click)="changeTab('overview')">Overview</button>
+            <button (click)="changeTab('details')">Details</button>
+            <button (click)="changeTab('actions')">Actions</button>
+        </div>
+        <div [ngSwitch]="tabState" style="background-color: inherit">
+          <div *ngSwitchCase="'overview'" style="background-color: inherit">
+            Order ID: {{selectedOrder.orderId}}
+            <br>
+            Assigned Server: {{getServerName(selectedOrder.serverId)}} (ID {{selectedOrder.serverId}})
+            <br>
+            Table Number: {{selectedOrder.tableId}}
+            <br>
+            Time Ordered: {{selectedOrder.date}} {{selectedOrder.timeOrdered}} 
+            <br>
+            <a *ngIf="selectedOrder.timeCompleted; else inProgress" class="detail"> Time Completed: {{selectedOrder.date}} {{selectedOrder.timeCompleted}} </a>
+            <ng-template #inProgress><a class="detail"> Time Completed: N/A </a> </ng-template>
+            <br>
+            Special Instructions: N/A
+            <br>
+            Order total Price:
+          </div>
+          <div *ngSwitchCase="'details'" style="background-color: inherit">
+            <h3 style="background-color: inherit">Order Item 1</h3>
+            Menu item:
+            <br>
+            Quantity:
+            <br>
+            Item Total Price:
+            <br>
+
+            <h3 style="background-color: inherit">Order Item 2</h3>
+            Menu item:
+            <br>
+            Quantity:
+            <br>
+            Item Total Price:
+            <br>
+
+          </div>
+        </div>
+    </span>
+  </div>
+
+<ng-template #noSelection>
+    <span>
+    Click an order to view detailed information.
+</span>
+</ng-template>
+<table class="orders" style="width:90vw">
+    <tr>
+        <th style="width: 10%">Order ID</th>
+        <th style="width: 10%">Table #</th>
+        <th>Assigned Server</th>
+        <th style="width: 15%">Time Ordered</th>
+        <th style="width: 15%">Status</th>
+      </tr>
+      </table>
+    </div>
+<table class="orders" style="width:90vw">
+    <!-- cool for-loop to dynamically generate orders -->
+    <tr (click)="goToOrderId(order.orderId)" *ngFor="let order of orders">
+      <td style="width: 10%">{{order.orderId}}</td>
+      <td style="width: 10%">{{order.tableId}}</td>
+      <td>{{getServerName(order.serverId)}}</td>
+      <td style="width: 15%">{{order.timeOrdered}}</td>
+      <td style="width: 15%">{{order.status}}</td>
+  </tr>
+</table>
+
+<router-outlet></router-outlet>
