@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Server } from '../../models/server.model/server.model';
+import { environment } from '../../enviornment';
 
 
 @Injectable({
@@ -11,7 +12,7 @@ export class ServerService {
 
   constructor(private http: HttpClient) { }
 
-    apiUrl;
+  private apiUrl = `${environment.apiUrl}/servers`;
     
     getServers(): Observable<Server[]> 
     {
