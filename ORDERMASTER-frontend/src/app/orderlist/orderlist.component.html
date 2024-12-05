@@ -7,8 +7,8 @@
             <button (click)="changeTab('details')">Details</button>
             <button (click)="changeTab('actions')">Actions</button>
         </div>
-        <div [ngSwitch]="tabState">
-          <div *ngSwitchCase="'overview'">
+        <div [ngSwitch]="tabState" style="background-color: inherit">
+          <div *ngSwitchCase="'overview'" style="background-color: inherit">
             Order ID: {{selectedOrder.orderId}}
             <br>
             Assigned Server: {{getServerName(selectedOrder.serverId)}} (ID {{selectedOrder.serverId}})
@@ -21,17 +21,28 @@
             <ng-template #inProgress><a class="detail"> Time Completed: N/A </a> </ng-template>
             <br>
             Special Instructions: N/A
+            <br>
             Order total Price:
           </div>
-          <div *ngSwitchCase="'details'">
+          <div *ngSwitchCase="'details'" style="background-color: inherit">
             <h3 style="background-color: inherit">Order Item 1</h3>
             Menu item:
+            <br>
             Quantity:
+            <br>
             Item Total Price:
+            <br>
+
+            <h3 style="background-color: inherit">Order Item 2</h3>
+            Menu item:
+            <br>
+            Quantity:
+            <br>
+            Item Total Price:
+            <br>
 
           </div>
         </div>
-    <h3 style="background-color: inherit">Selected Order:</h3>
     </span>
   </div>
 
