@@ -15,8 +15,8 @@ export class ServersComponent {
   constructor(private serverService: ServerService) { }
 
   ngOnInit() {
-    this.serverService.getServers().subscribe(data => {
-      this.Servers = data;
+    this.serverService.getServers().subscribe(servers => {
+      this.Servers = servers;
     });
 
   }
