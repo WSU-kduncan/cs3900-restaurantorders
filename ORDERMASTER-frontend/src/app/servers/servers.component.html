@@ -5,5 +5,8 @@
       {{ item.firstName }} 
       {{ item.lastName }} 
       {{ item.availability }}
+      <span class="availibility" [ngClass]="{'available': item.availibility === 'available', 'unavailable': item.availibility === 'unavailable'}">
+        {{ item.availibility }}
+      </span>
     </li>
   </ul>

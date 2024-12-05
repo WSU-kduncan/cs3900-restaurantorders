@@ -1,0 +1,63 @@
+/* Style for the header */
+h1 {
+    font-family: 'Arial', sans-serif;
+    color: #333;
+    text-align: center;
+    margin-top: 20px;
+    text-transform: uppercase;
+}
+  
+/* Style for the list container */
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 20px auto;
+    max-width: 600px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+  
+/* Style for individual list items */
+li {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    padding: 10px 15px;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+  
+/* Last list item border fix */
+li:last-child {
+    border-bottom: none;
+}
+  
+/* Alternating background colors */
+li:nth-child(odd) {
+    background-color: #f9f9f9;
+}
+  
+li:nth-child(even) {
+    background-color: #ffffff;
+}
+  
+/* Style for server availability */
+li span.availibility {
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 4px;
+    text-transform: capitalize;
+}
+  
+li span.availibility.available {
+    background-color: #4caf50;
+    color: white;
+}
+  
+li span.availibility.unavailable {
+    background-color: #f44336;
+    color: white;
+}
+  
