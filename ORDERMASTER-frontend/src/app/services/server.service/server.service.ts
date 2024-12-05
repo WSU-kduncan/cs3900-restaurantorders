@@ -17,6 +17,7 @@ export class ServerService {
     getServers(): Observable<Server[]> 
     {
       return this.http.get<Server[]>(this.apiUrl);
+      
     }
   
     addServer(server: Server): Observable<Server>

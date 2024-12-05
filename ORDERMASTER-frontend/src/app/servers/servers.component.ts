@@ -17,6 +17,7 @@ export class ServersComponent {
   ngOnInit() {
     this.serverService.getServers().subscribe(servers => {
       this.Servers = servers;
+      console.log(this.Servers);
     });
 
   }
