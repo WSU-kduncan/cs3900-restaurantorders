@@ -23,7 +23,7 @@ public class ControllerExceptionHandler {
     //@ExceptionHandler annotation in Spring Boot is used to handle exceptions that are thrown by a specific controller/service method
     @ExceptionHandler({RuntimeException.class, DatabaseErrorException.class})
     public ResponseEntity<ServiceResponseDTO> handleInternalServerException(RuntimeException e) {
-        return new ResponseEntity<>(ServiceResponseDTO.builder().meta(Map.of(MESSAGE, e.getMessage(), ERROR_MESSAGE, errorMessage(e))).build(),
+        return new ResponseEntity<>(ServiceResponseDTO.builder().meta(Map.of(ERROR_MESSAGE, errorMessage(e))).build(),
                 HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
