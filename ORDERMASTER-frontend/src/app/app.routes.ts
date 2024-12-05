@@ -7,6 +7,7 @@ import { LoginComponent } from './login/login.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
+import { ServersComponent } from './servers/servers.component';
 
 
 export const routes: Routes = [
@@ -15,6 +16,7 @@ export const routes: Routes = [
   { path: 'contact', component: ContactComponent },
   { path: 'orders/:id', component: OrderlistComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'servers', component: ServersComponent },
   { path: '**', redirectTo: '' } // Wildcard route for a 404 page
 ];
 
