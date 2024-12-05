@@ -53,10 +53,8 @@ export class OrderlistComponent implements OnInit
     {serverId: 7, firstName: 'Davina', lastName: 'Sherbet', availability: 'Not Available'}
   ]
 
-
+  tabState:string = "overview";
   server: Server = {serverId: 0, firstName: '', lastName: '', availability: ''};
-
-
   selectedOrder: Order | null = null;
   newOrder: Order = {orderId: 0,  tableId: 0,  serverId: 0, date: "12/31/1969", timeOrdered:'', timeCompleted: '', status:''}
   constructor(private route: ActivatedRoute, private router: Router, 
@@ -91,6 +89,10 @@ export class OrderlistComponent implements OnInit
     return this.server.firstName + " " + this.server.lastName;
   }
 
+  changeTab(clickedTab)
+  {
+    this.tabState = clickedTab;
+  }
 
 
 } 

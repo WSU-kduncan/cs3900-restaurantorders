@@ -3,21 +3,35 @@
 <div *ngIf="selectedOrder; else noSelection">
     <span>
         <div class="tab-container" style="background-color: inherit">
-            <button>Overview</button>
-            <button>Details</button>
-            <button>Actions</button>
+            <button (click)="changeTab('overview')">Overview</button>
+            <button (click)="changeTab('details')">Details</button>
+            <button (click)="changeTab('actions')">Actions</button>
         </div>
-    <h3 style="background-color: inherit">Selected User:</h3>
-    Order ID: {{selectedOrder.orderId}}
-    <br>
-    Assigned Server: {{getServerName(selectedOrder.serverId)}} (ID {{selectedOrder.serverId}})
-    <br>
-    Table Number: {{selectedOrder.tableId}}
-    <br>
-    Time Ordered: {{selectedOrder.date}} {{selectedOrder.timeOrdered}} 
-    <br>
-    <a *ngIf="selectedOrder.timeCompleted; else inProgress" class="detail"> Time Completed: {{selectedOrder.date}} {{selectedOrder.timeCompleted}} </a>
-    <ng-template #inProgress><a class="detail"> Time Completed: N/A </a> </ng-template>
+        <div [ngSwitch]="tabState">
+          <div *ngSwitchCase="'overview'">
+            Order ID: {{selectedOrder.orderId}}
+            <br>
+            Assigned Server: {{getServerName(selectedOrder.serverId)}} (ID {{selectedOrder.serverId}})
+            <br>
+            Table Number: {{selectedOrder.tableId}}
+            <br>
+            Time Ordered: {{selectedOrder.date}} {{selectedOrder.timeOrdered}} 
+            <br>
+            <a *ngIf="selectedOrder.timeCompleted; else inProgress" class="detail"> Time Completed: {{selectedOrder.date}} {{selectedOrder.timeCompleted}} </a>
+            <ng-template #inProgress><a class="detail"> Time Completed: N/A </a> </ng-template>
+            <br>
+            Special Instructions: N/A
+            Order total Price:
+          </div>
+          <div *ngSwitchCase="'details'">
+            <h3 style="background-color: inherit">Order Item 1</h3>
+            Menu item:
+            Quantity:
+            Item Total Price:
+
+          </div>
+        </div>
+    <h3 style="background-color: inherit">Selected Order:</h3>
     </span>
   </div>
 
