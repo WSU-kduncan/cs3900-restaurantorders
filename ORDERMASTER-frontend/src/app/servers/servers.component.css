@@ -60,4 +60,47 @@ li span.availibility.unavailable {
     background-color: #f44336;
     color: white;
 }
+
+.add-server-form {
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    max-width: 600px;
+    background-color: #f9f9f9;
+}
+  
+.add-server-form h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+  
+.add-server-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+  
+.add-server-form input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+  
+.add-server-form button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+  
+.add-server-form button:hover {
+    background-color: #45a049;
+}
   

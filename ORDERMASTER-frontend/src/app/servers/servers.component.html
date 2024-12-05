@@ -1,12 +1,40 @@
-<h1>Servers</h1>
-<ul>
-    <li *ngFor="let item of Servers">
-      {{ item.serverId }} 
-      {{ item.firstName }} 
-      {{ item.lastName }} 
-      {{ item.availability }}
-      <span class="availibility" [ngClass]="{'available': item.availibility === 'available', 'unavailable': item.availibility === 'unavailable'}">
-        {{ item.availibility }}
-      </span>
-    </li>
-  </ul>
+<h1>Server List</h1>
+
+<!-- Add New Server Form -->
+<div class="add-server-form">
+  <h2>Add New Server</h2>
+  <form (ngSubmit)="addServer()">
+    <label for="serverId">Server ID:</label>
+    <input type="number" id="serverId" [(ngModel)]="newServer.serverId" name="serverId" required />
+
+    <label for="serverName">Server Name:</label>
+    <input type="text" id="serverName" [(ngModel)]="newServer.serverName" name="serverName" required />
+
+    <label for="serverRole">Server Role:</label>
+    <input type="text" id="serverRole" [(ngModel)]="newServer.serverRole" name="serverRole" required />
+
+    <button type="submit">Add Server</button>
+  </form>
+</div>
+
+<!-- Server List -->
+<div class="server-list">
+  <table>
+    <thead>
+      <tr>
+        <th>Server ID</th>
+        <th>Server Name</th>
+        <th>Server Role</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let server of servers">
+        <td>{{ server.serverId }}</td>
+        <td>{{ server.serverName }}</td>
+        <td>{{ server.serverRole }}</td>
+        <td><button (click)="deleteServer(server.serverId)">Delete</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
