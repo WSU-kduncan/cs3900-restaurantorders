@@ -1,7 +1,14 @@
 <h1>Order List</h1>
-
-<div *ngIf="selectedOrder; else noSelection" style="position: sticky; top: 0">
+<div style="position: sticky; top: 0">
+<div *ngIf="selectedOrder; else noSelection">
     <span>
+        <div class="tab-container">
+            <button></button>
+            <button></button>
+            <button></button>
+            <button></button>
+            <button></button>
+        </div>
     <h3 style="background-color: inherit">Selected User:</h3>
     Order ID: {{selectedOrder.orderId}}
     <br>
@@ -14,15 +21,6 @@
     <a *ngIf="selectedOrder.timeCompleted; else inProgress" class="detail"> Time Completed: {{selectedOrder.date}} {{selectedOrder.timeCompleted}} </a>
     <ng-template #inProgress><a class="detail"> Time Completed: N/A </a> </ng-template>
     </span>
-    <table class="orders" style="width:90vw">
-        <tr>
-            <th style="width: 10%">Order ID</th>
-            <th style="width: 10%">Table #</th>
-            <th>Assigned Server</th>
-            <th style="width: 15%">Time Ordered</th>
-            <th style="width: 15%">Status</th>
-          </tr>
-          </table>
   </div>
 
 <ng-template #noSelection>
@@ -30,6 +28,16 @@
     Click an order to view detailed information.
 </span>
 </ng-template>
+<table class="orders" style="width:90vw">
+    <tr>
+        <th style="width: 10%">Order ID</th>
+        <th style="width: 10%">Table #</th>
+        <th>Assigned Server</th>
+        <th style="width: 15%">Time Ordered</th>
+        <th style="width: 15%">Status</th>
+      </tr>
+      </table>
+    </div>
 <table class="orders" style="width:90vw">
     <!-- cool for-loop to dynamically generate orders -->
     <tr (click)="goToOrderId(order.orderId)" *ngFor="let order of orders">

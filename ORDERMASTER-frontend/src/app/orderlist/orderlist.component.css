@@ -14,9 +14,26 @@ span {
   display: grid;
   flex-direction: column;
   border-radius: 8px;
-  padding: 20px;
   font-weight: bold;
   align-self: center;
+}
+button
+{
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border: transparent;
+  font-size: large;
+  background-color: rgb(107, 141, 228);
+  min-height: 40px;
+  width: 48%;
+  cursor: pointer;
+}
+
+.tab-container
+{
+  display: flex;
+
+  width: 100%;
 }
 .detail
 {

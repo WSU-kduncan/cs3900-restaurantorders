@@ -36,10 +36,10 @@ export class OrderlistComponent implements OnInit
     {orderId: 17, tableId: 8,  serverId: 6, date: "12/5/2024", timeOrdered:'14:02', timeCompleted:'',      status:'In Progress'},
     {orderId: 18, tableId: 11, serverId: 2, date: "12/5/2024", timeOrdered:'14:04', timeCompleted:'',      status:'In Progress'},
     {orderId: 19, tableId: 1,  serverId: 1, date: "12/5/2024", timeOrdered:'14:05', timeCompleted:'',      status:'In Progress'},
-    {orderId: 18, tableId: 12, serverId: 6, date: "12/5/2024", timeOrdered:'14:08', timeCompleted:'',      status:'In Progress'},
-    {orderId: 18, tableId: 13, serverId: 5, date: "12/5/2024", timeOrdered:'14:08', timeCompleted:'',      status:'In Progress'},
-    {orderId: 18, tableId: 3,  serverId: 1, date: "12/5/2024", timeOrdered:'14:09', timeCompleted:'',      status:'In Progress'},
-    {orderId: 18, tableId: 14, serverId: 2, date: "12/5/2024", timeOrdered:'14:12', timeCompleted:'',      status:'In Progress'},
+    {orderId: 20, tableId: 12, serverId: 6, date: "12/5/2024", timeOrdered:'14:08', timeCompleted:'',      status:'In Progress'},
+    {orderId: 21, tableId: 13, serverId: 5, date: "12/5/2024", timeOrdered:'14:08', timeCompleted:'',      status:'In Progress'},
+    {orderId: 22, tableId: 3,  serverId: 1, date: "12/5/2024", timeOrdered:'14:09', timeCompleted:'',      status:'In Progress'},
+    {orderId: 23, tableId: 14, serverId: 2, date: "12/5/2024", timeOrdered:'14:12', timeCompleted:'',      status:'In Progress'},
   ];
 
   servers: Server[] =
