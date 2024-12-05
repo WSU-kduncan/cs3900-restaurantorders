@@ -1,3 +1,13 @@
+/* Style for the main container to center content */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 20px auto;
+    max-width: 800px;
+}
+
 /* Style for the header */
 h1 {
     font-family: 'Arial', sans-serif;
@@ -6,85 +16,41 @@ h1 {
     margin-top: 20px;
     text-transform: uppercase;
 }
-  
-/* Style for the list container */
-ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 20px auto;
-    max-width: 600px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-  
-/* Style for individual list items */
-li {
-    font-family: 'Roboto', sans-serif;
-    font-size: 16px;
-    padding: 10px 15px;
-    border-bottom: 1px solid #ddd;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-  
-/* Last list item border fix */
-li:last-child {
-    border-bottom: none;
-}
-  
-/* Alternating background colors */
-li:nth-child(odd) {
-    background-color: #f9f9f9;
-}
-  
-li:nth-child(even) {
-    background-color: #ffffff;
-}
-  
-/* Style for server availability */
-li span.availibility {
-    font-weight: bold;
-    padding: 5px 10px;
-    border-radius: 4px;
-    text-transform: capitalize;
-}
-  
-li span.availibility.available {
-    background-color: #4caf50;
-    color: white;
-}
-  
-li span.availibility.unavailable {
-    background-color: #f44336;
-    color: white;
-}
 
+/* Form styling */
 form {
     margin: 20px auto;
     padding: 20px;
     border: 1px solid #ddd;
     border-radius: 8px;
-    max-width: 400px;
     background-color: #f9f9f9;
-  }
-  
-  label {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+}
+
+form h2 {
+    text-align: center;
+    margin-bottom: 15px;
+    font-size: 1.2em;
+    color: #333;
+}
+
+label {
     display: block;
     margin-bottom: 5px;
     font-weight: bold;
-  }
-  
-  input {
+}
+
+input {
     width: 100%;
     padding: 8px;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
     border: 1px solid #ccc;
     border-radius: 4px;
-  }
-  
-  button {
+}
+
+button {
     display: block;
     width: 100%;
     padding: 10px;
@@ -93,9 +59,63 @@ form {
     border: none;
     border-radius: 4px;
     cursor: pointer;
-  }
-  
-  button:hover {
+    font-size: 16px;
+}
+
+button:hover {
     background-color: #45a049;
-  }
-  
+}
+
+/* Table container for server list */
+.server-list {
+    margin-top: 30px;
+    width: 100%;
+    max-width: 800px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    text-align: left;
+    padding: 12px;
+    border: 1px solid #ddd;
+}
+
+th {
+    background-color: #4CAF50;
+    color: white;
+    font-size: 16px;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+tr:hover {
+    background-color: #ddd;
+}
+
+td button {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+td button:hover {
+    background-color: #c0392b;
+}
+
+/* Style for aligning everything in the center */
+.add-server-form,
+.server-list {
+    margin: 20px auto;
+}
