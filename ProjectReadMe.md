@@ -17,8 +17,8 @@ This our groups repo for the **Restaurant Orders** database.
 # Major Components
 
 - [Database ReadMe](https://github.com/WSU-kduncan/cs3900-restaurantorders/blob/main/DB/README.md)
+- [Swagger](https://github.com/WSU-kduncan/cs3900-restaurantorders/tree/main/SWAGGER)
 - [FrontEnd ReadMe](https://github.com/WSU-kduncan/cs3900-restaurantorders/blob/main/ORDERMASTER-frontend/README.md)
-
 
 - [BackEnd ReadME's](https://github.com/WSU-kduncan/cs3900-restaurantorders/tree/main/ORDERMASTER-service/READMES)
   - [FOODORDERS-README.md](https://github.com/WSU-kduncan/cs3900-restaurantorders/blob/main/ORDERMASTER-service/READMES/FOODORDERS-README.md)
