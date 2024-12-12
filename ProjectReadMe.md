@@ -34,6 +34,14 @@ This our groups repo for the **Restaurant Orders** database.
   - [SERVERS-README.md](https://github.com/WSU-kduncan/cs3900-restaurantorders/blob/main/ORDERMASTER-service/READMES/SERVERS-README.md)
   - [TABLES-README.md](https://github.com/WSU-kduncan/cs3900-restaurantorders/blob/main/ORDERMASTER-service/READMES/TABLES-README.md)
 
+# Checklist
+
+## Core Application Capabilities
+
+## Design / Testing Requirements
+
+
+# Future Work
 
 
 
