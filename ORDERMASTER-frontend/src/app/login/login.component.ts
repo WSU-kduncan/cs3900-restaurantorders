@@ -11,39 +11,36 @@ import { CommonModule } from '@angular/common';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
   loginForm: FormGroup;
-  backgroundColor: string = 'rgb(107, 141, 228)';
-  loginError: string = '';
 
-  constructor(private fb: FormBuilder, private loginService: LoginService) {
+  constructor(private fb: FormBuilder) {
     this.loginForm = this.fb.group({
-      username: ['', [Validators.required, Validators.minLength(3)]],
-      password: ['', [Validators.required, Validators.minLength(6)]]
+      username: [
+        '',
+        [Validators.required, Validators.minLength(3)], // Username validation
+      ],
+      password: [
+        '',
+        [Validators.required, Validators.minLength(6)], // Password validation
+      ],
     });
   }
 
-  buttonStyle() {
-    this.backgroundColor = this.backgroundColor === 'rgb(107, 141, 228)' ? 'rgb(89, 119, 196)' : 'rgb(107, 141, 228)';
-  }
+  ngOnInit(): void {}
 
-  onSubmit(): void {
+  onSubmit() {
     if (this.loginForm.valid) {
-      const { username, password } = this.loginForm.value;
-
-      this.loginService.login(username, password).subscribe(
-        (response) => {
-          console.log('Login successful:', response);
-          this.loginError = '';
-        },
-        (error) => {
-          console.error('Login failed:', error);
-          this.loginError = error.message;
-        }
-      );
+      // Handle successful login logic
+      console.log('Login successful', this.loginForm.value);
+    } else {
+      // Mark all fields as touched to trigger validation messages
+      this.loginForm.markAllAsTouched();
     }
   }
 
-  onCreateUser(): void {
+  onCreateUser() {
+    // Logic for creating a new user
+    console.log('Redirect to create user page or form');
   }
 }
