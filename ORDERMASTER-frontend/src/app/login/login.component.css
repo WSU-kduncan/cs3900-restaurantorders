@@ -34,7 +34,6 @@ input[type="text"], input[type="password"] {
     width: 80%;
 }
 
-
 .error-message {
     font-size: 12px;
     color: red;
