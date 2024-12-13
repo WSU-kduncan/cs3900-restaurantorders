@@ -44,8 +44,11 @@ This our groups repo for the **Restaurant Orders** database.
 - The UI design is kept simple and organized to allow for ease of use.
 
 # Future Work
-- Online Order capabilities
-- Restuarant Inventory
-- Server/worker wage managment support
+- Online Order capabilities.
+- Add filtering and current status to the table page.
+- Implementing the full orderlist page(add/update/delete/filter).
+- Tracking how long a order takes.
+- Restuarant Inventory.
+- Server/worker wage managment support.
 
 
