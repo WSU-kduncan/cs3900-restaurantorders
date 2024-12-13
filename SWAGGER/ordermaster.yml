@@ -1,0 +1,354 @@
+openapi: 3.0.3
+info:
+  title: OrderMaster
+  version: 1.0.0
+  contact: {}
+servers:
+  - url: http://localhost:8080/ordermaster-service
+paths:
+  /menuitems/{ITEM_NAME}:
+    get:
+      tags:
+        - MenuItems
+      summary: GET MENUITEM BY NAME
+      description: GET MENUITEM BY NAME
+      operationId: getMenuitemByName
+      responses:
+        '200':
+          description: ''
+    parameters:
+      - name: ITEM_NAME
+        in: path
+        required: true
+        schema:
+          type: string
+  /menuitems:
+    get:
+      tags:
+        - MenuItems
+      summary: GET MENUITEMS
+      description: GET MENUITEMS
+      operationId: getMenuitems
+      responses:
+        '200':
+          description: ''
+  /orderDetails:
+    get:
+      tags:
+        - ORDER DETAILS
+      summary: GET ORDER DETAILS
+      description: GET ORDER DETAILS
+      operationId: getOrderDetails
+      responses:
+        '200':
+          description: ''
+    post:
+      tags:
+        - ORDER DETAILS
+      summary: POST ORDER DETAILS
+      description: POST ORDER DETAILS
+      operationId: postOrderDetails
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                menuItemId:
+                  type: number
+                  example: 1
+                price:
+                  type: number
+                  example: 22
+                quantity:
+                  type: number
+                  example: 22
+            examples:
+              POST ORDER DETAILS:
+                value:
+                  menuItemId: 1
+                  price: 22
+                  quantity: 22
+      responses:
+        '200':
+          description: ''
+  /orderDetails/{ORDER_DETAIL_ID}:
+    put:
+      tags:
+        - ORDER DETAILS
+      summary: UPDATE ORDER DETAILS
+      description: UPDATE ORDER DETAILS
+      operationId: updateOrderDetails
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                menuItemId:
+                  type: number
+                  example: 1
+                price:
+                  type: number
+                  example: 10
+                quantity:
+                  type: number
+                  example: 10
+            examples:
+              UPDATE ORDER DETAILS:
+                value:
+                  menuItemId: 1
+                  price: 10
+                  quantity: 10
+      responses:
+        '200':
+          description: ''
+    parameters:
+      - name: ORDER_DETAIL_ID
+        in: path
+        required: true
+        schema:
+          type: string
+  /servers/{SERVER_ID}:
+    delete:
+      tags:
+        - Servers
+      summary: DELETE SERVERS
+      description: DELETE SERVERS
+      operationId: deleteServers
+      responses:
+        '200':
+          description: ''
+    parameters:
+      - name: SERVER_ID
+        in: path
+        required: true
+        schema:
+          type: string
+    put:
+      tags:
+        - Servers
+      summary: PUT SERVERS
+      description: PUT SERVERS
+      operationId: putServers
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                availability:
+                  type: string
+                  example: always
+                firstName:
+                  type: string
+                  example: pankaj
+                lastName:
+                  type: string
+                  example: kumar
+            examples:
+              PUT SERVERS:
+                value:
+                  availability: always
+                  firstName: pankaj
+                  lastName: kumar
+      responses:
+        '200':
+          description: ''
+  /servers:
+    get:
+      tags:
+        - Servers
+      summary: GET SERVERS
+      description: GET SERVERS
+      operationId: getServers
+      responses:
+        '200':
+          description: ''
+    post:
+      tags:
+        - Servers
+      summary: POST SERVERS
+      description: POST SERVERS
+      operationId: postServers
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                availability:
+                  type: string
+                  example: sometimes
+                firstName:
+                  type: string
+                  example: alicia
+                lastName:
+                  type: string
+                  example: sanders
+            examples:
+              POST SERVERS:
+                value:
+                  availability: sometimes
+                  firstName: alicia
+                  lastName: sanders
+      responses:
+        '200':
+          description: ''
+  /restauranttables:
+    get:
+      tags:
+        - Tables
+      summary: GET TABLE
+      description: GET TABLE
+      operationId: getTable
+      responses:
+        '200':
+          description: ''
+    post:
+      tags:
+        - Tables
+      summary: POST TABLE
+      description: POST TABLE
+      operationId: postTable
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                capacity:
+                  type: number
+                  example: 10
+            examples:
+              POST TABLE:
+                value:
+                  capacity: 10
+      responses:
+        '200':
+          description: ''
+  /foodOrders/{ORDER_ID}:
+    put:
+      tags:
+        - FoodOrders
+      summary: UPDATE ORDERS
+      description: UPDATE ORDERS
+      operationId: updateOrders
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                date:
+                  type: string
+                  example: '1970-11-11'
+                serverId:
+                  type: number
+                  example: 1
+                specialInstructions:
+                  type: string
+                  example: cook it
+                status:
+                  type: string
+                  example: done
+                tableId:
+                  type: number
+                  example: 1
+                timeCompleted:
+                  type: string
+                  example: '12:12:12'
+                timeOrdered:
+                  type: string
+                  example: '11:11:11'
+            examples:
+              UPDATE ORDERS:
+                value:
+                  date: '1970-11-11'
+                  serverId: 1
+                  specialInstructions: cook it
+                  status: done
+                  tableId: 1
+                  timeCompleted: '12:12:12'
+                  timeOrdered: '11:11:11'
+      responses:
+        '200':
+          description: ''
+    delete:
+      tags:
+        - FoodOrders
+      summary: DELETE ORDERS
+      description: DELETE ORDERS
+      operationId: deleteOrders
+      responses:
+        '200':
+          description: ''
+    parameters:
+      - name: ORDER_ID
+        in: path
+        required: true
+        schema:
+          type: string
+  /foodOrders:
+    get:
+      tags:
+        - FoodOrders
+      summary: GET ORDERS
+      description: GET ORDERS
+      operationId: getOrders
+      responses:
+        '200':
+          description: ''
+    post:
+      tags:
+        - FoodOrders
+      summary: POST ORDERS
+      description: POST ORDERS
+      operationId: postOrders
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                date:
+                  type: string
+                  example: '1970-11-11'
+                serverId:
+                  type: number
+                  example: 2
+                specialInstructions:
+                  type: string
+                  example: raw :D
+                status:
+                  type: string
+                  example: finished
+                tableId:
+                  type: number
+                  example: 1
+                timeCompleted:
+                  type: string
+                  example: '04:02:02'
+                timeOrdered:
+                  type: string
+                  example: '03:01:01'
+            examples:
+              POST ORDERS:
+                value:
+                  date: '1970-11-11'
+                  serverId: 2
+                  specialInstructions: raw :D
+                  status: finished
+                  tableId: 1
+                  timeCompleted: '04:02:02'
+                  timeOrdered: '03:01:01'
+      responses:
+        '200':
+          description: ''
+tags:
+  - name: MenuItems
+  - name: ORDER DETAILS
+  - name: Servers
+  - name: Tables
+  - name: FoodOrders
+

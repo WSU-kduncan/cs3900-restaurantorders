@@ -1,0 +1,38 @@
+/* the box that has the tables in it */
+.overview
+{
+    display: flex;
+    border: solid 4px rgb(98, 128, 204);
+    font-size: large;
+    background-color: rgb(98, 128, 204);
+    border-radius: 8px;
+    align-items: baseline;
+    /* made to scale with the window */
+    height: 70vh;
+    margin: 10px;
+    /* On small displays, it'll vertically stretch and cause a scrollbar to appear. This looks fine enough to me. As long as it doesn't do horizontal scrolling, I'm alright. */
+}
+
+/* represents tables in the restaurant */
+.table
+{
+    /* made to scale with the window. Uses width for both to keep up that circular look. */
+    width: 10vw;
+    height: 10vw;
+    /* I dont want them getting super big, though */
+    max-width: 80px;
+    max-height: 80px;
+    /* I think the double lines look kinda cool, even though they're probably unnecessary. */
+    border: double 10px rgb(157, 113, 182) ;
+    /* cool way to make things circles easily */
+    border-radius: 50%;
+    background-color: rgb(232, 191, 255);
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+    margin: 50px;
+    display:flex;
+    font-size: large;
+    justify-content: center;
+    align-items: center;
+}
+

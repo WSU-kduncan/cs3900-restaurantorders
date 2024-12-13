@@ -1,0 +1,20 @@
+<section>
+    <span class="overview">
+    
+    
+    <ng-container *ngIf="tables.length > 0; else placeholder">
+        
+        <button *ngFor="let table of tables" class="table">
+            {{ table.tableId }}
+        </button>
+    </ng-container>
+    <ng-template #placeholder>
+        <button class="table">
+            1
+        </button>
+        <button class="table">
+            +
+        </button>
+    </ng-template>
+    </span>
+</section>
