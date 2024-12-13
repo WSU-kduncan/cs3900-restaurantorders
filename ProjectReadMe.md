@@ -39,7 +39,9 @@ This our groups repo for the **Restaurant Orders** database.
 ## Core Application Capabilities & Design / Testing Requirements
 - This project meets all of the requiremnts outlined in the following image.
 ![Checklsit](https://github.com/WSU-kduncan/cs3900-restaurantorders/blob/main/CheckList.png)
-
+- The UI allows the user to add/update/delete new servers, tables and orders which is then saved to the database as well as filtering through the list of already saved information.
+- The swagger template located under major compondents allows for testing.
+- The UI design is kept simple and organized to allow for ease of use.
 
 # Future Work
 - Online Order capabilities
