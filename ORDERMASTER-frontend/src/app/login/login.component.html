@@ -1,29 +1,29 @@
 <section class="login-container">
-    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login-form">
-      <!-- Username input -->
-      <div class="input-group">
-        <label for="username">Username:</label>
-        <input id="username" formControlName="username" type="text" />
-        <div *ngIf="loginForm.get('username')?.invalid && loginForm.get('username')?.touched" class="error-message">
-          <small *ngIf="loginForm.get('username')?.hasError('required')">Username is required.</small>
-          <small *ngIf="loginForm.get('username')?.hasError('minlength')">Username must be at least 3 characters.</small>
-        </div>
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login-form">
+    <!-- Username input -->
+    <div class="input-group">
+      <label for="username">Username:</label>
+      <input id="username" formControlName="username" type="text" />
+      <div *ngIf="loginForm.get('username')?.invalid && loginForm.get('username')?.touched" class="error-message">
+        <small *ngIf="loginForm.get('username')?.hasError('required')">Username is required.</small>
+        <small *ngIf="loginForm.get('username')?.hasError('minlength')">Username must be at least 3 characters.</small>
       </div>
-  
-      <!-- Password input -->
-      <div class="input-group">
-        <label for="password">Password:</label>
-        <input id="password" formControlName="password" type="password" />
-        <div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched" class="error-message">
-          <small *ngIf="loginForm.get('password')?.hasError('required')">Password is required.</small>
-          <small *ngIf="loginForm.get('password')?.hasError('minlength')">Password must be at least 6 characters.</small>
-        </div>
+    </div>
+
+    <!-- Password input -->
+    <div class="input-group">
+      <label for="password">Password:</label>
+      <input id="password" formControlName="password" type="password" />
+      <div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched" class="error-message">
+        <small *ngIf="loginForm.get('password')?.hasError('required')">Password is required.</small>
+        <small *ngIf="loginForm.get('password')?.hasError('minlength')">Password must be at least 6 characters.</small>
       </div>
-  
-      <!-- Buttons container with flex to align them side by side -->
-      <div class="button-widget">
-        <button type="submit" class="submit-button" [style.backgroundColor]="backgroundColor">Login</button>
-        <button type="button" class="create-user-button" (click)="onCreateUser()">Create User</button>
-      </div>
-    </form>
-  </section>
+    </div>
+
+    <!-- Buttons container with flex to align them side by side -->
+    <div class="button-widget">
+      <button type="submit" class="submit-button" [style.backgroundColor]="backgroundColor">Login</button>
+      <button type="button" class="create-user-button" (click)="onCreateUser()">Create User</button>
+    </div>
+  </form>
+</section>
