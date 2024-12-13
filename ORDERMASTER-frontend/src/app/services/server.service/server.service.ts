@@ -14,24 +14,20 @@ export class ServerService {
 
   private apiUrl = `${environment.apiUrl}/servers`;
     
-    getServers(): Observable<Server[]> 
-    {
+    getServers(): Observable<Server[]> {
       return this.http.get<Server[]>(this.apiUrl);
       
     }
   
-    addServer(server: Server): Observable<Server>
-    {
+    addServer(server: Server): Observable<Server> {
       return this.http.post<Server>(this.apiUrl, server);
     }
   
-    updateServer(serverId: number, server: Server): Observable<Server>
-    {
+    updateServer(serverId: number, server: Server): Observable<Server> {
       return this.http.put<Server>(`${this.apiUrl}/${serverId}`, server);
-    }
+    }    
   
-    deleteServer(serverId: number): Observable<void>
-    {
+    deleteServer(serverId: number): Observable<void> {
       return this.http.delete<void>(`${this.apiUrl}/${serverId}`);
     }
   }

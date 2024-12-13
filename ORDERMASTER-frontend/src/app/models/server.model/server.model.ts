@@ -1,6 +1,6 @@
 export interface Server
 {
-    serverId: number;
+    serverId?: number;
     firstName: string;
     lastName: string;
     availability: string;

@@ -1,25 +1,62 @@
 <h1>Server List</h1>
 
- <!-- Add Server Form -->
- <div class="add-server-form">
+  <div class="filter-bar">
+    <div class="filter-input-container">
+      <label for="filterTerm">Filter Servers:</label>
+      <input 
+        type="text" 
+        id="filterTerm" 
+        [(ngModel)]="filterTerm" 
+        placeholder="Search by name or availability" 
+      />
+    </div>
+    <div class="filter-input-container">
+      <label for="filterId">Filter by Server ID:</label>
+      <input 
+        type="number" 
+        id="filterId" 
+        [(ngModel)]="filterId" 
+        placeholder="Enter Server ID" 
+      />
+    </div>
+  </div>
+
+<div class="add-server-button-container">
+  <button *ngIf="!editingServer" (click)="toggleAddServerForm()">Add New Server</button>
+</div>
+
+<div *ngIf="showAddServerForm" class="form-container add-server-form">
+  <h2>Add New Server</h2>
   <form>
-      <h2>Add New Server</h2>
+    <label for="serverFName">Server First Name:</label>
+    <input type="text" id="serverFName" name="serverFName" placeholder="Enter server first name" [(ngModel)]="newServer.firstName" required />
 
-      <label for="serverName">Server First Name:</label>
-      <input type="text" id="serverFName" name="serverFName" placeholder="Enter server first name" required />
+    <label for="serverLName">Server Last Name:</label>
+    <input type="text" id="serverLName" name="serverLName" placeholder="Enter server last name" [(ngModel)]="newServer.lastName" required />
 
-      <label for="serverRole">Server LastName:</label>
-      <input type="text" id="serverLName" name="serverLName" placeholder="Enter server last name" required />
+    <label for="serverAvailability">Server Availability:</label>
+    <input type="text" id="serverAvailability" name="serverAvailability" placeholder="Enter server available times" [(ngModel)]="newServer.availability" required />
 
-      <label for="serverAvailability">Server Availability:</label>
-      <input type="text" id="serverAvailability" name="serverAvailability" placeholder="Enter server available times" required />
-
-      <button type="submit">Add Server</button>
+    <button type="button" (click)="addServer()">Add Server</button>
   </form>
 </div>
 
+<div *ngIf="editingServer" class="form-container edit-server-form">
+  <h2>Edit Server</h2>
+  <form>
+    <label for="serverFName">Server First Name:</label>
+    <input type="text" id="serverFName" name="serverFName" placeholder="Enter server first name" [(ngModel)]="editingServer.firstName" required />
 
-<!-- Server List -->
+    <label for="serverLName">Server Last Name:</label>
+    <input type="text" id="serverLName" name="serverLName" placeholder="Enter server last name" [(ngModel)]="editingServer.lastName" required />
+
+    <label for="serverAvailability">Server Availability:</label>
+    <input type="text" id="serverAvailability" name="serverAvailability" placeholder="Enter server available times" [(ngModel)]="editingServer.availability" required />
+
+    <button type="button" (click)="updateServer()">Update Server</button>
+  </form>
+</div>
+
 <div class="server-list">
   <table>
     <thead>
@@ -27,16 +64,18 @@
         <th>Server ID</th>
         <th>Server Name</th>
         <th>Server Role</th>
-        <th>Actions</th>
+        <th class="action-column">Actions</th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let item of Servers">
-        <td> {{ item.serverId }} </td>
-        <td>{{ item.firstName }}</td>
-        <td>{{ item.lastName }}</td>
+      <tr *ngFor="let item of filteredServers()">
+        <td>{{ item.serverId }}</td>
+        <td>{{ item.firstName }} {{ item.lastName }}</td>
         <td>{{ item.availability }}</td>
-        <td><button>Edit Server</button></td>
+        <td class="action-column">
+          <button (click)="editServer(item)">Edit Server</button>
+          <button (click)="deleteServer(item.serverId)">Delete Server</button>
+        </td>
       </tr>
     </tbody>
   </table>
