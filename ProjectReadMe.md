@@ -36,12 +36,14 @@ This our groups repo for the **Restaurant Orders** database.
 
 # Checklist
 
-## Core Application Capabilities
-
-## Design / Testing Requirements
+## Core Application Capabilities & Design / Testing Requirements
+- This project meets all of the requiremnts outlined in the following image.
+![Checklsit](https://github.com/WSU-kduncan/cs3900-restaurantorders/blob/main/CheckList.png)
 
 
 # Future Work
-
+- Online Order capabilities
+- Restuarant Inventory
+- Server/worker wage managment support
 
 
